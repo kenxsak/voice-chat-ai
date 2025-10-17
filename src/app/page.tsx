@@ -14,12 +14,13 @@ import {translateText} from '@/ai/flows/translate-text';
 import {textToSpeech} from '@/ai/flows/text-to-speech';
 import {generateConversationSummary} from '@/ai/flows/generate-conversation-summary';
 import {useToast} from "@/hooks/use-toast";
-import {Mic, Square, Building, Send, X as CloseIcon, Bot, Languages as LanguageIcon, MessageSquare, ExternalLink, Volume2, VolumeX, Copy, Paperclip, MessageCircle, HelpCircle, Phone } from "lucide-react";
+import {Mic, Square, Building, Send, X as CloseIcon, Bot, Languages as LanguageIcon, MessageSquare, ExternalLink, Volume2, VolumeX, Copy, Paperclip, MessageCircle, HelpCircle, Phone, Minimize2, Play, Pause } from "lucide-react";
 import { cn, hexToHsl } from "@/lib/utils";
 import { differenceInMonths } from 'date-fns';
 import { checkTrialStatus, getEffectivePlanLimits, type TrialStatus } from '@/lib/trial-management';
 import { ThemeLogo, AnimatedLogo } from '@/components/ui/theme-logo';
 import MonochromeLoader from '@/components/ui/loading/monochrome-loader';
+import AIVoice from '@/components/ui/ai-voice';
 
 // Minimal browser speech recognition typings to satisfy TypeScript in the client
 declare global {
@@ -479,6 +480,10 @@ function ChatPageContent() {
   const [premiumAudioDataUri, setPremiumAudioDataUri] = useState<string | null>(null);
   const [isTyping, setIsTyping] = useState(false);
   const [attachedImageDataUri, setAttachedImageDataUri] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [playingVoice, setPlayingVoice] = useState<string | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [showVoiceMode, setShowVoiceMode] = useState(false);
   const [currentLeadId, setCurrentLeadId] = useState<string | null>(null);
   const [conversationId, setConversationId] = useState<string | null>(null);
   // Notify parent page (if embedded in an iframe) about widget open/close state so the parent can resize the iframe
@@ -1554,6 +1559,162 @@ function ChatPageContent() {
     toast({title: "Image Cleared", description: "The image attachment has been removed."});
   };
 
+  // Voice recording functions - enhanced with new AI Voice component
+  const handleVoiceRecordingComplete = (duration: number) => {
+    // Add voice message to chat
+    const newMessage = {
+      role: 'user' as const,
+      content: `Voice message (${duration}s)`,
+      type: 'voice',
+      voiceDuration: duration,
+      id: `voice-${Date.now()}`
+    };
+    setMessages(prev => [...prev, newMessage]);
+  };
+
+  const handleVoiceRecordingStart = () => {
+    // Optional: Add any start recording logic here
+    console.log('Voice recording started');
+  };
+
+  const handleVoiceRecordingStop = () => {
+    // Optional: Add any stop recording logic here
+    console.log('Voice recording stopped');
+  };
+
+  const handleTextConverted = (text: string) => {
+    // Auto-send the converted text as a message
+    if (text.trim()) {
+      setInput(text);
+      handleSendMessage(text);
+      setShowVoiceMode(false);
+    }
+  };
+
+  // Image handling functions
+  const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setSelectedImage(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleSendImage = () => {
+    if (selectedImage) {
+      // Add image message to chat
+      const newMessage = {
+        role: 'user' as const,
+        content: 'Image shared',
+        type: 'image',
+        imageUrl: selectedImage,
+        id: `image-${Date.now()}`
+      };
+      setMessages(prev => [...prev, newMessage]);
+      setSelectedImage(null);
+    }
+  };
+
+  // Drag and drop functions
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    
+    const file = e.dataTransfer.files?.[0];
+    if (file && file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setSelectedImage(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  // Waveform generation for voice messages
+  const generateWaveform = (id: string | undefined, count: number = 20): number[] => {
+    if (!id) {
+      // Return default waveform if no ID
+      return Array(count).fill(20);
+    }
+    const seed = id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    const heights: number[] = [];
+    for (let i = 0; i < count; i++) {
+      const pseudoRandom = Math.sin(seed + i * 0.5) * 10000;
+      heights.push(20 + (Math.abs(pseudoRandom % 60)));
+    }
+    return heights;
+  };
+
+  // Voice message bubble component
+  const VoiceMessageBubble = ({ message, playingVoice, setPlayingVoice, generateWaveform }: { 
+    message: any; 
+    playingVoice: string | null; 
+    setPlayingVoice: (id: string | null) => void;
+    generateWaveform: (id: string | undefined, count?: number) => number[];
+  }) => {
+    const messageId = message.id || `voice-${Date.now()}`;
+    const waveformHeights = generateWaveform(messageId);
+    const isPlaying = playingVoice === messageId;
+    
+    return (
+      <div className="px-4 py-3">
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => setPlayingVoice(isPlaying ? null : messageId)}
+            className={`h-10 w-10 rounded-full flex items-center justify-center ${
+              message.role === "user" 
+                ? "bg-white/20 hover:bg-white/30" 
+                : "bg-gray-900 hover:bg-gray-800"
+            } transition-colors`}
+            data-testid={`button-play-voice-${messageId}`}
+          >
+            {isPlaying ? (
+              <Pause className="h-4 w-4 text-white" />
+            ) : (
+              <Play className="h-4 w-4 text-white" />
+            )}
+          </button>
+          <div className="flex-1">
+            <div className="flex gap-0.5 h-8 items-center">
+              {waveformHeights.map((height, i) => {
+                const activePosition = isPlaying ? (i / waveformHeights.length) * 100 : 0;
+                const progress = isPlaying ? 50 : 0;
+                const isActive = activePosition < progress;
+                return (
+                  <div
+                    key={i}
+                    className={`w-0.5 rounded-full transition-all duration-100 ${
+                      isActive 
+                        ? message.role === "user" ? "bg-white/80" : "bg-gray-900/80"
+                        : message.role === "user" ? "bg-white/40" : "bg-gray-900/40"
+                    }`}
+                    style={{ height: `${height}%` }}
+                  />
+                );
+              })}
+            </div>
+            <span className={`text-xs ${message.role === "user" ? "text-white/70" : "text-gray-500"}`}>
+              {message.voiceDuration}s
+            </span>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className={cn("bg-transparent brand-themed")} style={{
       '--brand-primary': brandColor,
@@ -1571,109 +1732,257 @@ function ChatPageContent() {
         <div className={cn(isEmbedded ? "fixed inset-0 z-0" : "fixed bottom-3 right-3 sm:bottom-5 sm:right-5 z-50") }>
             {isWidgetOpen && (
                 <div className={cn("widget-open w-[90vw] h-[calc(100vh-120px)] max-w-[420px] max-h-[520px] sm:w-[calc(100vw-40px)] sm:h-[calc(100vh-100px)] sm:max-w-[400px] sm:max-h-[600px]", isEmbedded && "w-full h-full max-w-none max-h-none") }>
-                    <Card className={cn("w-full h-full text-card-foreground rounded-2xl flex flex-col overflow-hidden border border-gray-200 dark:border-gray-700", isEmbedded ? "shadow-none" : "shadow-2xl") }>
-                        <header className="p-4 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 flex items-center justify-between gap-3 shrink-0">
-                            <div className="flex items-center gap-3 overflow-hidden">
-                                {displayLogoUrl && (
-                                  <div className="h-10 w-10 shrink-0 rounded-full bg-gray-100 dark:bg-gray-800 p-2">
-                                    <img src={displayLogoUrl} alt="Logo" data-ai-hint="company logo" className="h-full w-full object-contain"/>
+                    <Card className={cn("w-full h-full text-card-foreground rounded-xl flex flex-col overflow-hidden shadow-2xl", isEmbedded ? "shadow-none" : "shadow-2xl") }>
+                        <header className="flex items-center justify-between px-4 h-[60px] bg-gray-900 text-white">
+                            <div className="flex items-center gap-3">
+                                {displayLogoUrl ? (
+                                  <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center">
+                                    <img src={displayLogoUrl} alt="Logo" data-ai-hint="company logo" className="h-4 w-4 object-contain"/>
+                                  </div>
+                                ) : (
+                                  <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center">
+                                    <MessageCircle className="h-4 w-4" />
                                   </div>
                                 )}
-                                <div className="flex flex-col justify-center overflow-hidden">
-                                    <h1 className="text-base font-semibold truncate text-gray-900 dark:text-white">
-                                        <span>{displayTenantNameNode}</span>
-                                    </h1>
+                                <div>
+                                    <h3 className="text-base font-semibold" data-testid="text-bot-name">
+                                        {displayTenantNameNode}
+                                    </h3>
                                     {selectedAgent && (
-                                      <div className="flex items-center gap-2 -mt-0.5">
-                                        <div className="h-2 w-2 rounded-full bg-green-500"></div>
-                                        <p className="text-sm text-gray-600 dark:text-gray-400 truncate">with {selectedAgent.name}</p>
+                                      <div className="flex items-center gap-1.5">
+                                        <div className="h-2 w-2 rounded-full bg-green-500" />
+                                        <span className="text-xs opacity-90">with {selectedAgent.name}</span>
                                       </div>
                                     )}
                                 </div>
                             </div>
-
-                            <Button variant="ghost" size="icon" className="w-8 h-8 rounded-full ml-auto hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" onClick={handleWidgetClose}>
-                                <CloseIcon size={16} className="text-gray-500 dark:text-gray-400" />
-                                <span className="sr-only">Close chat</span>
-                            </Button>
+                            <div className="flex items-center gap-2">
+                                <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    className="h-8 w-8 rounded-md hover:bg-white/10 flex items-center justify-center transition-colors"
+                                    onClick={handleWidgetClose}
+                                    aria-label="Minimize chat"
+                                >
+                                    <Minimize2 className="h-4 w-4" />
+                                </Button>
+                                <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    className="h-8 w-8 rounded-md hover:bg-white/10 flex items-center justify-center transition-colors"
+                                    onClick={handleWidgetClose}
+                                    aria-label="Close chat"
+                                >
+                                    <CloseIcon className="h-4 w-4" />
+                                </Button>
+                            </div>
                         </header>
 
-                        <ScrollArea ref={scrollAreaRef} className="flex-1 p-4 pb-2 bg-white dark:bg-gray-900 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
-                            <div className="space-y-3 pb-20 sm:pb-8">
-                            {messages.map((message, index) => (
-                                <ChatMessage
-                                    key={index}
-                                    role={message.role}
-                                    content={message.content}
-                                    agentAvatarUrl={message.role === 'agent' ? selectedAgent?.avatarUrl : undefined}
-                                    agentAvatarHint={message.role === 'agent' ? selectedAgent?.avatarHint : undefined}
-                                    agentName={message.role === 'agent' ? selectedAgent?.name : undefined}
-                                    onCopy={handleCopyMessage}
-                                />
-                            ))}
-                            {(isGeneratingResponse || isTyping) && messages.length > 0 && (
-                                <div className="flex justify-start items-end gap-2 animate-in fade-in slide-in-from-left-2 duration-300">
-                                    <Avatar className="h-8 w-8 shrink-0">
-                                        <AvatarImage src={selectedAgent?.avatarUrl || '/icon-192.png'} alt={selectedAgent?.name || 'Agent'} data-ai-hint={selectedAgent?.avatarHint || 'voice chat ai assistant'} className="object-cover"/>
-                                        <AvatarFallback className="bg-gray-100 dark:bg-gray-800 p-1"><Image src="/icon-192.png" alt="Agent" width={24} height={24} className="w-full h-full object-contain" /></AvatarFallback>
-                                    </Avatar>
-                                    <div className="rounded-xl py-3 px-4 max-w-xs text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
-                                        <span className="typing-indicator flex gap-1">
-                                          <span className="typing-dot bg-gray-400"></span>
-                                          <span className="typing-dot bg-gray-500"></span>
-                                          <span className="typing-dot bg-gray-600"></span>
-                                        </span>
+                        <ScrollArea 
+                            ref={scrollAreaRef} 
+                            className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50/50 relative" 
+                            data-testid="chat-messages-container"
+                            onDragOver={handleDragOver}
+                            onDragLeave={handleDragLeave}
+                            onDrop={handleDrop}
+                        >
+                            {isDragging && (
+                                <div className="absolute inset-0 bg-gray-900/10 border-2 border-dashed border-gray-900 z-50 flex items-center justify-center backdrop-blur-sm">
+                                    <div className="text-center">
+                                        <svg className="h-16 w-16 mx-auto text-gray-900 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                        <p className="text-lg font-semibold text-gray-900">Drop image here</p>
+                                        <p className="text-sm text-gray-600 mt-1">Release to attach</p>
                                     </div>
                                 </div>
                             )}
-                            </div>
-                        </ScrollArea>
-
-                        <div className="p-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 space-y-3">
-                             {attachedImageDataUri && (
-                                <div className="relative w-fit">
-                                    <img src={attachedImageDataUri} alt="Attachment preview" className="h-16 w-16 object-cover rounded-lg border border-gray-200 dark:border-gray-700" data-ai-hint="image preview"/>
-                                    <Button
-                                    variant="destructive"
-                                    size="icon"
-                                    className="absolute -top-2 -right-2 h-5 w-5 rounded-full bg-red-500 hover:bg-red-600 text-white"
-                                    onClick={clearImageAttachment}
+                            {messages.map((message, index) => (
+                                <div
+                                    key={index}
+                                    className={`flex ${message.role === "user" ? "justify-end" : "justify-start"} animate-slide-up-fade`}
+                                    style={{ animationDelay: `${index * 0.1}s` }}
+                                >
+                                    {message.role === "agent" && (
+                                        <div className="h-8 w-8 rounded-full bg-gray-900 flex-shrink-0 mr-2 flex items-center justify-center">
+                                            <MessageCircle className="h-4 w-4 text-white" />
+                                        </div>
+                                    )}
+                                    <div
+                                        className={`max-w-[75%] rounded-[18px] shadow-sm overflow-hidden ${
+                                            message.role === "user"
+                                                ? "bg-gray-900 text-white"
+                                                : "bg-white border border-gray-200 text-gray-900"
+                                        }`}
+                                        data-testid={`message-${message.role}-${index}`}
                                     >
-                                    <CloseIcon size={12} />
-                                    </Button>
+                                        {/* Image message */}
+                                        {(message as any).type === "image" && (message as any).imageUrl && (
+                                            <img 
+                                                src={(message as any).imageUrl} 
+                                                alt="Shared content" 
+                                                className="w-full max-h-64 object-cover"
+                                                data-testid={`image-${index}`}
+                                            />
+                                        )}
+                                        
+                                        {/* Voice message - only show for agent messages, not user messages */}
+                                        {(message as any).type === "voice" && (message as any).voiceDuration && message.role === "agent" && (
+                                            <VoiceMessageBubble 
+                                                message={message}
+                                                playingVoice={playingVoice}
+                                                setPlayingVoice={setPlayingVoice}
+                                                generateWaveform={generateWaveform}
+                                            />
+                                        )}
+                                        
+                                        {/* User voice messages - show as text only */}
+                                        {(message as any).type === "voice" && (message as any).voiceDuration && message.role === "user" && (
+                                            <div className="px-4 py-3">
+                                                <p className="text-sm leading-relaxed">Voice message ({(message as any).voiceDuration}s)</p>
+                                            </div>
+                                        )}
+                                        
+                                        {/* Text message */}
+                                        {(message as any).type !== "voice" && (message as any).type !== "image" && message.content && (
+                                            <div className="px-4 py-3">
+                                                <div className="text-sm leading-relaxed">{message.content}</div>
+                                            </div>
+                                        )}
+                                        
+                                        {/* Timestamp */}
+                                        {message.content && (message as any).type !== "voice" && (
+                                            <div className="px-4 pb-2">
+                                                <span className={`text-xs ${message.role === "user" ? "text-white/70" : "text-gray-500"}`}>
+                                                    {new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                                                </span>
+                                            </div>
+                                        )}
+                                        
+                                        {/* Timestamp for user voice messages */}
+                                        {(message as any).type === "voice" && message.role === "user" && (
+                                            <div className="px-4 pb-2">
+                                                <span className="text-xs text-white/70">
+                                                    {new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                                                </span>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            ))}
+
+                            {(isGeneratingResponse || isTyping) && messages.length > 0 && (
+                                <div className="flex justify-start animate-slide-up-fade">
+                                    <div className="h-8 w-8 rounded-full bg-gray-900 flex-shrink-0 mr-2 flex items-center justify-center">
+                                        <MessageCircle className="h-4 w-4 text-white" />
+                                    </div>
+                                    <div className="bg-white border border-gray-200 rounded-[18px] px-4 py-3 shadow-sm">
+                                        <div className="flex gap-1" data-testid="typing-indicator">
+                                            <div className="h-2 w-2 rounded-full bg-gray-400 animate-bounce" />
+                                            <div className="h-2 w-2 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: "0.2s" }} />
+                                            <div className="h-2 w-2 rounded-full bg-gray-400 animate-bounce" style={{ animationDelay: "0.4s" }} />
+                                        </div>
+                                    </div>
                                 </div>
                             )}
-                             <div className="flex items-end gap-3">
-                                <Button
-                                  variant="ghost"
-                                  size="icon"
-                                  className="shrink-0 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                                  onClick={() => imageInputRef.current?.click()}
-                                  disabled={chatInputDisabled}
+                        </ScrollArea>
+
+                        {/* Image preview */}
+                        {selectedImage && (
+                            <div className="px-4 py-2 bg-gray-50 border-t border-gray-200">
+                                <div className="relative inline-block">
+                                    <img src={selectedImage} alt="Preview" className="h-20 rounded-lg" />
+                                    <button
+                                        onClick={() => setSelectedImage(null)}
+                                        className="absolute -top-2 -right-2 h-6 w-6 rounded-full bg-red-500 text-white flex items-center justify-center hover:bg-red-600"
+                                        data-testid="button-remove-image"
+                                    >
+                                        <CloseIcon className="h-4 w-4" />
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+
+                        <div className="p-4 bg-white border-t border-gray-200">
+                            <div className="flex items-center gap-2">
+                                <input
+                                    ref={imageInputRef}
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={handleImageSelect}
+                                    className="hidden"
+                                    data-testid="input-file-upload"
+                                />
+                                
+                                <button
+                                    onClick={() => imageInputRef.current?.click()}
+                                    className="h-9 w-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                                    aria-label="Attach image"
+                                    data-testid="button-attach-image"
                                 >
-                                  <Paperclip size={18} className="text-gray-500 dark:text-gray-400" />
-                                  <span className="sr-only">Attach image</span>
-                                </Button>
-                                <Textarea
+                                    <Paperclip className="h-4 w-4 text-gray-600" />
+                                </button>
+
+                                <button
+                                    onClick={() => setShowVoiceMode(!showVoiceMode)}
+                                    className={`h-9 w-9 rounded-full flex items-center justify-center transition-colors ${
+                                        showVoiceMode 
+                                            ? "bg-gray-900 hover:bg-gray-800" 
+                                            : "bg-gray-100 hover:bg-gray-200"
+                                    }`}
+                                    aria-label="Toggle voice mode"
+                                    data-testid="button-voice-mode-toggle"
+                                >
+                                    <Mic className={`h-4 w-4 ${showVoiceMode ? "text-white" : "text-gray-600"}`} />
+                                </button>
+
+                                <input
+                                    type="text"
                                     value={input}
                                     onChange={e => setInput(e.target.value)}
-                                    placeholder={isListening ? "Listening..." : (isTenantDisabled ? tenantDisabledReason : "Type or press mic...")}
-                                    className="flex-1 min-h-[44px] max-h-[100px] rounded-xl text-sm resize-none py-3 px-4 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:border-gray-400 dark:focus:border-gray-600 focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700 transition-all"
+                                    onKeyDown={(e) => e.key === "Enter" && (selectedImage ? handleSendImage() : handleSendMessage())}
+                                    placeholder={isListening ? "Listening..." : (isTenantDisabled ? tenantDisabledReason : "Type your message...")}
+                                    data-testid="input-chat-message"
+                                    className="flex-1 h-12 px-4 rounded-[24px] border border-gray-200 focus:border-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900/20 transition-all text-sm"
                                     disabled={chatInputDisabled}
-                                    rows={1}
-                                    onKeyPress={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSendMessage(); } }}
                                 />
-                                {showMicButton ? (
-                                    <Button onClick={handleMicClick} disabled={chatInputDisabled} variant={isListening ? "destructive" : "default"} size="icon" className={cn("transition-all", isListening && "bg-red-500 hover:bg-red-600")} aria-label={isListening ? "Stop listening" : "Start listening"}>
-                                        {isListening ? <Square size={18}/> : <Mic size={18}/>}
-                                    </Button>
-                                ) : (
-                                    <Button onClick={() => handleSendMessage()} disabled={chatInputDisabled || (!input.trim() && !attachedImageDataUri)} size="icon" className="bg-gray-900 dark:bg-gray-100 hover:bg-gray-800 dark:hover:bg-gray-200 text-white dark:text-gray-900 transition-colors" aria-label="Send message">
-                                        <Send size={18}/>
-                                    </Button>
-                                )}
+                                
+                                <button
+                                    onClick={selectedImage ? handleSendImage : () => handleSendMessage()}
+                                    disabled={(!input.trim() && !selectedImage) || chatInputDisabled}
+                                    data-testid="button-send-message"
+                                    className="h-9 w-9 rounded-full bg-gray-900 text-white flex items-center justify-center hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-105"
+                                    aria-label="Send message"
+                                >
+                                    <Send className="h-4 w-4" />
+                                </button>
                             </div>
                         </div>
+
+                        {/* Voice Mode Overlay */}
+                        {showVoiceMode && (
+                            <div className="absolute inset-0 bg-white/95 backdrop-blur-sm z-10 flex items-center justify-center animate-slide-up-fade">
+                                <div className="w-full max-w-md p-8">
+                                    <div className="flex justify-between items-center mb-6">
+                                        <h3 className="text-lg font-semibold text-gray-900">Voice Mode</h3>
+                                        <button
+                                            onClick={() => setShowVoiceMode(false)}
+                                            className="h-8 w-8 rounded-full hover:bg-gray-100 flex items-center justify-center"
+                                            data-testid="button-close-voice-mode"
+                                        >
+                                            <CloseIcon className="h-4 w-4 text-gray-600" />
+                                        </button>
+                                    </div>
+                                    <AIVoice 
+                                        onRecordingComplete={handleVoiceRecordingComplete}
+                                        onRecordingStart={handleVoiceRecordingStart}
+                                        onRecordingStop={handleVoiceRecordingStop}
+                                        onTextConverted={handleTextConverted}
+                                    />
+                                </div>
+                            </div>
+                        )}
+
                         <footer className="px-4 py-3 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-xs text-gray-500 dark:text-gray-400 flex justify-between items-center">
                            {showBranding ? (
                                 <a href={SAAS_PLATFORM_WEBSITE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-gray-700 dark:hover:text-gray-300 transition-colors flex items-center gap-1 text-center group">
@@ -1714,33 +2023,18 @@ function ChatPageContent() {
               <Button
                   onClick={() => setIsWidgetOpen(!isWidgetOpen)}
                   className={cn(
-                      "rounded-full h-14 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 text-base font-medium bg-gray-900 dark:bg-gray-100 hover:bg-gray-800 dark:hover:bg-gray-200 text-white dark:text-gray-900 border border-gray-200 dark:border-gray-700",
-                      isWidgetOpen ? "w-14" : "px-6"
+                      "group relative h-[60px] w-[60px] rounded-full bg-gray-900 shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-xl",
+                      isWidgetOpen ? "w-14 h-14" : "h-[60px] w-[60px]"
                   )}
                   aria-label={isWidgetOpen ? "Close chat" : "Open chat"}
               >
                   {isWidgetOpen ? (
-                      <CloseIcon size={24} className="transition-transform duration-200 hover:rotate-90" />
+                      <CloseIcon size={24} className="text-white transition-transform duration-200 hover:rotate-90" />
                   ) : (
                       <>
-                          {selectedTenant?.launcherButtonIcon !== 'none' && (
-                            <span className="inline-flex items-center justify-center rounded-full w-8 h-8 mr-2 bg-white/10 dark:bg-gray-800/20" aria-hidden>
-                              {selectedTenant?.launcherButtonIcon === 'chat' && <MessageCircle size={18} />}
-                              {selectedTenant?.launcherButtonIcon === 'help' && <HelpCircle size={18} />}
-                              {selectedTenant?.launcherButtonIcon === 'phone' && <Phone size={18} />}
-                              {(!selectedTenant?.launcherButtonIcon || selectedTenant?.launcherButtonIcon === 'mic') && <Mic size={18} />}
-                            </span>
-                          )}
-                          <span
-                            className={cn(
-                              "text-sm sm:text-base",
-                              selectedTenant?.launcherButtonStyle === 'light' && "font-normal",
-                              selectedTenant?.launcherButtonStyle === 'bold' && "font-bold",
-                              (!selectedTenant?.launcherButtonStyle || selectedTenant?.launcherButtonStyle === 'normal') && "font-medium"
-                            )}
-                          >
-                            {selectedTenant?.launcherButtonText || 'Chat with us'}
-                          </span>
+                          <div className="absolute inset-0 rounded-full bg-gray-900 opacity-0 animate-pulse" />
+                          <MessageCircle className="absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 text-white" />
+                          <div className="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-red-500 border-2 border-white" />
                       </>
                   )}
               </Button>

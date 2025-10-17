@@ -348,6 +348,40 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Modern Chat Widget Animations */
+@keyframes slide-up-fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.33);
+  }
+  40%,
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+.animate-slide-up-fade {
+  animation: slide-up-fade 0.3s ease-out;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
 @layer base {
   :root {
     /* Clean Minimalistic Light Mode */
