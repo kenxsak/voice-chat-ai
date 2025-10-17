@@ -3,7 +3,29 @@
 ## Overview
 VoiceChat AI is a multi-tenant SaaS platform enabling businesses to create and deploy AI-powered voice and text chat agents. It offers a complete solution with tenant isolation, subscription management, embeddable widgets, and AI-driven conversational capabilities across 109 languages. The platform focuses on customizable AI agents for lead capture and customer interaction, leveraging Google Gemini API and optional OpenAI services for high-quality, natural voice interactions. It aims to provide a robust, scalable, and globally accessible conversational AI solution.
 
-## Recent Changes (October 16, 2025)
+## Recent Changes (October 17, 2025)
+
+### Chatbot Widget UI & Workflow Improvements - Complete ✅
+- **Voice Mode Enhancement**: Voice transcription now populates input field instead of auto-sending, allowing users to review and manually send transcribed text
+  - Added toast notification: "Voice Transcribed - Click send to submit"
+  - Users have full control over when voice messages are sent
+- **Input Field Persistence**: Text now remains in input field after sending messages (removed auto-clear behavior)
+  - Enables easy editing and re-sending of messages
+  - Better user experience for iterative conversations
+- **Unified Image + Text Sending**: Images and text now send together seamlessly in a single message
+  - Merged image and text sending logic into unified `handleSendMessage`
+  - AI properly processes both image and text context together
+  - Improved multimodal conversation experience
+- **Professional Widget Styling**: Complete UI overhaul with modern, polished design
+  - Header: Gradient background (gray-900 → gray-800) with enhanced logo container featuring backdrop-blur and ring effects
+  - Message Bubbles: 20px rounded corners, user messages with purple-to-blue gradient, agent messages with frosted glass effect
+  - Input Field: Frosted glass effect with cyan focus ring and better placeholder text
+  - Smooth transitions (200ms) on all interactive elements with scale effects on hover
+  - Send button: Cyan-to-blue gradient with glowing shadow
+- **Enhanced Visual Feedback**: Improved drag-and-drop with cyan/blue gradient overlay and animated pulsing icon
+- **Polished Footer**: Gradient background with better icon spacing and improved hover states
+
+### Previous Updates (October 16, 2025)
 
 ### UI Visibility & UX Improvements - Complete ✅
 - **Chatbot Loading Screen**: Enhanced with smooth fade-in and zoom animations for professional initialization experience
