@@ -397,35 +397,35 @@ const ChatMessage = React.memo(({role, content, agentAvatarUrl, agentAvatarHint,
     : content;
 
   return (
-    <div className={`group flex items-start mb-3 animate-in fade-in slide-in-from-bottom-2 duration-300 ${role === 'user' ? 'justify-end' : 'justify-start'}`}>
+    <div className={`group flex items-start mb-4 animate-in fade-in slide-in-from-bottom-2 duration-300 ${role === 'user' ? 'justify-end' : 'justify-start'}`}>
       {role === 'agent' && (
-          <Button variant="ghost" size="icon" className="w-7 h-7 mr-2 shrink-0 opacity-0 group-hover:opacity-100 transition-all hover:bg-cyan-500/10 hover:text-cyan-400" onClick={() => typeof content === 'string' && onCopy(content)}>
+          <Button variant="ghost" size="icon" className="w-7 h-7 mr-2 shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-200 hover:bg-cyan-500/10 hover:text-cyan-400 hover:scale-110" onClick={() => typeof content === 'string' && onCopy(content)}>
               <Copy size={14} />
               <span className="sr-only">Copy message</span>
           </Button>
       )}
       <div className={`flex items-end ${role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
         {role === 'agent' && (
-          <Avatar className="h-7 w-7 mr-2 shrink-0 ring-2 ring-cyan-500/20">
+          <Avatar className="h-8 w-8 mr-2 shrink-0 ring-2 ring-cyan-500/30 shadow-lg shadow-cyan-500/20 transition-all duration-200 group-hover:ring-cyan-400/50">
             <AvatarImage src={agentAvatarUrl || '/icon-192.png'} alt={agentName || 'Agent'} data-ai-hint={agentAvatarHint || 'voice chat ai assistant'} className="object-cover" loading="lazy" />
             <AvatarFallback className="bg-transparent p-0.5"><Image src="/icon-192.png" alt="Agent" width={24} height={24} className="w-full h-full object-contain" /></AvatarFallback>
           </Avatar>
         )}
         <div
           className={cn(
-              "rounded-xl py-2 px-3 max-w-xs text-sm transition-all duration-200 group-hover:scale-[1.02]",
+              "rounded-[20px] py-2.5 px-4 max-w-xs text-sm transition-all duration-200 group-hover:scale-[1.02]",
               role === 'user' 
-                ? 'cyber-gradient text-white ml-8 shadow-[0_0_20px_rgba(0,212,255,0.3)] border border-cyan-400/30' 
+                ? 'bg-gradient-to-br from-purple-600 to-blue-600 text-white ml-8 shadow-lg shadow-purple-500/30 border border-purple-400/20 hover:shadow-xl hover:shadow-purple-500/40' 
                 : role === 'agent' 
-                ? 'bg-background/40 backdrop-blur-md text-card-foreground border border-cyan-500/20 mr-8 shadow-[0_0_15px_rgba(0,255,255,0.1)] hover:border-cyan-500/40 hover:shadow-[0_0_25px_rgba(0,255,255,0.2)]'
-                : 'bg-muted/50 text-muted-foreground text-center w-full mx-auto max-w-md text-xs p-2 border border-muted/30'
+                ? 'bg-white/80 backdrop-blur-md text-gray-900 border border-gray-200/50 mr-8 shadow-md hover:border-gray-300/60 hover:shadow-lg hover:bg-white/90'
+                : 'bg-muted/50 text-muted-foreground text-center w-full mx-auto max-w-md text-xs p-2 border border-muted/30 rounded-lg'
           )}
         >
           {processedContent}
         </div>
       </div>
       {role === 'user' && (
-           <Button variant="ghost" size="icon" className="w-7 h-7 ml-2 shrink-0 opacity-0 group-hover:opacity-100 transition-all hover:bg-purple-500/10 hover:text-purple-400" onClick={() => {
+           <Button variant="ghost" size="icon" className="w-7 h-7 ml-2 shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-200 hover:bg-purple-500/10 hover:text-purple-400 hover:scale-110" onClick={() => {
               let textToCopy = '';
               if (typeof content === 'string') {
                 textToCopy = content;
@@ -772,7 +772,7 @@ function ChatPageContent() {
     setMessages(prev => [...prev, userMessageForState]);
 
     const textToSend = currentInputVal;
-    setInput('');
+    // Text now stays in input field after sending (removed setInput(''))
 
     if (isListening) {
       recognitionRef.current?.stop();
@@ -1583,11 +1583,14 @@ function ChatPageContent() {
   };
 
   const handleTextConverted = (text: string) => {
-    // Auto-send the converted text as a message
+    // Populate the input field with the transcribed text (user manually sends)
     if (text.trim()) {
       setInput(text);
-      handleSendMessage(text);
       setShowVoiceMode(false);
+      toast({
+        title: "Voice Transcribed",
+        description: "Your voice has been converted to text. Click send to submit.",
+      });
     }
   };
 
@@ -1603,20 +1606,7 @@ function ChatPageContent() {
     }
   };
 
-  const handleSendImage = () => {
-    if (selectedImage) {
-      // Add image message to chat
-      const newMessage = {
-        role: 'user' as const,
-        content: 'Image shared',
-        type: 'image',
-        imageUrl: selectedImage,
-        id: `image-${Date.now()}`
-      };
-      setMessages(prev => [...prev, newMessage]);
-      setSelectedImage(null);
-    }
-  };
+  // Image sending is now merged into handleSendMessage for unified text+image sending
 
   // Drag and drop functions
   const handleDragOver = (e: React.DragEvent) => {
@@ -1733,24 +1723,24 @@ function ChatPageContent() {
             {isWidgetOpen && (
                 <div className={cn("widget-open w-[90vw] h-[calc(100vh-120px)] max-w-[420px] max-h-[520px] sm:w-[calc(100vw-40px)] sm:h-[calc(100vh-100px)] sm:max-w-[400px] sm:max-h-[600px]", isEmbedded && "w-full h-full max-w-none max-h-none") }>
                     <Card className={cn("w-full h-full text-card-foreground rounded-xl flex flex-col overflow-hidden shadow-2xl", isEmbedded ? "shadow-none" : "shadow-2xl") }>
-                        <header className="flex items-center justify-between px-4 h-[60px] bg-gray-900 text-white">
+                        <header className="flex items-center justify-between px-5 h-[64px] bg-gradient-to-br from-gray-900 via-gray-850 to-gray-800 text-white shadow-lg">
                             <div className="flex items-center gap-3">
                                 {displayLogoUrl ? (
-                                  <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center">
-                                    <img src={displayLogoUrl} alt="Logo" data-ai-hint="company logo" className="h-4 w-4 object-contain"/>
+                                  <div className="h-9 w-9 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm ring-2 ring-white/10 transition-all duration-200 hover:ring-white/30">
+                                    <img src={displayLogoUrl} alt="Logo" data-ai-hint="company logo" className="h-5 w-5 object-contain"/>
                                   </div>
                                 ) : (
-                                  <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center">
-                                    <MessageCircle className="h-4 w-4" />
+                                  <div className="h-9 w-9 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm ring-2 ring-white/10 transition-all duration-200 hover:ring-white/30">
+                                    <MessageCircle className="h-5 w-5" />
                                   </div>
                                 )}
                                 <div>
-                                    <h3 className="text-base font-semibold" data-testid="text-bot-name">
+                                    <h3 className="text-base font-semibold tracking-tight" data-testid="text-bot-name">
                                         {displayTenantNameNode}
                                     </h3>
                                     {selectedAgent && (
                                       <div className="flex items-center gap-1.5">
-                                        <div className="h-2 w-2 rounded-full bg-green-500" />
+                                        <div className="h-2 w-2 rounded-full bg-green-400 animate-pulse shadow-sm shadow-green-400/50" />
                                         <span className="text-xs opacity-90">with {selectedAgent.name}</span>
                                       </div>
                                     )}
@@ -1760,7 +1750,7 @@ function ChatPageContent() {
                                 <Button
                                     variant="ghost"
                                     size="icon"
-                                    className="h-8 w-8 rounded-md hover:bg-white/10 flex items-center justify-center transition-colors"
+                                    className="h-8 w-8 rounded-md hover:bg-white/10 flex items-center justify-center transition-all duration-200 hover:scale-105"
                                     onClick={handleWidgetClose}
                                     aria-label="Minimize chat"
                                 >
@@ -1769,7 +1759,7 @@ function ChatPageContent() {
                                 <Button
                                     variant="ghost"
                                     size="icon"
-                                    className="h-8 w-8 rounded-md hover:bg-white/10 flex items-center justify-center transition-colors"
+                                    className="h-8 w-8 rounded-md hover:bg-white/10 flex items-center justify-center transition-all duration-200 hover:scale-105"
                                     onClick={handleWidgetClose}
                                     aria-label="Close chat"
                                 >
@@ -1787,13 +1777,13 @@ function ChatPageContent() {
                             onDrop={handleDrop}
                         >
                             {isDragging && (
-                                <div className="absolute inset-0 bg-gray-900/10 border-2 border-dashed border-gray-900 z-50 flex items-center justify-center backdrop-blur-sm">
-                                    <div className="text-center">
-                                        <svg className="h-16 w-16 mx-auto text-gray-900 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border-4 border-dashed border-cyan-500 rounded-lg z-50 flex items-center justify-center backdrop-blur-md animate-in fade-in duration-200">
+                                    <div className="text-center transform scale-110 transition-transform duration-200">
+                                        <svg className="h-20 w-20 mx-auto text-cyan-600 mb-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                         </svg>
-                                        <p className="text-lg font-semibold text-gray-900">Drop image here</p>
-                                        <p className="text-sm text-gray-600 mt-1">Release to attach</p>
+                                        <p className="text-xl font-bold text-cyan-700 mb-1">Drop image here</p>
+                                        <p className="text-sm text-cyan-600">Release to attach to your message</p>
                                     </div>
                                 </div>
                             )}
@@ -1916,7 +1906,7 @@ function ChatPageContent() {
                                 
                                 <button
                                     onClick={() => imageInputRef.current?.click()}
-                                    className="h-9 w-9 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+                                    className="h-9 w-9 rounded-full bg-gray-100/80 hover:bg-gray-200 flex items-center justify-center transition-all duration-200 hover:scale-110 backdrop-blur-sm shadow-sm hover:shadow-md"
                                     aria-label="Attach image"
                                     data-testid="button-attach-image"
                                 >
@@ -1925,10 +1915,10 @@ function ChatPageContent() {
 
                                 <button
                                     onClick={() => setShowVoiceMode(!showVoiceMode)}
-                                    className={`h-9 w-9 rounded-full flex items-center justify-center transition-colors ${
+                                    className={`h-9 w-9 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-sm hover:shadow-md ${
                                         showVoiceMode 
-                                            ? "bg-gray-900 hover:bg-gray-800" 
-                                            : "bg-gray-100 hover:bg-gray-200"
+                                            ? "bg-gradient-to-br from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 shadow-purple-500/30" 
+                                            : "bg-gray-100/80 hover:bg-gray-200 backdrop-blur-sm"
                                     }`}
                                     aria-label="Toggle voice mode"
                                     data-testid="button-voice-mode-toggle"
@@ -1940,18 +1930,18 @@ function ChatPageContent() {
                                     type="text"
                                     value={input}
                                     onChange={e => setInput(e.target.value)}
-                                    onKeyDown={(e) => e.key === "Enter" && (selectedImage ? handleSendImage() : handleSendMessage())}
-                                    placeholder={isListening ? "Listening..." : (isTenantDisabled ? tenantDisabledReason : "Type your message...")}
+                                    onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSendMessage()}
+                                    placeholder={isListening ? "Listening..." : (isTenantDisabled ? tenantDisabledReason : "Type your message here...")}
                                     data-testid="input-chat-message"
-                                    className="flex-1 h-12 px-4 rounded-[24px] border border-gray-200 focus:border-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900/20 transition-all text-sm"
+                                    className="flex-1 h-12 px-4 rounded-[24px] border-2 border-gray-200/80 bg-white/50 backdrop-blur-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all duration-200 text-sm placeholder:text-gray-400"
                                     disabled={chatInputDisabled}
                                 />
                                 
                                 <button
-                                    onClick={selectedImage ? handleSendImage : () => handleSendMessage()}
-                                    disabled={(!input.trim() && !selectedImage) || chatInputDisabled}
+                                    onClick={() => handleSendMessage()}
+                                    disabled={(!input.trim() && !attachedImageDataUri) || chatInputDisabled}
                                     data-testid="button-send-message"
-                                    className="h-9 w-9 rounded-full bg-gray-900 text-white flex items-center justify-center hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-105"
+                                    className="h-9 w-9 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center hover:from-cyan-600 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:scale-105 shadow-lg shadow-cyan-500/30"
                                     aria-label="Send message"
                                 >
                                     <Send className="h-4 w-4" />
@@ -1983,15 +1973,15 @@ function ChatPageContent() {
                             </div>
                         )}
 
-                        <footer className="px-4 py-3 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-xs text-gray-500 dark:text-gray-400 flex justify-between items-center">
+                        <footer className="px-5 py-3.5 border-t border-gray-200/80 dark:border-gray-700/80 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 text-xs text-gray-500 dark:text-gray-400 flex justify-between items-center backdrop-blur-sm">
                            {showBranding ? (
-                                <a href={SAAS_PLATFORM_WEBSITE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-gray-700 dark:hover:text-gray-300 transition-colors flex items-center gap-1 text-center group">
-                                    {SAAS_BRANDING_NAME} <ExternalLink className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"/>
+                                <a href={SAAS_PLATFORM_WEBSITE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-gray-700 dark:hover:text-gray-300 transition-all duration-200 flex items-center gap-1.5 text-center group hover:scale-105">
+                                    {SAAS_BRANDING_NAME} <ExternalLink className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200"/>
                                 </a>
                             ) : <div></div>}
-                            <div className="flex items-center gap-3">
-                                <Button onClick={handleMuteToggle} variant="ghost" size="icon" className="h-6 w-6 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label={isMuted ? "Unmute" : "Mute"}>
-                                    {isMuted ? <VolumeX size={14} className="text-gray-500 dark:text-gray-400" /> : <Volume2 size={14} className="text-gray-500 dark:text-gray-400" />}
+                            <div className="flex items-center gap-4">
+                                <Button onClick={handleMuteToggle} variant="ghost" size="icon" className="h-7 w-7 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 hover:scale-110 rounded-lg" aria-label={isMuted ? "Unmute" : "Mute"}>
+                                    {isMuted ? <VolumeX size={15} className="text-gray-500 dark:text-gray-400" /> : <Volume2 size={15} className="text-gray-500 dark:text-gray-400" />}
                                 </Button>
                                 <div className="flex items-center gap-2">
                                     <LanguageIcon className="w-3 h-3 text-gray-500 dark:text-gray-400"/>
