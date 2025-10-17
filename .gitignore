@@ -134,3 +134,10 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Replit and development files
+.replit
+.modified
+.idx/
+.local/
+.config/
