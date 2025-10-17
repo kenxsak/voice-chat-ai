@@ -29,7 +29,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
 import { ThemeToggle } from '@/components/theme-toggle';
-import { NeonLoader } from '@/components/ui/loading/neon-loader';
+import MonochromeLoader from '@/components/ui/loading/monochrome-loader';
 import { useTheme } from "next-themes";
 import { AnimatedLogo } from '@/components/ui/theme-logo';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
@@ -850,7 +850,7 @@ const TranslatableText = React.memo(({
           {isTranslating && (
             <div className="absolute inset-0 bg-background/70 backdrop-blur-sm flex items-center justify-center z-10 rounded-md">
               <div className="flex items-center gap-2 text-sm text-muted-foreground bg-card border px-3 py-2 rounded-md shadow-sm">
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
+                <div className="loader-sm"></div>
                 Translating...
               </div>
             </div>
@@ -952,7 +952,7 @@ const TranslatableText = React.memo(({
         {isTranslating && (
           <div className="absolute inset-0 bg-background/70 backdrop-blur-sm flex items-center justify-center z-10 rounded-md">
             <div className="flex items-center gap-2 text-sm text-muted-foreground bg-card border px-3 py-2 rounded-md shadow-sm">
-              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
+              <div className="loader-sm"></div>
               Translating...
             </div>
           </div>
@@ -1064,7 +1064,7 @@ const ConversationLogViewer = React.memo(({ history, agentAvatar }: { history: a
                 {isTranslating && (
                   <div className="absolute inset-0 bg-background/70 backdrop-blur-sm flex items-center justify-center z-10 rounded-md">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground bg-card border px-3 py-2 rounded-md shadow-sm">
-                      <Loader2 className="h-4 w-4 animate-spin" />
+                      <div className="loader-sm"></div>
                       Translating…
                     </div>
                   </div>
@@ -3548,7 +3548,7 @@ function DashboardPageContent() {
   if (isLoading || (userRole && userRole !== 'superadmin' && isAdminTenantLoading)) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-background">
-        <NeonLoader variant="cyber" size="lg" text="Loading dashboard..." />
+        <MonochromeLoader size="lg" title="Loading dashboard..." subtitle="Preparing your workspace..." />
       </div>
     );
   }
@@ -3600,13 +3600,13 @@ function DashboardPageContent() {
               <AnimatedLogo size={32} withRipple={true} glowIntensity="medium" className="flex-shrink-0" />
             </div>
           </div>
-          <h1 className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-foreground via-foreground to-foreground dark:from-primary dark:via-[hsl(var(--accent-cyan))] dark:to-[hsl(var(--accent-purple))] bg-clip-text text-transparent truncate animate-in fade-in duration-500">
+          <h1 className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-foreground via-foreground to-foreground dark:from-primary dark:via-gray-600 dark:to-black bg-clip-text text-transparent truncate animate-in fade-in duration-500">
             Voice Chat AI
           </h1>
         </div>
         <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
           <div className="hidden md:flex items-center gap-3 px-4 py-2 container-modern">
-            <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
+            <div className="h-2 w-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
             <span className="text-sm font-semibold whitespace-nowrap text-foreground">
               {getRoleName(userRole, tenantNameForRole)}
             </span>
@@ -3616,7 +3616,7 @@ function DashboardPageContent() {
             <div className="avatar-modern-inner">
               <Avatar className="h-full w-full">
                 <AvatarImage src={(userRole === 'superadmin' ? 'https://placehold.co/100x100.png' : adminManagedTenant?.companyLogoUrl) || undefined} alt={userRole} data-ai-hint={userRole === 'superadmin' ? 'administrator crown' : 'administrator user'} className="object-contain" />
-                <AvatarFallback className="bg-gradient-to-br from-cyan-600 to-purple-600 dark:from-primary dark:to-[hsl(var(--accent-purple))] text-primary-foreground font-semibold text-sm">
+                <AvatarFallback className="bg-gradient-to-br from-gray-600 to-black dark:from-primary dark:to-black text-primary-foreground font-semibold text-sm">
                   {getInitials(getRoleName(userRole, tenantNameForRole))}
                 </AvatarFallback>
               </Avatar>
@@ -3642,11 +3642,11 @@ function DashboardPageContent() {
         <Card modern className="glass-card border-primary/20 shadow-2xl shadow-primary/10">
           <CardHeader className="pb-4">
             <div className="flex items-center gap-4">
-              <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-cyan-600 to-purple-600 dark:from-primary dark:to-[hsl(var(--accent-purple))] flex items-center justify-center neon-pulse">
-                <Sparkles className="h-6 w-6 text-white animate-pulse" />
+              <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-gray-600 to-black dark:from-primary dark:to-black flex items-center justify-center neon-pulse">
+                <Sparkles className="h-6 w-6 text-white" />
               </div>
               <div>
-                <CardTitle className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-cyan-700 via-purple-700 to-pink-700 dark:from-primary dark:via-[hsl(var(--accent-cyan))] dark:to-[hsl(var(--accent-purple))] bg-clip-text text-transparent">
+                <CardTitle className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-gray-700 via-black to-gray-800 dark:from-primary dark:via-black dark:to-gray-600 bg-clip-text text-transparent">
                   Welcome to your Dashboard!
                 </CardTitle>
                 <CardDescription className="text-muted-foreground">
@@ -3684,28 +3684,28 @@ function DashboardPageContent() {
                               </p>
                             </div>
                         </Card>
-                        <Card modern className="glass-card card-3d border-[hsl(var(--accent-pink))]/30 hover:border-[hsl(var(--accent-pink))]/60 transition-all duration-300 bg-card/50 dark:bg-card/30">
+                        <Card modern className="glass-card card-3d border-gray-600/30 hover:border-gray-600/60 transition-all duration-300 bg-card/50 dark:bg-card/30">
                             <div className="p-4">
                               <div className="flex items-center justify-between">
                                 <CardTitle className="text-sm font-medium text-card-foreground">Inactive Tenants</CardTitle>
-                                <div className="h-9 w-9 rounded-xl bg-[hsl(var(--accent-pink))]/20 flex items-center justify-center">
-                                  <div className="h-2.5 w-2.5 rounded-full bg-[hsl(var(--accent-pink))] animate-pulse"></div>
+                                <div className="h-9 w-9 rounded-xl bg-gray-600/20 flex items-center justify-center">
+                                  <div className="h-2.5 w-2.5 rounded-full bg-gray-600"></div>
                                 </div>
                               </div>
-                              <p className="text-3xl font-bold bg-gradient-to-r from-pink-700 to-purple-700 dark:from-[hsl(var(--accent-pink))] dark:to-[hsl(var(--accent-purple))] bg-clip-text text-transparent mt-3">
+                              <p className="text-3xl font-bold bg-gradient-to-r from-gray-700 to-black dark:from-gray-600 dark:to-black bg-clip-text text-transparent mt-3">
                                 {inactiveTenantsCount}
                               </p>
                             </div>
                         </Card>
-                        <Card modern className="glass-card card-3d border-[hsl(var(--accent-purple))]/30 hover:border-[hsl(var(--accent-purple))]/60 transition-all duration-300 bg-card/50 dark:bg-card/30">
+                        <Card modern className="glass-card card-3d border-gray-600/30 hover:border-gray-600/60 transition-all duration-300 bg-card/50 dark:bg-card/30">
                             <div className="p-4">
                               <div className="flex items-center justify-between">
                                 <CardTitle className="text-sm font-medium text-card-foreground">Trials Ending Soon</CardTitle>
-                                <div className="h-9 w-9 rounded-xl bg-[hsl(var(--accent-purple))]/20 flex items-center justify-center neon-pulse">
-                                  <div className="h-2.5 w-2.5 rounded-full bg-[hsl(var(--accent-purple))] animate-pulse"></div>
+                                <div className="h-9 w-9 rounded-xl bg-gray-600/20 flex items-center justify-center neon-pulse">
+                                  <div className="h-2.5 w-2.5 rounded-full bg-gray-600"></div>
                                 </div>
                               </div>
-                              <p className="text-3xl font-bold bg-gradient-to-r from-purple-700 to-pink-700 dark:from-[hsl(var(--accent-purple))] dark:to-[hsl(var(--accent-pink))] bg-clip-text text-transparent mt-3">
+                              <p className="text-3xl font-bold bg-gradient-to-r from-gray-700 to-black dark:from-gray-600 dark:to-black bg-clip-text text-transparent mt-3">
                                 {tenantsOnTrial?.length ?? 0}
                               </p>
                               {tenantsOnTrial && tenantsOnTrial.length > 0 && (
@@ -3739,25 +3739,25 @@ function DashboardPageContent() {
                                 <p className="text-xs text-muted-foreground mt-2">Monthly subscription revenue</p>
                               </div>
                             </Card>
-                            <Card modern className="glass-card card-3d border-[hsl(var(--accent-pink))]/30 hover:border-[hsl(var(--accent-pink))]/60 transition-all duration-300 bg-card/50 dark:bg-card/30">
+                            <Card modern className="glass-card card-3d border-gray-600/30 hover:border-gray-600/60 transition-all duration-300 bg-card/50 dark:bg-card/30">
                               <div className="p-4">
                                 <div className="flex items-center justify-between">
                                   <CardTitle className="text-sm font-medium text-card-foreground">Total AI Cost</CardTitle>
-                                  <DatabaseZap className="h-6 w-6 text-[hsl(var(--accent-pink))]" />
+                                  <DatabaseZap className="h-6 w-6 text-gray-600" />
                                 </div>
-                                <p className="text-3xl font-bold bg-gradient-to-r from-pink-700 to-red-700 dark:from-[hsl(var(--accent-pink))] dark:to-destructive bg-clip-text text-transparent mt-3">
+                                <p className="text-3xl font-bold bg-gradient-to-r from-gray-700 to-black dark:from-gray-600 dark:to-black bg-clip-text text-transparent mt-3">
                                   ${superAdminAnalytics.totals.totalAICost.toFixed(4)}
                                 </p>
                                 <p className="text-xs text-muted-foreground mt-2">Gemini API costs</p>
                               </div>
                             </Card>
-                            <Card modern className="glass-card card-3d border-[hsl(var(--accent-purple))]/30 hover:border-[hsl(var(--accent-purple))]/60 transition-all duration-300 bg-card/50 dark:bg-card/30">
+                            <Card modern className="glass-card card-3d border-gray-600/30 hover:border-gray-600/60 transition-all duration-300 bg-card/50 dark:bg-card/30">
                               <div className="p-4">
                                 <div className="flex items-center justify-between">
                                   <CardTitle className="text-sm font-medium text-card-foreground">Total Profit</CardTitle>
-                                  <TrendingUp className="h-6 w-6 text-[hsl(var(--accent-purple))] neon-pulse" />
+                                  <TrendingUp className="h-6 w-6 text-gray-600 neon-pulse" />
                                 </div>
-                                <p className="text-3xl font-bold bg-gradient-to-r from-purple-700 to-blue-700 dark:from-[hsl(var(--accent-purple))] dark:to-primary bg-clip-text text-transparent mt-3">
+                                <p className="text-3xl font-bold bg-gradient-to-r from-gray-700 to-black dark:from-gray-600 dark:to-black bg-clip-text text-transparent mt-3">
                                   ${superAdminAnalytics.totals.totalProfit.toFixed(2)}
                                 </p>
                                 <p className="text-xs text-muted-foreground mt-2">Revenue - AI costs</p>
@@ -3781,7 +3781,7 @@ function DashboardPageContent() {
                                   <CardTitle className="text-sm font-medium text-card-foreground">Average Margin</CardTitle>
                                   <TrendingUp className="h-6 w-6 text-primary" />
                                 </div>
-                                <p className="text-3xl font-bold bg-gradient-to-r from-blue-700 to-purple-700 dark:from-primary dark:to-[hsl(var(--accent-purple))] bg-clip-text text-transparent mt-3">
+                                <p className="text-3xl font-bold bg-gradient-to-r from-black to-gray-700 dark:from-primary dark:to-gray-600 bg-clip-text text-transparent mt-3">
                                   {superAdminAnalytics.totals.averageProfitMargin.toFixed(1)}%
                                 </p>
                                 <p className="text-xs text-muted-foreground mt-2">Avg per tenant</p>
@@ -3789,7 +3789,7 @@ function DashboardPageContent() {
                             </Card>
                             <Card className={`glass-card card-3d transition-all duration-300 bg-card/50 dark:bg-card/30 ${
                               superAdminAnalytics.totals.tenantsNeedingAttention > 0
-                                ? 'border-[hsl(var(--accent-pink))]/40 hover:border-[hsl(var(--accent-pink))]/70'
+                                ? 'border-gray-600/40 hover:border-gray-600/70'
                                 : 'border-[hsl(var(--accent-green))]/40 hover:border-[hsl(var(--accent-green))]/70'
                             }`}>
                               <div className="p-4">
@@ -3797,13 +3797,13 @@ function DashboardPageContent() {
                                   <CardTitle className="text-sm font-medium text-card-foreground">Needs Attention</CardTitle>
                                   <Activity className={`h-6 w-6 ${
                                     superAdminAnalytics.totals.tenantsNeedingAttention > 0
-                                      ? 'text-[hsl(var(--accent-pink))] neon-pulse'
+                                      ? 'text-gray-600 neon-pulse'
                                       : 'text-[hsl(var(--accent-green))]'
                                   }`} />
                                 </div>
                                 <p className={`text-3xl font-bold mt-3 ${
                                   superAdminAnalytics.totals.tenantsNeedingAttention > 0
-                                    ? 'bg-gradient-to-r from-pink-700 to-red-700 dark:from-[hsl(var(--accent-pink))] dark:to-destructive bg-clip-text text-transparent'
+                                    ? 'bg-gradient-to-r from-gray-700 to-black dark:from-gray-600 dark:to-black bg-clip-text text-transparent'
                                     : 'bg-gradient-to-r from-green-700 to-cyan-700 dark:from-[hsl(var(--accent-green))] dark:to-[hsl(var(--accent-cyan))] bg-clip-text text-transparent'
                                 }`}>{superAdminAnalytics.totals.tenantsNeedingAttention}</p>
                                 <p className="text-xs text-muted-foreground mt-2">High usage or low profit</p>
@@ -4063,7 +4063,7 @@ function DashboardPageContent() {
                         className="w-full sm:w-auto"
                       >
                         {isSavingPlatformSettings ? (
-                          <><Loader2 className="w-4 h-4 mr-2 animate-spin" />Saving...</>
+                                        <><div className="loader-sm mr-2"></div>Saving...</>
                         ) : (
                           <>Save Trial Settings</>
                         )}
@@ -4117,7 +4117,7 @@ function DashboardPageContent() {
                         disabled={isUsersLoading}
                       >
                         {isUsersLoading ? (
-                          <><Loader2 className="w-4 h-4 mr-2 animate-spin" />Loading...</>
+                          <><div className="loader-sm mr-2"></div>Loading...</>
                         ) : (
                           'Refresh Users'
                         )}
@@ -4126,16 +4126,9 @@ function DashboardPageContent() {
                     
                     {isUsersLoading ? (
                       <div className="space-y-3">
-                        {[1, 2, 3].map(i => (
-                          <div key={i} className="flex items-center space-x-4 p-4 border rounded-lg">
-                            <div className="w-10 h-10 bg-muted rounded-full animate-pulse"></div>
-                            <div className="flex-1 space-y-2">
-                              <div className="h-4 bg-muted rounded animate-pulse w-1/3"></div>
-                              <div className="h-3 bg-muted rounded animate-pulse w-1/4"></div>
-                            </div>
-                            <div className="w-20 h-8 bg-muted rounded animate-pulse"></div>
-                          </div>
-                        ))}
+                        <div className="flex justify-center py-8">
+                          <div className="loader"></div>
+                        </div>
                       </div>
                     ) : filteredAndSortedUsers.length > 0 ? (
                       <div className="space-y-3">
@@ -4602,7 +4595,7 @@ function DashboardPageContent() {
                   <TabsList className="hidden md:flex md:col-start-1 md:sticky md:top-6 md:h-fit z-10 modern-sidebar w-full flex-col items-stretch justify-start bg-background p-5 rounded-md border shadow-lg shadow-primary/10 gap-2">
                     <TabsTrigger 
                       value="subscription"
-                      className="modern-sidebar-button w-full justify-start p-4 rounded-full font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-400 data-[state=active]:to-purple-600 data-[state=active]:text-white hover:bg-primary/10 hover:shadow-inner transition-all ease-linear group"
+                      className="modern-sidebar-button w-full justify-start p-4 rounded-full font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-gray-800 data-[state=active]:to-black data-[state=active]:text-white dark:data-[state=active]:from-gray-200 dark:data-[state=active]:to-white dark:data-[state=active]:text-black hover:bg-primary/10 hover:shadow-inner transition-all ease-linear group"
                     >
                       <svg
                         className="size-6 group-data-[state=active]:fill-white group-data-[state=active]:stroke-white"
@@ -4616,7 +4609,7 @@ function DashboardPageContent() {
                     </TabsTrigger>
                     <TabsTrigger 
                       value="settings"
-                      className="modern-sidebar-button w-full justify-start p-4 rounded-full font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-400 data-[state=active]:to-purple-600 data-[state=active]:text-white hover:bg-primary/10 hover:shadow-inner transition-all ease-linear group"
+                      className="modern-sidebar-button w-full justify-start p-4 rounded-full font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-gray-800 data-[state=active]:to-black data-[state=active]:text-white dark:data-[state=active]:from-gray-200 dark:data-[state=active]:to-white dark:data-[state=active]:text-black hover:bg-primary/10 hover:shadow-inner transition-all ease-linear group"
                     >
                       <svg
                         className="size-6 group-data-[state=active]:fill-white group-data-[state=active]:stroke-white"
@@ -4630,7 +4623,7 @@ function DashboardPageContent() {
                     </TabsTrigger>
                     <TabsTrigger 
                       value="agents"
-                      className="modern-sidebar-button w-full justify-start p-4 rounded-full font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-400 data-[state=active]:to-purple-600 data-[state=active]:text-white hover:bg-primary/10 hover:shadow-inner transition-all ease-linear group"
+                      className="modern-sidebar-button w-full justify-start p-4 rounded-full font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-gray-800 data-[state=active]:to-black data-[state=active]:text-white dark:data-[state=active]:from-gray-200 dark:data-[state=active]:to-white dark:data-[state=active]:text-black hover:bg-primary/10 hover:shadow-inner transition-all ease-linear group"
                     >
                       <svg
                         className="size-6 group-data-[state=active]:fill-white group-data-[state=active]:stroke-white"
@@ -4645,7 +4638,7 @@ function DashboardPageContent() {
                     </TabsTrigger>
                     <TabsTrigger 
                       value="languages"
-                      className="modern-sidebar-button w-full justify-start p-4 rounded-full font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-400 data-[state=active]:to-purple-600 data-[state=active]:text-white hover:bg-primary/10 hover:shadow-inner transition-all ease-linear group"
+                      className="modern-sidebar-button w-full justify-start p-4 rounded-full font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-gray-800 data-[state=active]:to-black data-[state=active]:text-white dark:data-[state=active]:from-gray-200 dark:data-[state=active]:to-white dark:data-[state=active]:text-black hover:bg-primary/10 hover:shadow-inner transition-all ease-linear group"
                     >
                       <svg
                         className="size-6 group-data-[state=active]:fill-white group-data-[state=active]:stroke-white"
@@ -4659,7 +4652,7 @@ function DashboardPageContent() {
                     </TabsTrigger>
                     <TabsTrigger 
                       value="training"
-                      className="modern-sidebar-button w-full justify-start p-4 rounded-full font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-400 data-[state=active]:to-purple-600 data-[state=active]:text-white hover:bg-primary/10 hover:shadow-inner transition-all ease-linear group"
+                      className="modern-sidebar-button w-full justify-start p-4 rounded-full font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-gray-800 data-[state=active]:to-black data-[state=active]:text-white dark:data-[state=active]:from-gray-200 dark:data-[state=active]:to-white dark:data-[state=active]:text-black hover:bg-primary/10 hover:shadow-inner transition-all ease-linear group"
                     >
                       <svg
                         className="size-6 group-data-[state=active]:fill-white group-data-[state=active]:stroke-white"
@@ -4673,7 +4666,7 @@ function DashboardPageContent() {
                     </TabsTrigger>
                     <TabsTrigger 
                       value="analytics"
-                      className="modern-sidebar-button w-full justify-start p-4 rounded-full font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-400 data-[state=active]:to-purple-600 data-[state=active]:text-white hover:bg-primary/10 hover:shadow-inner transition-all ease-linear group"
+                      className="modern-sidebar-button w-full justify-start p-4 rounded-full font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-gray-800 data-[state=active]:to-black data-[state=active]:text-white dark:data-[state=active]:from-gray-200 dark:data-[state=active]:to-white dark:data-[state=active]:text-black hover:bg-primary/10 hover:shadow-inner transition-all ease-linear group"
                     >
                       <svg
                         className="size-6 group-data-[state=active]:fill-white group-data-[state=active]:stroke-white"
@@ -4687,7 +4680,7 @@ function DashboardPageContent() {
                     </TabsTrigger>
                     <TabsTrigger 
                       value="embed"
-                      className="modern-sidebar-button w-full justify-start p-4 rounded-full font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-400 data-[state=active]:to-purple-600 data-[state=active]:text-white hover:bg-primary/10 hover:shadow-inner transition-all ease-linear group"
+                      className="modern-sidebar-button w-full justify-start p-4 rounded-full font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-gray-800 data-[state=active]:to-black data-[state=active]:text-white dark:data-[state=active]:from-gray-200 dark:data-[state=active]:to-white dark:data-[state=active]:text-black hover:bg-primary/10 hover:shadow-inner transition-all ease-linear group"
                     >
                       <svg
                         className="size-6 group-data-[state=active]:fill-white group-data-[state=active]:stroke-white"
@@ -4701,7 +4694,7 @@ function DashboardPageContent() {
                     </TabsTrigger>
                     <TabsTrigger 
                       value="help"
-                      className="modern-sidebar-button w-full justify-start p-4 rounded-full font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-400 data-[state=active]:to-purple-600 data-[state=active]:text-white hover:bg-primary/10 hover:shadow-inner transition-all ease-linear group"
+                      className="modern-sidebar-button w-full justify-start p-4 rounded-full font-semibold data-[state=active]:bg-gradient-to-r data-[state=active]:from-gray-800 data-[state=active]:to-black data-[state=active]:text-white dark:data-[state=active]:from-gray-200 dark:data-[state=active]:to-white dark:data-[state=active]:text-black hover:bg-primary/10 hover:shadow-inner transition-all ease-linear group"
                     >
                       <svg
                         className="size-6 group-data-[state=active]:fill-white group-data-[state=active]:stroke-white"
@@ -5254,7 +5247,7 @@ function DashboardPageContent() {
                                     className="flex-1"
                                 >
                                     {isCleanupPreviewing ? (
-                                        <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Checking...</>
+                                        <><div className="loader-sm mr-2"></div> Checking...</>
                                     ) : (
                                         <><Search className="w-4 h-4 mr-2" /> Preview What Will Be Deleted</>
                                     )}
@@ -5267,7 +5260,7 @@ function DashboardPageContent() {
                                     className="flex-1"
                                 >
                                     {isCleaningUp ? (
-                                        <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Deleting...</>
+                                        <><div className="loader-sm mr-2"></div> Deleting...</>
                                     ) : (
                                         <><Trash2 className="w-4 h-4 mr-2" /> Delete Old Data Now</>
                                     )}
@@ -5725,7 +5718,7 @@ function DashboardPageContent() {
                                                                       >
                                                                           {isBulkDeleting ? (
                                                                               <>
-                                                                                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                                                                                  <div className="loader-sm mr-2"></div>
                                                                                   Deleting...
                                                                               </>
                                                                           ) : (
@@ -6283,7 +6276,7 @@ function DashboardPageContent() {
                                                               },
                                                               unclear_question: { 
                                                                 label: 'Unclear Question', 
-                                                                color: 'bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-500/20',
+                                                                color: 'bg-gray-500/10 text-gray-700 dark:text-gray-400 border-gray-500/20',
                                                                 icon: HelpCircle,
                                                                 hint: 'User question was ambiguous'
                                                               }
@@ -6436,7 +6429,7 @@ function DashboardPageContent() {
                           >
                             {isAskingAiHelp ? (
                               <>
-                                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                                <div className="loader-sm mr-2"></div>
                                 Thinking...
                               </>
                             ) : (
@@ -6582,7 +6575,7 @@ function DashboardPageContent() {
             >
               {isCrawling ? (
                 <>
-                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  <div className="loader-sm mr-2"></div>
                   Crawling...
                 </>
               ) : (

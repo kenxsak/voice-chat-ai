@@ -83,12 +83,7 @@
     var vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     var margin = vw < 480 ? '10px' : '20px';
     
-    // Create vibrant gradient background with animation
-    var brandRgb = hexToRgb(brandColor);
-    var lighterColor = brandRgb ? 
-      'rgb(' + Math.min(255, brandRgb.r + 40) + ',' + Math.min(255, brandRgb.g + 40) + ',' + Math.min(255, brandRgb.b + 60) + ')' : 
-      brandColor;
-    
+    // Professional solid background with brand color
     launcher.style.cssText = [
       'position: fixed',
       'z-index: 2147483000',
@@ -100,10 +95,9 @@
       'font-weight: ' + fontWeight,
       'font-size: ' + sizeConfig.fontSize + 'px',
       'color: white',
-      'background: linear-gradient(135deg, ' + brandColor + ' 0%, ' + lighterColor + ' 50%, ' + brandColor + ' 100%)',
-      'background-size: 200% 200%',
-      'box-shadow: 0 8px 32px rgba(0,0,0,0.15), 0 4px 16px rgba(0,0,0,0.1)',
-      'transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+      'background: ' + brandColor,
+      'box-shadow: 0 4px 12px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.1)',
+      'transition: all 0.2s ease-in-out',
       'display: flex',
       'align-items: center',
       'justify-content: center',
@@ -144,70 +138,42 @@
     launcher.innerHTML = content;
     
     launcher.addEventListener('mouseenter', function() {
-      launcher.style.transform = 'translateY(-2px) scale(1.02)';
-      launcher.style.boxShadow = '0 12px 48px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.15)';
+      launcher.style.transform = 'translateY(-1px)';
+      launcher.style.boxShadow = '0 6px 16px rgba(0,0,0,0.2), 0 3px 6px rgba(0,0,0,0.15)';
     });
     
     launcher.addEventListener('mouseleave', function() {
       launcher.style.transform = '';
-      launcher.style.boxShadow = '0 8px 32px rgba(0,0,0,0.15), 0 4px 16px rgba(0,0,0,0.1)';
+      launcher.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.1)';
     });
     
-    // Add animations based on user's dashboard selection
-    var brandRgb = hexToRgb(brandColor);
-    var glowColor = brandRgb ? 'rgba(' + brandRgb.r + ',' + brandRgb.g + ',' + brandRgb.b + ',0.7)' : 'rgba(37,99,235,0.7)';
-    var glowColorDim = brandRgb ? 'rgba(' + brandRgb.r + ',' + brandRgb.g + ',' + brandRgb.b + ',0.3)' : 'rgba(37,99,235,0.3)';
-    
-    // Define different animation keyframes based on animation type
-    var pulseKeyframes = '@keyframes vcai-pulse { ' +
-      '0%, 100% { transform: scale(1); box-shadow: 0 8px 32px rgba(0,0,0,0.15), 0 4px 16px rgba(0,0,0,0.1), 0 0 20px ' + glowColorDim + '; } ' +
-      '50% { transform: scale(1.05); box-shadow: 0 12px 48px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.15), 0 0 30px ' + glowColor + '; } ' +
-    '}';
-    
-    var bounceKeyframes = '@keyframes vcai-bounce { ' +
-      '0%, 100% { transform: translateY(0); } ' +
-      '25% { transform: translateY(-8px); } ' +
-      '50% { transform: translateY(0); } ' +
-      '75% { transform: translateY(-4px); } ' +
-    '}';
-    
-    var glowKeyframes = '@keyframes vcai-glow { ' +
-      '0%, 100% { box-shadow: 0 8px 32px rgba(0,0,0,0.15), 0 4px 16px rgba(0,0,0,0.1), 0 0 25px ' + glowColor + ', 0 0 50px ' + glowColorDim + '; } ' +
-      '50% { box-shadow: 0 12px 48px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.15), 0 0 40px ' + glowColor + ', 0 0 80px ' + glowColor + '; } ' +
-    '}';
-    
-    // Smooth gradient animation (works with all animation types)
-    var gradientKeyframes = '@keyframes vcai-gradient-shift { ' +
-      '0% { background-position: 0% 50%; } ' +
-      '50% { background-position: 100% 50%; } ' +
-      '100% { background-position: 0% 50%; } ' +
-    '}';
-    
+    // Professional subtle animations only
     var styleEl = document.getElementById('vcai-animations');
     if (!styleEl) {
       styleEl = document.createElement('style');
       styleEl.id = 'vcai-animations';
       document.head.appendChild(styleEl);
     }
-    styleEl.textContent = pulseKeyframes + ' ' + bounceKeyframes + ' ' + glowKeyframes + ' ' + gradientKeyframes;
     
-    // Apply animations based on user selection from dashboard
+    // Only add subtle breathing animation for professional look
+    var breathingKeyframes = '@keyframes vcai-breathe { ' +
+      '0%, 100% { transform: scale(1); } ' +
+      '50% { transform: scale(1.02); } ' +
+    '}';
+    
+    styleEl.textContent = breathingKeyframes;
+    
+    // Apply subtle animation only if not set to 'none'
     var animationStyle = '';
-    if (animation === 'pulse') {
-      animationStyle = 'vcai-pulse 2.5s ease-in-out infinite, vcai-gradient-shift 5s ease infinite';
-    } else if (animation === 'bounce') {
-      animationStyle = 'vcai-bounce 2s ease-in-out infinite, vcai-gradient-shift 5s ease infinite';
-    } else if (animation === 'glow') {
-      animationStyle = 'vcai-glow 2.5s ease-in-out infinite, vcai-gradient-shift 5s ease infinite';
-    } else if (animation === 'none') {
+    if (animation === 'none') {
       animationStyle = 'none';
     } else {
-      // Default to pulse if not specified
-      animationStyle = 'vcai-pulse 2.5s ease-in-out infinite, vcai-gradient-shift 5s ease infinite';
+      // Subtle breathing animation for professional appearance
+      animationStyle = 'vcai-breathe 3s ease-in-out infinite';
     }
     
     launcher.style.animation = animationStyle;
-    launcher.setAttribute('data-animation', animation || 'pulse');
+    launcher.setAttribute('data-animation', animation || 'breathe');
     
     return launcher;
   }
@@ -224,13 +190,13 @@
     iframe.style.cssText = [
       'position: fixed',
       'z-index: 2147483001',
-      'border: none',
-      'border-radius: 16px',
-      'box-shadow: 0 20px 80px rgba(0,0,0,0.2), 0 8px 32px rgba(0,0,0,0.15)',
+      'border: 1px solid rgba(0,0,0,0.1)',
+      'border-radius: 12px',
+      'box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08)',
       'background: white',
       'opacity: 0',
       'pointer-events: none',
-      'transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1)',
+      'transition: all 0.3s ease-in-out',
       'margin: 20px',
       'max-width: calc(100vw - 20px)',
       'max-height: calc(100vh - 40px)'
@@ -350,19 +316,13 @@
           launcher.style.pointerEvents = 'auto';
           launcher.style.transition = 'opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
           
-          // Restore animations based on user's dashboard selection
-          var savedAnimation = launcher.getAttribute('data-animation') || 'pulse';
+          // Restore professional animations
+          var savedAnimation = launcher.getAttribute('data-animation') || 'breathe';
           var animationStyle = '';
-          if (savedAnimation === 'pulse') {
-            animationStyle = 'vcai-pulse 2.5s ease-in-out infinite, vcai-gradient-shift 5s ease infinite';
-          } else if (savedAnimation === 'bounce') {
-            animationStyle = 'vcai-bounce 2s ease-in-out infinite, vcai-gradient-shift 5s ease infinite';
-          } else if (savedAnimation === 'glow') {
-            animationStyle = 'vcai-glow 2.5s ease-in-out infinite, vcai-gradient-shift 5s ease infinite';
-          } else if (savedAnimation === 'none') {
+          if (savedAnimation === 'none') {
             animationStyle = 'none';
           } else {
-            animationStyle = 'vcai-pulse 2.5s ease-in-out infinite, vcai-gradient-shift 5s ease infinite';
+            animationStyle = 'vcai-breathe 3s ease-in-out infinite';
           }
           launcher.style.animation = animationStyle;
         }

@@ -101,7 +101,7 @@ export default function LoginPage() {
           />
           <p className="mt-4 text-muted-foreground font-medium">Checking system status...</p>
           <div className="mt-6 flex justify-center">
-            <div className="animate-spin rounded-full h-6 w-6 border-2 border-muted border-t-transparent"></div>
+            <div className="loader"></div>
           </div>
         </div>
       </div>
@@ -194,7 +194,7 @@ export default function LoginPage() {
                 <div className="user-profile-inner">
                   {isLoading ? (
                     <>
-                      <div className="animate-spin rounded-full h-6 w-6 border-2 border-current/20 border-t-transparent" />
+                      <div className="loader"></div>
                       <p>Signing In...</p>
                     </>
                   ) : (

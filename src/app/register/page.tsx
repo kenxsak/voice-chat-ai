@@ -187,7 +187,7 @@ export default function RegisterPage() {
                 <div className="user-profile-inner">
                   {isLoading ? (
                     <>
-                      <div className="animate-spin rounded-full h-6 w-6 border-2 border-current/20 border-t-transparent" />
+                      <div className="loader"></div>
                       <p>Creating...</p>
                     </>
                   ) : (

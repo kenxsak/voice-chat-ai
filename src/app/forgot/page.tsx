@@ -135,7 +135,7 @@ export default function ForgotPasswordPage() {
             >
               {isLoading ? (
                 <div className="flex items-center gap-2">
-                  <div className="animate-spin rounded-full h-4 w-4 border-2 border-primary-foreground/20 border-t-transparent"></div>
+                  <div className="loader-sm"></div>
                   Sending Reset Link...
                 </div>
               ) : (

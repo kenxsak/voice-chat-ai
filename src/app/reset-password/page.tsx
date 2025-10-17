@@ -124,7 +124,9 @@ function ResetPasswordContent() {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted p-4">
         <Card className="w-full max-w-md shadow-xl border-0">
           <CardContent className="p-8 text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-2 border-primary/20 border-t-transparent mx-auto mb-4"></div>
+            <div className="flex justify-center mb-4">
+              <div className="loader"></div>
+            </div>
             <p className="text-muted-foreground">Validating reset token...</p>
           </CardContent>
         </Card>
@@ -261,7 +263,7 @@ function ResetPasswordContent() {
             >
               {isLoading ? (
                 <div className="flex items-center gap-2">
-                  <div className="animate-spin rounded-full h-4 w-4 border-2 border-primary-foreground/20 border-t-transparent"></div>
+                  <div className="loader-sm"></div>
                   Resetting Password...
                 </div>
               ) : (
@@ -287,7 +289,9 @@ function LoadingFallback() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted p-4">
       <Card className="w-full max-w-md shadow-xl border-0">
         <CardContent className="p-8 text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-2 border-primary/20 border-t-transparent mx-auto mb-4"></div>
+          <div className="flex justify-center mb-4">
+            <div className="loader"></div>
+          </div>
           <p className="text-muted-foreground">Loading...</p>
         </CardContent>
       </Card>

@@ -19,7 +19,7 @@ import { cn, hexToHsl } from "@/lib/utils";
 import { differenceInMonths } from 'date-fns';
 import { checkTrialStatus, getEffectivePlanLimits, type TrialStatus } from '@/lib/trial-management';
 import { ThemeLogo, AnimatedLogo } from '@/components/ui/theme-logo';
-import { NeonLoader } from '@/components/ui/loading/neon-loader';
+import MonochromeLoader from '@/components/ui/loading/monochrome-loader';
 
 // Minimal browser speech recognition typings to satisfy TypeScript in the client
 declare global {
@@ -1571,35 +1571,34 @@ function ChatPageContent() {
         <div className={cn(isEmbedded ? "fixed inset-0 z-0" : "fixed bottom-3 right-3 sm:bottom-5 sm:right-5 z-50") }>
             {isWidgetOpen && (
                 <div className={cn("widget-open w-[90vw] h-[calc(100vh-120px)] max-w-[420px] max-h-[520px] sm:w-[calc(100vw-40px)] sm:h-[calc(100vh-100px)] sm:max-w-[400px] sm:max-h-[600px]", isEmbedded && "w-full h-full max-w-none max-h-none") }>
-                    <Card className={cn("w-full h-full glass-card card-3d text-card-foreground rounded-2xl flex flex-col overflow-hidden border-cyan-500/30 dark:border-cyan-500/20", isEmbedded ? "shadow-none" : "shadow-professional-lg neon-pulse") }>
-                        <header className="p-4 border-b border-cyan-500/30 dark:border-cyan-500/20 bg-gradient-to-r from-background/90 via-background/80 to-background/90 dark:from-background/80 dark:via-background/60 dark:to-background/80 backdrop-blur-xl flex items-center justify-between gap-3 shrink-0 relative">
-                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/8 via-purple-500/8 to-pink-500/8 dark:from-cyan-500/5 dark:via-purple-500/5 dark:to-pink-500/5"></div>
-                            <div className="flex items-center gap-3 overflow-hidden relative z-10">
+                    <Card className={cn("w-full h-full text-card-foreground rounded-2xl flex flex-col overflow-hidden border border-gray-200 dark:border-gray-700", isEmbedded ? "shadow-none" : "shadow-2xl") }>
+                        <header className="p-4 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 flex items-center justify-between gap-3 shrink-0">
+                            <div className="flex items-center gap-3 overflow-hidden">
                                 {displayLogoUrl && (
-                                  <div className="h-12 w-12 shrink-0 rounded-lg bg-gradient-to-br from-cyan-500/10 to-purple-500/10 p-1 border border-cyan-500/20">
-                                    <img src={displayLogoUrl} alt="Logo" data-ai-hint="company logo" className="h-full w-full object-contain rounded-md"/>
+                                  <div className="h-10 w-10 shrink-0 rounded-full bg-gray-100 dark:bg-gray-800 p-2">
+                                    <img src={displayLogoUrl} alt="Logo" data-ai-hint="company logo" className="h-full w-full object-contain"/>
                                   </div>
                                 )}
                                 <div className="flex flex-col justify-center overflow-hidden">
-                                    <h1 className="text-sm font-bold truncate bg-gradient-to-r from-cyan-700 via-purple-700 to-pink-700 dark:from-cyan-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent neon-text">
+                                    <h1 className="text-base font-semibold truncate text-gray-900 dark:text-white">
                                         <span>{displayTenantNameNode}</span>
                                     </h1>
                                     {selectedAgent && (
-                                      <div className="flex items-center gap-1 -mt-0.5">
-                                        <div className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.6)]"></div>
-                                        <p className="text-xs text-muted-foreground truncate">with {selectedAgent.name}</p>
+                                      <div className="flex items-center gap-2 -mt-0.5">
+                                        <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                                        <p className="text-sm text-gray-600 dark:text-gray-400 truncate">with {selectedAgent.name}</p>
                                       </div>
                                     )}
                                 </div>
                             </div>
 
-                            <Button variant="ghost" size="icon" className="w-8 h-8 rounded-full ml-auto hover:bg-cyan-500/10 transition-all border border-transparent hover:border-cyan-500/30 relative z-10" onClick={handleWidgetClose}>
-                                <CloseIcon size={16} className="text-cyan-400" />
+                            <Button variant="ghost" size="icon" className="w-8 h-8 rounded-full ml-auto hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" onClick={handleWidgetClose}>
+                                <CloseIcon size={16} className="text-gray-500 dark:text-gray-400" />
                                 <span className="sr-only">Close chat</span>
                             </Button>
                         </header>
 
-                        <ScrollArea ref={scrollAreaRef} className="flex-1 p-4 pb-2 bg-gradient-to-b from-background/20 to-background/40 scrollbar-thin scrollbar-thumb-cyan-500/50 scrollbar-track-transparent hover:scrollbar-thumb-cyan-500/70">
+                        <ScrollArea ref={scrollAreaRef} className="flex-1 p-4 pb-2 bg-white dark:bg-gray-900 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
                             <div className="space-y-3 pb-20 sm:pb-8">
                             {messages.map((message, index) => (
                                 <ChatMessage
@@ -1614,15 +1613,15 @@ function ChatPageContent() {
                             ))}
                             {(isGeneratingResponse || isTyping) && messages.length > 0 && (
                                 <div className="flex justify-start items-end gap-2 animate-in fade-in slide-in-from-left-2 duration-300">
-                                    <Avatar className="h-8 w-8 shrink-0 ring-2 ring-cyan-500/30 animate-pulse">
+                                    <Avatar className="h-8 w-8 shrink-0">
                                         <AvatarImage src={selectedAgent?.avatarUrl || '/icon-192.png'} alt={selectedAgent?.name || 'Agent'} data-ai-hint={selectedAgent?.avatarHint || 'voice chat ai assistant'} className="object-cover"/>
-                                        <AvatarFallback className="bg-transparent p-1"><Image src="/icon-192.png" alt="Agent" width={24} height={24} className="w-full h-full object-contain" /></AvatarFallback>
+                                        <AvatarFallback className="bg-gray-100 dark:bg-gray-800 p-1"><Image src="/icon-192.png" alt="Agent" width={24} height={24} className="w-full h-full object-contain" /></AvatarFallback>
                                     </Avatar>
-                                    <div className="rounded-xl py-3 px-4 max-w-xs text-sm bg-background/40 backdrop-blur-md border border-cyan-500/30 shadow-[0_0_20px_rgba(0,255,255,0.2)]">
+                                    <div className="rounded-xl py-3 px-4 max-w-xs text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                                         <span className="typing-indicator flex gap-1">
-                                          <span className="typing-dot bg-cyan-400 shadow-[0_0_8px_rgba(0,255,255,0.6)]"></span>
-                                          <span className="typing-dot bg-purple-400 shadow-[0_0_8px_rgba(162,89,255,0.6)]"></span>
-                                          <span className="typing-dot bg-pink-400 shadow-[0_0_8px_rgba(255,16,240,0.6)]"></span>
+                                          <span className="typing-dot bg-gray-400"></span>
+                                          <span className="typing-dot bg-gray-500"></span>
+                                          <span className="typing-dot bg-gray-600"></span>
                                         </span>
                                     </div>
                                 </div>
@@ -1630,70 +1629,70 @@ function ChatPageContent() {
                             </div>
                         </ScrollArea>
 
-                        <div className="p-3 border-t border-cyan-500/20 bg-gradient-to-r from-background/90 via-background/80 to-background/90 backdrop-blur-xl space-y-2">
+                        <div className="p-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 space-y-3">
                              {attachedImageDataUri && (
                                 <div className="relative w-fit">
-                                    <img src={attachedImageDataUri} alt="Attachment preview" className="h-16 w-16 object-cover rounded-lg border-2 border-cyan-500/30" data-ai-hint="image preview"/>
+                                    <img src={attachedImageDataUri} alt="Attachment preview" className="h-16 w-16 object-cover rounded-lg border border-gray-200 dark:border-gray-700" data-ai-hint="image preview"/>
                                     <Button
                                     variant="destructive"
                                     size="icon"
-                                    className="absolute -top-2 -right-2 h-5 w-5 rounded-full shadow-[0_0_15px_rgba(239,68,68,0.5)]"
+                                    className="absolute -top-2 -right-2 h-5 w-5 rounded-full bg-red-500 hover:bg-red-600 text-white"
                                     onClick={clearImageAttachment}
                                     >
                                     <CloseIcon size={12} />
                                     </Button>
                                 </div>
                             )}
-                             <div className="flex items-end gap-2">
+                             <div className="flex items-end gap-3">
                                 <Button
                                   variant="ghost"
                                   size="icon"
-                                  className="shrink-0 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all border border-transparent hover:border-cyan-500/30"
+                                  className="shrink-0 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                                   onClick={() => imageInputRef.current?.click()}
                                   disabled={chatInputDisabled}
                                 >
-                                  <Paperclip size={18} />
+                                  <Paperclip size={18} className="text-gray-500 dark:text-gray-400" />
                                   <span className="sr-only">Attach image</span>
                                 </Button>
                                 <Textarea
                                     value={input}
                                     onChange={e => setInput(e.target.value)}
                                     placeholder={isListening ? "Listening..." : (isTenantDisabled ? tenantDisabledReason : "Type or press mic...")}
-                                    className="flex-1 min-h-[40px] max-h-[100px] rounded-xl text-sm resize-none py-2 px-3 bg-background/40 backdrop-blur-sm border-cyan-500/20 focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20 transition-all"
+                                    className="flex-1 min-h-[44px] max-h-[100px] rounded-xl text-sm resize-none py-3 px-4 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:border-gray-400 dark:focus:border-gray-600 focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-700 transition-all"
                                     disabled={chatInputDisabled}
                                     rows={1}
                                     onKeyPress={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSendMessage(); } }}
                                 />
                                 {showMicButton ? (
-                                    <Button onClick={handleMicClick} disabled={chatInputDisabled} variant={isListening ? "destructive" : "default"} size="icon" className={cn("btn-futuristic transition-all", isListening && "mic-recording-glow shadow-[0_0_30px_rgba(0,255,255,0.6)]")} aria-label={isListening ? "Stop listening" : "Start listening"}>
+                                    <Button onClick={handleMicClick} disabled={chatInputDisabled} variant={isListening ? "destructive" : "default"} size="icon" className={cn("transition-all", isListening && "bg-red-500 hover:bg-red-600")} aria-label={isListening ? "Stop listening" : "Start listening"}>
                                         {isListening ? <Square size={18}/> : <Mic size={18}/>}
                                     </Button>
                                 ) : (
-                                    <Button onClick={() => handleSendMessage()} disabled={chatInputDisabled || (!input.trim() && !attachedImageDataUri)} size="icon" className="btn-futuristic bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white" aria-label="Send message">
+                                    <Button onClick={() => handleSendMessage()} disabled={chatInputDisabled || (!input.trim() && !attachedImageDataUri)} size="icon" className="bg-gray-900 dark:bg-gray-100 hover:bg-gray-800 dark:hover:bg-gray-200 text-white dark:text-gray-900 transition-colors" aria-label="Send message">
                                         <Send size={18}/>
                                     </Button>
                                 )}
                             </div>
                         </div>
-                        <footer className="px-3 py-1.5 border-t border-cyan-500/20 bg-gradient-to-r from-background/95 via-background/90 to-background/95 backdrop-blur-lg text-xs text-muted-foreground flex justify-between items-center">
+                        <footer className="px-4 py-3 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-xs text-gray-500 dark:text-gray-400 flex justify-between items-center">
                            {showBranding ? (
-                                <a href={SAAS_PLATFORM_WEBSITE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors flex items-center gap-1 text-center group">
+                                <a href={SAAS_PLATFORM_WEBSITE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-gray-700 dark:hover:text-gray-300 transition-colors flex items-center gap-1 text-center group">
                                     {SAAS_BRANDING_NAME} <ExternalLink className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"/>
                                 </a>
                             ) : <div></div>}
-                            <div className={cn("flex items-center gap-2")}>
-                                <Button onClick={handleMuteToggle} variant="ghost" size="icon" className="h-6 w-6 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all" aria-label={isMuted ? "Unmute" : "Mute"}>
-                                    {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
+                            <div className="flex items-center gap-3">
+                                <Button onClick={handleMuteToggle} variant="ghost" size="icon" className="h-6 w-6 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label={isMuted ? "Unmute" : "Mute"}>
+                                    {isMuted ? <VolumeX size={14} className="text-gray-500 dark:text-gray-400" /> : <Volume2 size={14} className="text-gray-500 dark:text-gray-400" />}
                                 </Button>
-                                <div className="flex items-center gap-1">
-                                    <LanguageIcon className="w-3 h-3 text-cyan-400"/>
+                                <div className="flex items-center gap-2">
+                                    <LanguageIcon className="w-3 h-3 text-gray-500 dark:text-gray-400"/>
                                     <Select
                                         value={languageCode}
                                         onValueChange={setLanguageCode}
                                         disabled={isListening || isGeneratingResponse || !selectedTenant}
                                     >
                                         <SelectTrigger
-                                            className="h-auto w-auto border-0 bg-transparent p-0 text-muted-foreground hover:text-cyan-400 focus:ring-0 focus:ring-offset-0 text-xs language-select-trigger transition-colors"
+                                            className="h-auto w-auto border-0 bg-transparent p-0 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 focus:ring-0 focus:ring-offset-0 text-xs transition-colors"
                                             title="Select Language"
                                         >
                                             <SelectValue placeholder="Language" />
@@ -1715,8 +1714,8 @@ function ChatPageContent() {
               <Button
                   onClick={() => setIsWidgetOpen(!isWidgetOpen)}
                   className={cn(
-                      "rounded-full h-16 shadow-[0_0_40px_rgba(0,255,255,0.4)] hover:shadow-[0_0_60px_rgba(0,255,255,0.6)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 text-lg bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white border-2 border-cyan-400/30 hover:border-cyan-400/60 btn-futuristic",
-                      isWidgetOpen ? "w-16" : "px-6"
+                      "rounded-full h-14 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 text-base font-medium bg-gray-900 dark:bg-gray-100 hover:bg-gray-800 dark:hover:bg-gray-200 text-white dark:text-gray-900 border border-gray-200 dark:border-gray-700",
+                      isWidgetOpen ? "w-14" : "px-6"
                   )}
                   aria-label={isWidgetOpen ? "Close chat" : "Open chat"}
               >
@@ -1725,7 +1724,7 @@ function ChatPageContent() {
                   ) : (
                       <>
                           {selectedTenant?.launcherButtonIcon !== 'none' && (
-                            <span className="inline-flex items-center justify-center rounded-full w-8 h-8 mr-2 shadow-[0_0_20px_rgba(255,255,255,0.3)] bg-white/20 backdrop-blur-sm animate-pulse" aria-hidden>
+                            <span className="inline-flex items-center justify-center rounded-full w-8 h-8 mr-2 bg-white/10 dark:bg-gray-800/20" aria-hidden>
                               {selectedTenant?.launcherButtonIcon === 'chat' && <MessageCircle size={18} />}
                               {selectedTenant?.launcherButtonIcon === 'help' && <HelpCircle size={18} />}
                               {selectedTenant?.launcherButtonIcon === 'phone' && <Phone size={18} />}
@@ -1734,10 +1733,10 @@ function ChatPageContent() {
                           )}
                           <span
                             className={cn(
-                              "text-sm sm:text-base text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]",
+                              "text-sm sm:text-base",
                               selectedTenant?.launcherButtonStyle === 'light' && "font-normal",
                               selectedTenant?.launcherButtonStyle === 'bold' && "font-bold",
-                              (!selectedTenant?.launcherButtonStyle || selectedTenant?.launcherButtonStyle === 'normal') && "font-semibold"
+                              (!selectedTenant?.launcherButtonStyle || selectedTenant?.launcherButtonStyle === 'normal') && "font-medium"
                             )}
                           >
                             {selectedTenant?.launcherButtonText || 'Chat with us'}
@@ -1797,7 +1796,7 @@ export default function Home() {
   return (
     <Suspense fallback={
       <div className="flex items-center justify-center min-h-screen bg-transparent">
-        <NeonLoader variant="pulse" size="lg" text="Loading Chat..." />
+        <MonochromeLoader size="lg" title="Loading Chat..." subtitle="Preparing your conversation..." />
       </div>
     }>
       <HomeWrapper />
