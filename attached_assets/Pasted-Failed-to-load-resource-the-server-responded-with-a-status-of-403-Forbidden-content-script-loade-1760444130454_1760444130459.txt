@@ -1,0 +1,163 @@
+Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+react-dom-client.development.js:24914 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+register-sw.ts:14 ServiceWorker registration successful with scope: https://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/
+use-websocket.ts:16 WebSocket connection to 'wss://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ use-websocket.ts:16
+39The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+page.tsx:1498 [DEBUG] Loaded tenants from API: Array(1)
+page.tsx:1498 [DEBUG] Loaded tenants from API: Array(1)
+page.tsx:1639 [DEBUG] Loading tenant data: Object
+page.tsx:1303 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1677 [DEBUG] Setting training contexts: Array(2)
+page.tsx:1312 [DEBUG] Analytics data loaded: Object
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+page.tsx:1639 [DEBUG] Loading tenant data: Object
+page.tsx:1303 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1677 [DEBUG] Setting training contexts: Array(2)
+ [VoiceChat Widget] Initializing with config: [object Object]
+page.tsx:1312 [DEBUG] Analytics data loaded: Object
+ [VoiceChat Widget] Loaded configuration: [object Object]
+ [VoiceChat Widget] Initialized successfully
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+intercept-console-error.ts:41 A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+error @ intercept-console-error.ts:41
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+register-sw.ts:14 ServiceWorker registration successful with scope: https://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/
+use-websocket.ts:16 WebSocket connection to 'wss://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ use-websocket.ts:16
+ [VoiceChat Widget] Auto-opening after 30 seconds
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+widget.js?tenantId=tenant_1754983849007&position=bottom-right&agentId=agent_1755001935955:225 [VoiceChat Widget] Initializing with config: Object
+widget.js?tenantId=tenant_1754983849007&position=bottom-right&agentId=agent_1755001935955:228 [VoiceChat Widget] Loaded configuration: Object
+widget.js?tenantId=tenant_1754983849007&position=bottom-right&agentId=agent_1755001935955:382 [VoiceChat Widget] Initialized successfully
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+intercept-console-error.ts:41 A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+error @ intercept-console-error.ts:41
+register-sw.ts:14 ServiceWorker registration successful with scope: https://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/
+use-websocket.ts:16 WebSocket connection to 'wss://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ use-websocket.ts:16
+page.tsx:549 Audio context unlocked for this session.
+page.tsx:781 [DEBUG] Knowledge contexts for chat: Object
+page.tsx:861 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+page.tsx:868 📜 [HISTORY CHECK] Sending history to AI: Object
+page.tsx:910 [DEBUG] Raw AI response: {
+  "response": "I'd like to help you with \"hello need qsr\". Could you provide more details or rephrase your question? That will help me give you the most accurate answer.",
+  "conversationId": "conv_1760443995544_7myycpvhu",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about hello need qsr",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+page.tsx:915 [DEBUG] Conversation ID tracked: conv_1760443995544_7myycpvhu
+page.tsx:921 [DEBUG] Translating text: Object
+page.tsx:1010 [DEBUG] Agent response for lead capture: Object
+page.tsx:1027 [DEBUG] Contact info check: Object
+page.tsx:1028 [DEBUG] Current lead ID: null
+page.tsx:1029 [DEBUG] Tenant from storage: Object
+page.tsx:1030 [DEBUG] Lead limit check: 0 < 3000
+page.tsx:1033 [DEBUG] Entering lead save section
+page.tsx:1035 [DEBUG] Lead limit check passed, proceeding with save
+page.tsx:1081 [DEBUG] Generated comprehensive summary: Object
+page.tsx:1131 [DEBUG] Saving lead (create/update): Object
+page.tsx:1137 [DEBUG] API response status: 201
+page.tsx:1139 [DEBUG] API response data: Object
+page.tsx:1192 [WEBHOOK] No webhook URL configured for this tenant
+page.tsx:781 [DEBUG] Knowledge contexts for chat: Object
+page.tsx:861 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+page.tsx:868 📜 [HISTORY CHECK] Sending history to AI: Object
+page.tsx:910 [DEBUG] Raw AI response: {
+  "response": "Hello! I'm Simran, your 24x7 support assistant from Posible POS. I can certainly help you with the features for Quick Service Restaurants (QSRs) in our software.\n\nOur QSR solution is designed to speed up service with features like fast order processing, customizable menu options, and Kitchen Order Tickets (KOT). It also includes Swiggy & Zomato integration, recipe management, and a Kitchen Display System for real-time order management.\n\nWould you like me to continue in English, Hindi, or another language?",
+  "conversationId": "conv_1760443995544_7myycpvhu",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about ok sure let me know features of qsr in your softwa...",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+page.tsx:915 [DEBUG] Conversation ID tracked: conv_1760443995544_7myycpvhu
+page.tsx:921 [DEBUG] Translating text: Object
+page.tsx:947 [TTS] Timeout after 15s, falling back to browser TTS
+page.tsx:549 Audio context unlocked for this session.
+page.tsx:616 [Browser TTS] Selected voice: Microsoft Heera - English (India) (en-IN) for target: en-US
+page.tsx:1010 [DEBUG] Agent response for lead capture: Object
+page.tsx:1027 [DEBUG] Contact info check: Object
+page.tsx:1028 [DEBUG] Current lead ID: lead_1760444017531
+page.tsx:1029 [DEBUG] Tenant from storage: Object
+page.tsx:1030 [DEBUG] Lead limit check: 1 < 3000
+page.tsx:1033 [DEBUG] Entering lead save section
+page.tsx:1035 [DEBUG] Lead limit check passed, proceeding with save
+page.tsx:1081 [DEBUG] Generated comprehensive summary: Object
+page.tsx:1131 [DEBUG] Saving lead (create/update): Object
+page.tsx:1137 [DEBUG] API response status: 201
+page.tsx:1139 [DEBUG] API response data: Object
+page.tsx:1192 [WEBHOOK] No webhook URL configured for this tenant

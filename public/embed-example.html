@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed Chat Widget Example</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; margin: 0; background-color: #f8f9fa; color: #343a40; display: flex; justify-content: center; padding: 20px; }
+        .container { background-color: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); max-width: 800px; width: 100%; }
+        h1, h2, h3 { color: #212529; margin-top: 0; }
+        h1 { font-size: 2em; margin-bottom: 0.75em; border-bottom: 1px solid #dee2e6; padding-bottom: 0.5em;}
+        h2 { font-size: 1.6em; margin-top: 1.5em; margin-bottom: 0.5em; }
+        h3 { font-size: 1.2em; margin-top: 1em; margin-bottom: 0.3em; }
+        p, ul { line-height: 1.7; margin-bottom: 1em; font-size: 0.95em; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 0.5em; }
+        code { background-color: #e9ecef; padding: 3px 7px; border-radius: 5px; font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; font-size: 0.9em; }
+        .snippet { background-color: #282c34; color: #abb2bf; padding: 20px; border-radius: 8px; overflow-x: auto; margin-top: 15px; margin-bottom: 25px; font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; font-size: 0.9em; }
+        .snippet pre { margin: 0; }
+        .placeholder { color: #e5c07b; font-weight: bold; }
+        iframe { border: 1px solid #ced4da; border-radius: 8px; }
+        .notes { margin-top: 25px; padding: 20px; background-color: #e6f7ff; border-left: 5px solid #007bff; border-radius: 5px;}
+        .notes h3 { margin-top: 0; color: #0056b3; }
+        .workflow-section { margin-bottom: 25px; padding: 20px; background-color: #f1f3f5; border-radius: 8px; }
+        .workflow-section h2 { margin-top:0; color: #495057; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Embed Your Chat Widget</h1>
+
+        <div class="workflow-section">
+            <h2>Typical Brand Setup Workflow (Before Embedding)</h2>
+            <p>Before you can embed the chat widget, your brand needs to be set up on our platform. Here's a general overview of the steps a brand representative would typically follow in their dedicated admin dashboard:</p>
+            <ol>
+                <li><strong>Account Creation & Sign-up:</strong> Register your company on our platform to create a new tenant account. This will give you access to your brand-specific admin dashboard.</li>
+                <li><strong>Initial Configuration:</strong>
+                    <ul>
+                        <li>Upload your company logo.</li>
+                        <li>Enter your brand name and a brief company description.</li>
+                        <li>Specify your primary website URL (e.g., <code>https://yourbrand.com</code>). The AI will use this as a key context for information.</li>
+                        <li>(If applicable) Select a subscription plan.</li>
+                    </ul>
+                </li>
+                <li><strong>AI Agent Customization:</strong>
+                    <ul>
+                        <li>Define your chat agent(s), including their name (e.g., "BrandX Sales Pro") and a detailed role description (this heavily influences AI behavior).</li>
+                        <li>(Advanced/Future) Potentially input specific prompts, key selling points, or company-specific jargon.</li>
+                    </ul>
+                </li>
+                <li><strong>Obtain Tenant ID:</strong> Your unique <code>tenantId</code> will be available in your admin dashboard. This ID is crucial for linking the embeddable widget to your specific brand's configuration.</li>
+            </ol>
+            <p>Once these steps are completed, your chat widget is configured, and you can proceed to embed it on your website using the snippet below.</p>
+        </div>
+
+        <p>To embed the chat widget on your website, copy and paste the HTML snippet below into your webpage's HTML where you want the widget to appear.</p>
+
+        <h2>Recommended: Floating Widget Snippet</h2>
+        <p>Add this one-liner near the end of your site’s <code>&lt;body&gt;</code>. Replace <code class="placeholder">YOUR_CHAT_APP_BASE_URL</code> and <code class="placeholder">YOUR_TENANT_ID</code>.</p>
+        <div class="snippet">
+            <pre><code>
+&lt;script src="<span class="placeholder">YOUR_CHAT_APP_BASE_URL</span>/widget.js?tenantId=<span class="placeholder">YOUR_TENANT_ID</span>" defer&gt;&lt;/script&gt;
+            </code></pre>
+        </div>
+
+        <h2>Customization Notes:</h2>
+        <ul>
+            <li><strong><code>src</code> Attribute:</strong>
+                <ul>
+                    <li>Replace <code class="placeholder">YOUR_CHAT_APP_BASE_URL</code> with the URL where the main chat application is hosted (e.g., <code>https://your-chat-platform.com</code>).</li>
+                    <li>Replace <code class="placeholder">YOUR_TENANT_ID</code> with the unique ID assigned to your brand/tenant (e.g., <code>tenant_acme_corp</code>). You get this from your admin dashboard after completing the setup workflow described above.</li>
+                </ul>
+            </li>
+            <li><strong><code>width</code> and <code>height</code>:</strong> Adjust these values (e.g., <code>width="380" height="550"</code>) to best fit the layout of your website.</li>
+            <li><strong><code>title</code> Attribute:</strong> It's highly recommended to provide a descriptive title for accessibility purposes (e.g., "BrandX Customer Support Chat").</li>
+            <li><strong><code>style</code> Attribute:</strong> Basic styling is provided for a modern look. You can customize this further. For significant visual consistency, theme customization might be offered within your tenant admin dashboard.</li>
+            <li><strong><code>allow="microphone"</code>:</strong> This is crucial if your chat widget uses voice input features. Ensure your chat application also correctly requests microphone permissions from the user.</li>
+        </ul>
+
+        <div class="notes">
+            <h3>Important Considerations for Embedding:</h3>
+            <ul>
+                <li><strong>Hosting:</strong> The main chat application (at <code class="placeholder">YOUR_CHAT_APP_BASE_URL</code>) must be hosted and publicly accessible for the iframe to load it.</li>
+                <li><strong>Tenant Configuration Complete:</strong> Ensure your tenant account (identified by <code class="placeholder">YOUR_TENANT_ID</code>) is fully configured as per the "Typical Brand Setup Workflow" section above. This includes branding, agent definitions, and AI context (like your website URL).</li>
+                <li><strong>Cross-Origin Resource Sharing (CORS) & Content Security Policy (CSP):</strong>
+                    <ul>
+                        <li>The server hosting the chat application (<code class="placeholder">YOUR_CHAT_APP_BASE_URL</code>) may need to be configured to allow embedding.</li>
+                        <li>Specifically, it might need to send a <code>Content-Security-Policy</code> HTTP header with the <code>frame-ancestors</code> directive specifying the domains that are allowed to embed it (e.g., <code>frame-ancestors https://yourbrand.com;</code>).</li>
+                        <li>Consult your hosting provider or server administrator if you encounter issues with the iframe not loading due to security policies.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2>Example with Placeholders Filled:</h2>
+        <p>If your chat platform is hosted at <code>https://livechat.saasplatform.com</code> and your brand's tenant ID is <code>brandX123</code>:</p>
+        <div class="snippet">
+            <pre><code>
+&lt;script
+  src="https://livechat.saasplatform.com/widget.js"
+  data-base-url="https://livechat.saasplatform.com"
+  data-tenant-id="brandX123"
+  defer
+&gt;&lt;/script&gt;
+            </code></pre>
+        </div>
+        <p>By following these instructions, brands can easily integrate this powerful chat solution into their online presence, providing a customized and intelligent conversational experience for their users.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+Error: A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+    at createUnhandledError (https://116466fb-a5c1-4244-8774-209ea50cfa1e-00-jbv44ws5wips.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_client_43e3ffb8._.js:879:71)
+    at handleClientError (https://116466fb-a5c1-4244-8774-209ea50cfa1e-00-jbv44ws5wips.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_client_43e3ffb8._.js:1052:56)
+    at console.error (https://116466fb-a5c1-4244-8774-209ea50cfa1e-00-jbv44ws5wips.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_client_43e3ffb8._.js:1191:56)
+    at https://116466fb-a5c1-4244-8774-209ea50cfa1e-00-jbv44ws5wips.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:9382:25
+    at runWithFiberInDEV (https://116466fb-a5c1-4244-8774-209ea50cfa1e-00-jbv44ws5wips.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:3501:74)
+    at emitPendingHydrationWarnings (https://116466fb-a5c1-4244-8774-209ea50cfa1e-00-jbv44ws5wips.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:9381:13)
+    at completeWork (https://116466fb-a5c1-4244-8774-209ea50cfa1e-00-jbv44ws5wips.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:9455:102)
+    at runWithFiberInDEV (https://116466fb-a5c1-4244-8774-209ea50cfa1e-00-jbv44ws5wips.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:3501:131)
+    at completeUnitOfWork (https://116466fb-a5c1-4244-8774-209ea50cfa1e-00-jbv44ws5wips.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:10233:23)
+    at performUnitOfWork (https://116466fb-a5c1-4244-8774-209ea50cfa1e-00-jbv44ws5wips.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:10170:28)
+    at workLoopConcurrentByScheduler (https://116466fb-a5c1-4244-8774-209ea50cfa1e-00-jbv44ws5wips.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:10164:58)
+    at renderRootConcurrent (https://116466fb-a5c1-4244-8774-209ea50cfa1e-00-jbv44ws5wips.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:10146:71)
+    at performWorkOnRoot (https://116466fb-a5c1-4244-8774-209ea50cfa1e-00-jbv44ws5wips.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:9784:176)
+    at performWorkOnRootViaSchedulerTask (https://116466fb-a5c1-4244-8774-209ea50cfa1e-00-jbv44ws5wips.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:10796:9)
+    at MessagePort.performWorkUntilDeadline (https://116466fb-a5c1-4244-8774-209ea50cfa1e-00-jbv44ws5wips.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:1952:64)
+    at div (<anonymous>)
+    at Home (https://116466fb-a5c1-4244-8774-209ea50cfa1e-00-jbv44ws5wips.sisko.replit.dev/_next/static/chunks/src_c685050c._.js:3609:218)
+    at ClientPageRoot (https://116466fb-a5c1-4244-8774-209ea50cfa1e-00-jbv44ws5wips.sisko.replit.dev/_next/static/chunks/node_modules_c4732a9f._.js:8854:50)

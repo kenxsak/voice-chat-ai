@@ -1,0 +1,249 @@
+Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+react-dom-client.development.js:24914 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+use-websocket.ts:16 WebSocket connection to 'wss://d27985c1-a833-419e-bc9d-5490aec2567a-00-3glogxqzvbqoi.pike.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ use-websocket.ts:16
+71The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+page.tsx:1300 [DEBUG] Loaded tenants from API: Array(1)
+page.tsx:1300 [DEBUG] Loaded tenants from API: Array(1)
+page.tsx:1440 [DEBUG] Loading tenant data: Object
+page.tsx:1146 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1478 [DEBUG] Setting training contexts: Array(2)
+page.tsx:1155 [DEBUG] Analytics data loaded: Object
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+page.tsx:1440 [DEBUG] Loading tenant data: Object
+page.tsx:1146 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1478 [DEBUG] Setting training contexts: Array(2)
+ [VoiceChat Widget] Initializing with config: [object Object]
+page.tsx:1155 [DEBUG] Analytics data loaded: Object
+ [VoiceChat Widget] Loaded configuration: [object Object]
+ [VoiceChat Widget] Initialized successfully
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+Console.js:61 A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+Mt.forEach.n.<computed> @ Console.js:61
+Network.js:227 WebSocket connection to 'wss://d27985c1-a833-419e-bc9d-5490aec2567a-00-3glogxqzvbqoi.pike.replit.dev/_next/webpack-hmr' failed: 
+t @ Network.js:227
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+widget.js?tenantId=tenant_1754983849007&position=bottom-right&agentId=agent_1755001935955:225 [VoiceChat Widget] Initializing with config: Object
+widget.js?tenantId=tenant_1754983849007&position=bottom-right&agentId=agent_1755001935955:228 [VoiceChat Widget] Loaded configuration: Object
+widget.js?tenantId=tenant_1754983849007&position=bottom-right&agentId=agent_1755001935955:382 [VoiceChat Widget] Initialized successfully
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+Console.js:61 A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+Mt.forEach.n.<computed> @ Console.js:61
+Network.js:227 WebSocket connection to 'wss://d27985c1-a833-419e-bc9d-5490aec2567a-00-3glogxqzvbqoi.pike.replit.dev/_next/webpack-hmr' failed: 
+t @ Network.js:227
+Console.js:61 Audio context unlocked for this session.
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "Hello there! That's an excellent question. We pride ourselves on our after-sales support.\n\nOur team provides complete onboarding assistance, which includes free setup, staff training, and even help with your inventory setup. We ensure most businesses are up and running smoothly within 24 hours.\n\nTo help me understand your specific needs better, may I start by getting your full name, please?",
+  "conversationId": "conv_1759846604897_u7aaau3qa",
+  "customerId": "cust_1759842168186_zn0c6gls5",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about hello need to know about after sales services from...",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759846604897_u7aaau3qa
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [Unload] Closing conversation: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Lead info captured? false
+Console.js:61 [DEBUG] Current lead ID: null
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 0 < 3000
+Console.js:61 [DEBUG] No lead info captured and no current lead ID
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [Unload] Closing conversation: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "Thank you, Nagendra! It's a pleasure to connect with you.\n\nTo make sure we can stay in touch and send you helpful information, could I get your WhatsApp number, please? And if you could include the country code, for example, +91 for India, that would be wonderful.",
+  "conversationId": "conv_1759846604897_u7aaau3qa",
+  "customerId": "cust_1759842168186_zn0c6gls5",
+  "isReturningCustomer": true,
+  "conversationSummary": "User asked about my name Nagendra Verma",
+  "leadName": "Nagendra Verma",
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759846604897_u7aaau3qa
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Lead info captured? true
+Console.js:61 [DEBUG] Current lead ID: null
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 0 < 3000
+Console.js:61 [DEBUG] Entering lead save section
+Console.js:61 [DEBUG] Lead limit check passed, proceeding with save
+Console.js:61 [DEBUG] Generated comprehensive summary: Object
+Console.js:61 [DEBUG] Saving lead (create/update): Object
+/api/leads:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+Console.js:61 [DEBUG] API response status: 500
+Console.js:61 [DEBUG] API response data: Object
+Console.js:61 [DEBUG] Lead save failed - HTTP not OK Object
+Mt.forEach.n.<computed> @ Console.js:61
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "Thank you for sharing your number, Nagendra. I've noted it down.\n\nNext, could you please provide your email address? This will help us send you a summary of our conversation and other useful details.",
+  "conversationId": "conv_1759846604897_u7aaau3qa",
+  "customerId": "cust_1759848874607_inpho6d4g",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about +919876543210",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": "+919876543210",
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759846604897_u7aaau3qa
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Lead info captured? true
+Console.js:61 [DEBUG] Current lead ID: lead_1759848856649
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 1 < 3000
+Console.js:61 [DEBUG] Entering lead save section
+Console.js:61 [DEBUG] Lead limit check passed, proceeding with save
+Console.js:61 [DEBUG] Generated comprehensive summary: Object
+Console.js:61 [DEBUG] Saving lead (create/update): Object
+/api/leads:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+Console.js:61 [DEBUG] API response status: 500
+Console.js:61 [DEBUG] API response data: Object
+Console.js:61 [DEBUG] Lead save failed - HTTP not OK Object
+Mt.forEach.n.<computed> @ Console.js:61
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [Unload] Closing conversation: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "Perfect, thank you for your email, Nagendra. I appreciate you sharing that.\n\nTo help me understand how Posible can best serve you, could you tell me a bit about your business? For instance, are you in retail, a salon, a restaurant, or another type of business?",
+  "conversationId": "conv_1759846604897_u7aaau3qa",
+  "customerId": "cust_1759848909217_yugmh63es",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about nagendra@gmail.com",
+  "leadName": null,
+  "leadEmail": "nagendra@gmail.com",
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759846604897_u7aaau3qa
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Lead info captured? true
+Console.js:61 [DEBUG] Current lead ID: lead_1759848856649
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 1 < 3000
+Console.js:61 [DEBUG] Entering lead save section
+Console.js:61 [DEBUG] Lead limit check passed, proceeding with save
+Console.js:61 [DEBUG] Generated comprehensive summary: Object
+Console.js:61 [DEBUG] Saving lead (create/update): Object
+/api/leads:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+Console.js:61 [DEBUG] API response status: 500
+Console.js:61 [DEBUG] API response data: Object
+Console.js:61 [DEBUG] Lead save failed - HTTP not OK Object
+Mt.forEach.n.<computed> @ Console.js:61
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "That's wonderful, Nagendra. Posible is perfectly designed for retail businesses, and our billing, inventory management, and CRM features are some of our strongest points. You've come to the right place!\n\nTo understand your setup better, could you please share your business name and the city where it's located?",
+  "conversationId": "conv_1759846604897_u7aaau3qa",
+  "customerId": "cust_1759848909217_yugmh63es",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about retail looking for billing and inventory managemen...",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759846604897_u7aaau3qa
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Lead info captured? false
+Console.js:61 [DEBUG] Current lead ID: lead_1759848856649
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 1 < 3000
+Console.js:61 [DEBUG] Entering lead save section
+Console.js:61 [DEBUG] Lead limit check passed, proceeding with save
+Console.js:61 [DEBUG] Generated comprehensive summary: Object
+Console.js:61 [DEBUG] Saving lead (create/update): Object
+/api/leads:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+Console.js:61 [DEBUG] API response status: 500
+Console.js:61 [DEBUG] API response data: Object
+Console.js:61 [DEBUG] Lead save failed - HTTP not OK Object
+Mt.forEach.n.<computed> @ Console.js:61
+Console.js:61 [Unload] Closing conversation: Object
+Console.js:61 [Unload] Closing conversation: Object
+Console.js:61 [Unload] Closing conversation: Object
+Console.js:61 [Unload] Closing conversation: Object

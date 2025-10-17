@@ -1,0 +1,195 @@
+Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+react-dom-client.development.js:24914 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+use-websocket.ts:16 WebSocket connection to 'wss://d788d425-c279-4868-abc8-a70dbc06f7ca-00-kwfe86wn9re2.pike.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ use-websocket.ts:16
+page.tsx:1306 [DEBUG] Loaded tenants from API: Array(1)
+page.tsx:1446 [DEBUG] Loading tenant data: Object
+page.tsx:1148 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1484 [DEBUG] Setting training contexts: Array(2)
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+page.tsx:1157 [DEBUG] Analytics data loaded: Object
+widget.js?tenantId=tenant_1754983849007&position=bottom-right:225 [VoiceChat Widget] Initializing with config: [object Object]
+widget.js?tenantId=tenant_1754983849007&position=bottom-right:228 [VoiceChat Widget] Loaded configuration: [object Object]
+widget.js?tenantId=tenant_1754983849007&position=bottom-right:382 [VoiceChat Widget] Initialized successfully
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+Console.js:61 A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+Mt.forEach.n.<computed> @ Console.js:61
+Network.js:227 WebSocket connection to 'wss://d788d425-c279-4868-abc8-a70dbc06f7ca-00-kwfe86wn9re2.pike.replit.dev/_next/webpack-hmr' failed: 
+t @ Network.js:227
+page.tsx:1446 [DEBUG] Loading tenant data: Object
+page.tsx:1148 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1484 [DEBUG] Setting training contexts: Array(2)
+page.tsx:1157 [DEBUG] Analytics data loaded: Object
+47The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+widget.js?tenantId=tenant_1754983849007&position=bottom-right:225 [VoiceChat Widget] Initializing with config: Object
+page.tsx:1446 [DEBUG] Loading tenant data: Object
+page.tsx:1148 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1484 [DEBUG] Setting training contexts: Array(2)
+widget.js?tenantId=tenant_1754983849007&position=bottom-right:228 [VoiceChat Widget] Loaded configuration: Object
+widget.js?tenantId=tenant_1754983849007&position=bottom-right:382 [VoiceChat Widget] Initialized successfully
+page.tsx:1157 [DEBUG] Analytics data loaded: Object
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+Console.js:61 A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+Mt.forEach.n.<computed> @ Console.js:61
+Network.js:227 WebSocket connection to 'wss://d788d425-c279-4868-abc8-a70dbc06f7ca-00-kwfe86wn9re2.pike.replit.dev/_next/webpack-hmr' failed: 
+t @ Network.js:227
+Console.js:61 Audio context unlocked for this session.
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "Of course, I can certainly help you with that. Our team provides full onboarding assistance to make sure you're set up for success right from the start.\n\nTo connect you with the right person on our support team, could you please tell me your full name?",
+  "conversationId": "conv_1759860381611_3qawvlmbd",
+  "customerId": "cust_1759842168186_zn0c6gls5",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about need support for account set up",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759860381611_3qawvlmbd
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Contact info check: Object
+Console.js:61 [DEBUG] Current lead ID: null
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 0 < 3000
+Console.js:61 [DEBUG] Entering lead save section
+Console.js:61 [DEBUG] Lead limit check passed, proceeding with save
+Console.js:61 [DEBUG] Generated comprehensive summary: Object
+Console.js:61 [DEBUG] Saving lead (create/update): Object
+/api/leads:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+Console.js:61 [DEBUG] API response status: 500
+Console.js:61 [DEBUG] API response data: Object
+Console.js:61 [DEBUG] Lead save failed - HTTP not OK Object
+Mt.forEach.n.<computed> @ Console.js:61
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "I understand completely. To connect you with the right support team for your account setup, I'll need to find your account in our system.\n\nCould you please share the full name you used when you registered? This will help me pull up your details and ensure you get the proper assistance.",
+  "conversationId": "conv_1759860381611_3qawvlmbd",
+  "customerId": "cust_1759842168186_zn0c6gls5",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about i a do not want to tell that",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759860381611_3qawvlmbd
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Contact info check: Object
+Console.js:61 [DEBUG] Current lead ID: lead_1759860889596
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 1 < 3000
+Console.js:61 [DEBUG] Entering lead save section
+Console.js:61 [DEBUG] Lead limit check passed, proceeding with save
+Console.js:61 [DEBUG] Generated comprehensive summary: Object
+Console.js:61 [DEBUG] Saving lead (create/update): Object
+/api/leads:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+Console.js:61 [DEBUG] API response status: 500
+Console.js:61 [DEBUG] API response data: Object
+Console.js:61 [DEBUG] Lead save failed - HTTP not OK Object
+Mt.forEach.n.<computed> @ Console.js:61
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "Understood. Thank you for your time.\n\nIf you change your mind or need any assistance in the future, please don't hesitate to reach out. We're always here to help. Have a great day",
+  "conversationId": "conv_1759860381611_3qawvlmbd",
+  "customerId": "cust_1759842168186_zn0c6gls5",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about ok bye",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759860381611_3qawvlmbd
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Contact info check: Object
+Console.js:61 [DEBUG] Current lead ID: lead_1759860889596
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 1 < 3000
+Console.js:61 [DEBUG] Entering lead save section
+Console.js:61 [DEBUG] Lead limit check passed, proceeding with save
+Console.js:61 [DEBUG] Generated comprehensive summary: Object
+Console.js:61 [DEBUG] Saving lead (create/update): Object
+/api/leads:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+Console.js:61 [DEBUG] API response status: 500
+Console.js:61 [DEBUG] API response data: Object
+Console.js:61 [DEBUG] Lead save failed - HTTP not OK Object
+Mt.forEach.n.<computed> @ Console.js:61
+Console.js:61 [Unload] Closing conversation: Object
+/api/conversations/close:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)

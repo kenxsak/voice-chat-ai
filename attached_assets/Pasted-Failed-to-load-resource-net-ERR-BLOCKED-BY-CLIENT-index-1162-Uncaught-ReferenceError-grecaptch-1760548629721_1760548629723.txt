@@ -1,0 +1,179 @@
+Failed to load resource: net::ERR_BLOCKED_BY_CLIENT
+(index):1162 Uncaught ReferenceError: grecaptcha is not defined
+    at (index):1162:3
+widget.js?tenantId=tenant_1755699142380&agentId=agent_1755699726191:225 [VoiceChat Widget] Initializing with config: Object
+index.iife.js:1 content script loaded
+widget.js?tenantId=tenant_1755699142380&agentId=agent_1755699726191:228 [VoiceChat Widget] Loaded configuration: Object
+widget.js?tenantId=tenant_1755699142380&agentId=agent_1755699726191:382 [VoiceChat Widget] Initialized successfully
+index.iife.js:1 content script loaded
+layout-8f83df1baa5ff78c.js:1 ServiceWorker registration successful with scope: https://app.voicechatai.wmart.in/
+page-78eff5e13517664f.js:1 Audio context unlocked for this session.
+page-78eff5e13517664f.js:1 [DEBUG] Knowledge contexts for chat: Object
+page-78eff5e13517664f.js:1 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+page-78eff5e13517664f.js:1 📜 [HISTORY CHECK] Sending history to AI: Object
+page-78eff5e13517664f.js:1 [DEBUG] Raw AI response: {
+  "response": "Hello there! Yes, absolutely, WMart.in specializes in developing tailored AI applications to help businesses like yours thrive. We have a wonderful team ready to create custom solutions that perfectly fit your operational needs. To understand your specific requirements better, would you be open to sharing a few details about your business and the AI application you envision?",
+  "conversationId": "conv_1760547791954_60im2kzir",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about hello need help in developing some ai application ...",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+page-78eff5e13517664f.js:1 [DEBUG] Conversation ID tracked: conv_1760547791954_60im2kzir
+page-78eff5e13517664f.js:1 [DEBUG] Translating text: Object
+page-78eff5e13517664f.js:1 [DEBUG] Agent response for lead capture: {leadName: null, leadEmail: null, leadPhone: null, fallbackFromText: {…}, finalLead: {…}, …}
+page-78eff5e13517664f.js:1 [DEBUG] Contact info check: {hasName: false, hasEmail: false, hasPhone: false, hasAnyContactInfo: false, shouldSaveLead: true}
+page-78eff5e13517664f.js:1 [DEBUG] Current lead ID: null
+page-78eff5e13517664f.js:1 [DEBUG] Tenant from storage: {id: 'tenant_1755699142380', name: 'WMart.in', companyLogoUrl: 'https://i.ibb.co/vvVYpTMC/Wmart-Logo.png', brandColor: '#8A65FF', companyDetails: "WMart.in Is India's first fully autonomous AI agen…and reduce costs with cutting-edge AI technology.", …}
+page-78eff5e13517664f.js:1 [DEBUG] Lead limit check: 0 < 3000
+page-78eff5e13517664f.js:1 [DEBUG] Entering lead save section
+page-78eff5e13517664f.js:1 [DEBUG] Lead limit check passed, proceeding with save
+/favicon.ico:1  GET https://wmart.in/favicon.ico 404 (Not Found)
+page-78eff5e13517664f.js:1 [DEBUG] Generated comprehensive summary: {summary: 'A potential customer contacted WMart.in seeking as…lication to better understand their requirements.', customerName: 'null', customerEmail: 'null', customerPhone: 'null', problemsCount: 1, …}
+page-78eff5e13517664f.js:1 [DEBUG] Saving lead (create/update): {isNewLead: true, id: 'lead_1760547817268'}
+page-78eff5e13517664f.js:1 [DEBUG] API response status: 201
+page-78eff5e13517664f.js:1 [DEBUG] API response data: {lead: {…}}
+page-78eff5e13517664f.js:1 [WEBHOOK] No webhook URL configured for this tenant
+page-78eff5e13517664f.js:1 [DEBUG] Knowledge contexts for chat: {selectedAgentWebsite: 'https://wmart.in/', tenantTrainingContextsCount: 1, agentTrainingContextsCount: 2, tenantTrainingContexts: Array(1), agentTrainingContexts: Array(2), …}
+page-78eff5e13517664f.js:1 [DEBUG] Mapped knowledge contexts being sent to AI: {count: 1, contexts: Array(1), hasContent: false}
+page-78eff5e13517664f.js:1 📜 [HISTORY CHECK] Sending history to AI: {historyLength: 3, lastFewMessages: Array(3)}
+page-78eff5e13517664f.js:1 [DEBUG] Raw AI response: {
+  "response": "Oh, absolutely! WMart.in is highly skilled in developing advanced AI chatbots, much like the one you're interacting with now, tailored specifically for various business needs. We can definitely create a sophisticated chatbot solution that aligns perfectly with your vision and helps enhance your business operations. To discuss how we can customize one for you, would you be open to a brief chat about your specific requirements?",
+  "conversationId": "conv_1760547791954_60im2kzir",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about looking for ai chat bot similar to this can your c...",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+page-78eff5e13517664f.js:1 [DEBUG] Conversation ID tracked: conv_1760547791954_60im2kzir
+page-78eff5e13517664f.js:1 [DEBUG] Translating text: {originalText: 'Oh, absolutely! WMart.in is highly skilled in deve…ng advanced AI chatbots, much like the one you...', languageCode: 'en-US'}
+page-78eff5e13517664f.js:1 [DEBUG] Agent response for lead capture: {leadName: null, leadEmail: null, leadPhone: null, fallbackFromText: {…}, finalLead: {…}, …}
+page-78eff5e13517664f.js:1 [DEBUG] Contact info check: {hasName: false, hasEmail: false, hasPhone: false, hasAnyContactInfo: false, shouldSaveLead: 'lead_1760547817268'}
+page-78eff5e13517664f.js:1 [DEBUG] Current lead ID: lead_1760547817268
+page-78eff5e13517664f.js:1 [DEBUG] Tenant from storage: {id: 'tenant_1755699142380', name: 'WMart.in', companyLogoUrl: 'https://i.ibb.co/vvVYpTMC/Wmart-Logo.png', brandColor: '#8A65FF', companyDetails: "WMart.in Is India's first fully autonomous AI agen…and reduce costs with cutting-edge AI technology.", …}
+page-78eff5e13517664f.js:1 [DEBUG] Lead limit check: 1 < 3000
+page-78eff5e13517664f.js:1 [DEBUG] Entering lead save section
+page-78eff5e13517664f.js:1 [DEBUG] Lead limit check passed, proceeding with save
+page-78eff5e13517664f.js:1 [DEBUG] Generated comprehensive summary: {summary: "A potential customer contacted WMart.in seeking as… the customer's vision and business needs better.", customerName: 'null', customerEmail: 'null', customerPhone: 'null', problemsCount: 2, …}
+page-78eff5e13517664f.js:1 [DEBUG] Saving lead (create/update): {isNewLead: false, id: 'lead_1760547817268'}
+page-78eff5e13517664f.js:1 [DEBUG] API response status: 201
+page-78eff5e13517664f.js:1 [DEBUG] API response data: {lead: {…}}
+page-78eff5e13517664f.js:1 [WEBHOOK] No webhook URL configured for this tenant
+page-78eff5e13517664f.js:1 [DEBUG] Knowledge contexts for chat: {selectedAgentWebsite: 'https://wmart.in/', tenantTrainingContextsCount: 1, agentTrainingContextsCount: 2, tenantTrainingContexts: Array(1), agentTrainingContexts: Array(2), …}
+page-78eff5e13517664f.js:1 [DEBUG] Mapped knowledge contexts being sent to AI: {count: 1, contexts: Array(1), hasContent: false}
+page-78eff5e13517664f.js:1 📜 [HISTORY CHECK] Sending history to AI: {historyLength: 5, lastFewMessages: Array(3)}
+page-78eff5e13517664f.js:1 [DEBUG] Raw AI response: {
+  "response": "That's a fantastic goal! To get a sophisticated AI chatbot tailored specifically for your business website, it involves a bit more than just a simple registration; we collaborate closely with you to customize it perfectly. The best first step is for us to have a quick chat to understand your specific requirements and vision. Would you be open to a brief call or a quick online meeting to explore how we can bring this to life for your business?",
+  "conversationId": "conv_1760547791954_60im2kzir",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about same to same this chat how do i get on my business...",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+page-78eff5e13517664f.js:1 [DEBUG] Conversation ID tracked: conv_1760547791954_60im2kzir
+page-78eff5e13517664f.js:1 [DEBUG] Translating text: {originalText: "That's a fantastic goal! To get a sophisticated AI…tbot tailored specifically for your business w...", languageCode: 'en-US'}
+page-78eff5e13517664f.js:1 [DEBUG] Agent response for lead capture: {leadName: null, leadEmail: null, leadPhone: null, fallbackFromText: {…}, finalLead: {…}, …}
+page-78eff5e13517664f.js:1 [DEBUG] Contact info check: {hasName: false, hasEmail: false, hasPhone: false, hasAnyContactInfo: false, shouldSaveLead: 'lead_1760547817268'}
+page-78eff5e13517664f.js:1 [DEBUG] Current lead ID: lead_1760547817268
+page-78eff5e13517664f.js:1 [DEBUG] Tenant from storage: {id: 'tenant_1755699142380', name: 'WMart.in', companyLogoUrl: 'https://i.ibb.co/vvVYpTMC/Wmart-Logo.png', brandColor: '#8A65FF', companyDetails: "WMart.in Is India's first fully autonomous AI agen…and reduce costs with cutting-edge AI technology.", …}
+page-78eff5e13517664f.js:1 [DEBUG] Lead limit check: 1 < 3000
+page-78eff5e13517664f.js:1 [DEBUG] Entering lead save section
+page-78eff5e13517664f.js:1 [DEBUG] Lead limit check passed, proceeding with save
+page-78eff5e13517664f.js:1 [DEBUG] Generated comprehensive summary: {summary: "The customer inquired about developing an AI chatb… the chatbot to life for the customer's business.", customerName: 'null', customerEmail: 'null', customerPhone: 'null', problemsCount: 3, …}
+page-78eff5e13517664f.js:1 [DEBUG] Saving lead (create/update): {isNewLead: false, id: 'lead_1760547817268'}
+page-78eff5e13517664f.js:1 [DEBUG] API response status: 201
+page-78eff5e13517664f.js:1 [DEBUG] API response data: {lead: {…}}
+page-78eff5e13517664f.js:1 [WEBHOOK] No webhook URL configured for this tenant
+page-78eff5e13517664f.js:1 [DEBUG] Knowledge contexts for chat: {selectedAgentWebsite: 'https://wmart.in/', tenantTrainingContextsCount: 1, agentTrainingContextsCount: 2, tenantTrainingContexts: Array(1), agentTrainingContexts: Array(2), …}
+page-78eff5e13517664f.js:1 [DEBUG] Mapped knowledge contexts being sent to AI: {count: 1, contexts: Array(1), hasContent: false}
+page-78eff5e13517664f.js:1 📜 [HISTORY CHECK] Sending history to AI: {historyLength: 7, lastFewMessages: Array(3)}
+page-78eff5e13517664f.js:1 [DEBUG] Raw AI response: {
+  "response": "Wonderful! I'm delighted to hear that. To ensure my team reaches out to you promptly and effectively, could you please share your preferred phone number and email address with me? We're eager to discuss how we can customize an AI chatbot for your business.",
+  "conversationId": "conv_1760547791954_60im2kzir",
+  "customerId": "cust_1759972172445_vcy1zt9mb",
+  "isReturningCustomer": true,
+  "conversationSummary": "User asked about yes please tell some one to call me on my number o...",
+  "leadName": "on my number or email me",
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+page-78eff5e13517664f.js:1 [DEBUG] Conversation ID tracked: conv_1760547791954_60im2kzir
+page-78eff5e13517664f.js:1 [DEBUG] Translating text: {originalText: "Wonderful! I'm delighted to hear that. To ensure m…am reaches out to you promptly and effectively...", languageCode: 'en-US'}
+page-78eff5e13517664f.js:1 [DEBUG] Agent response for lead capture: {leadName: 'on my number or email me', leadEmail: null, leadPhone: null, fallbackFromText: {…}, finalLead: {…}, …}
+page-78eff5e13517664f.js:1 [DEBUG] Contact info check: {hasName: true, hasEmail: false, hasPhone: false, hasAnyContactInfo: true, shouldSaveLead: true}
+page-78eff5e13517664f.js:1 [DEBUG] Current lead ID: lead_1760547817268
+page-78eff5e13517664f.js:1 [DEBUG] Tenant from storage: {id: 'tenant_1755699142380', name: 'WMart.in', companyLogoUrl: 'https://i.ibb.co/vvVYpTMC/Wmart-Logo.png', brandColor: '#8A65FF', companyDetails: "WMart.in Is India's first fully autonomous AI agen…and reduce costs with cutting-edge AI technology.", …}
+page-78eff5e13517664f.js:1 [DEBUG] Lead limit check: 1 < 3000
+page-78eff5e13517664f.js:1 [DEBUG] Entering lead save section
+page-78eff5e13517664f.js:1 [DEBUG] Lead limit check passed, proceeding with save
+page-78eff5e13517664f.js:1 [DEBUG] Generated comprehensive summary: {summary: 'A customer inquired about developing an AI chatbot…ustomization of an AI chatbot for their business.', customerName: 'null', customerEmail: 'null', customerPhone: 'null', problemsCount: 3, …}
+page-78eff5e13517664f.js:1 [DEBUG] Saving lead (create/update): {isNewLead: false, id: 'lead_1760547817268'}
+page-78eff5e13517664f.js:1 [DEBUG] API response status: 201
+page-78eff5e13517664f.js:1 [DEBUG] API response data: {lead: {…}}
+page-78eff5e13517664f.js:1 [WEBHOOK] No webhook URL configured for this tenant
+page-78eff5e13517664f.js:1 [DEBUG] Knowledge contexts for chat: {selectedAgentWebsite: 'https://wmart.in/', tenantTrainingContextsCount: 1, agentTrainingContextsCount: 2, tenantTrainingContexts: Array(1), agentTrainingContexts: Array(2), …}
+page-78eff5e13517664f.js:1 [DEBUG] Mapped knowledge contexts being sent to AI: {count: 1, contexts: Array(1), hasContent: false}
+page-78eff5e13517664f.js:1 📜 [HISTORY CHECK] Sending history to AI: {historyLength: 9, lastFewMessages: Array(3)}
+page-78eff5e13517664f.js:1 [DEBUG] Raw AI response: {
+  "response": "Thank you so much, Gayatri! I've noted down your name, number, and email address. Someone from my dedicated team will be reaching out to you very soon to discuss your AI chatbot requirements in more detail and explore how we can tailor the perfect solution for your business. We're truly eager to help you get this fantastic AI chatbot on your website!",
+  "conversationId": "conv_1760547791954_60im2kzir",
+  "customerId": "cust_1760548108130_9stfzmwwv",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about my name gayatri talwar and my number +917894561230...",
+  "leadName": "gayatri talwar and my number",
+  "leadEmail": "gayatri@demo.com",
+  "leadPhone": "+917894561230",
+  "knowledgeGapQuery": null
+}
+page-78eff5e13517664f.js:1 [DEBUG] Conversation ID tracked: conv_1760547791954_60im2kzir
+page-78eff5e13517664f.js:1 [DEBUG] Translating text: {originalText: "Thank you so much, Gayatri! I've noted down your n… number, and email address. Someone from my de...", languageCode: 'en-US'}
+page-78eff5e13517664f.js:1 [DEBUG] Agent response for lead capture: {leadName: 'gayatri talwar and my number', leadEmail: 'gayatri@demo.com', leadPhone: '+917894561230', fallbackFromText: {…}, finalLead: {…}, …}
+page-78eff5e13517664f.js:1 [DEBUG] Contact info check: {hasName: true, hasEmail: true, hasPhone: true, hasAnyContactInfo: true, shouldSaveLead: true}
+page-78eff5e13517664f.js:1 [DEBUG] Current lead ID: lead_1760547817268
+page-78eff5e13517664f.js:1 [DEBUG] Tenant from storage: {id: 'tenant_1755699142380', name: 'WMart.in', companyLogoUrl: 'https://i.ibb.co/vvVYpTMC/Wmart-Logo.png', brandColor: '#8A65FF', companyDetails: "WMart.in Is India's first fully autonomous AI agen…and reduce costs with cutting-edge AI technology.", …}
+page-78eff5e13517664f.js:1 [DEBUG] Lead limit check: 1 < 3000
+page-78eff5e13517664f.js:1 [DEBUG] Entering lead save section
+page-78eff5e13517664f.js:1 [DEBUG] Lead limit check passed, proceeding with save
+page-78eff5e13517664f.js:1 [DEBUG] Generated comprehensive summary: {summary: 'Gayatri Talwar is seeking to develop an AI chatbot…low-up call to explore the customization options.', customerName: 'Gayatri Talwar', customerEmail: 'gayatri@demo.com', customerPhone: '+917894561230', problemsCount: 3, …}
+page-78eff5e13517664f.js:1 [DEBUG] Saving lead (create/update): {isNewLead: false, id: 'lead_1760547817268'}
+page-78eff5e13517664f.js:1 [DEBUG] API response status: 201
+page-78eff5e13517664f.js:1 [DEBUG] API response data: {lead: {…}}
+page-78eff5e13517664f.js:1 [WEBHOOK] No webhook URL configured for this tenant
+page-78eff5e13517664f.js:1 [DEBUG] Knowledge contexts for chat: {selectedAgentWebsite: 'https://wmart.in/', tenantTrainingContextsCount: 1, agentTrainingContextsCount: 2, tenantTrainingContexts: Array(1), agentTrainingContexts: Array(2), …}
+page-78eff5e13517664f.js:1 [DEBUG] Mapped knowledge contexts being sent to AI: {count: 1, contexts: Array(1), hasContent: false}
+page-78eff5e13517664f.js:1 📜 [HISTORY CHECK] Sending history to AI: {historyLength: 11, lastFewMessages: Array(3)}
+page-78eff5e13517664f.js:1 [DEBUG] Raw AI response: {
+  "response": "You are most welcome, Gayatri! It was an absolute pleasure speaking with you. My team is already preparing to connect with you very soon to discuss your AI chatbot in detail. We're truly excited about the possibilities for your business!",
+  "conversationId": "conv_1760547791954_60im2kzir",
+  "customerId": "cust_1760548108130_9stfzmwwv",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about ok thanks and bye",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+page-78eff5e13517664f.js:1 [DEBUG] Conversation ID tracked: conv_1760547791954_60im2kzir
+page-78eff5e13517664f.js:1 [DEBUG] Translating text: {originalText: 'You are most welcome, Gayatri! It was an absolute …sure speaking with you. My team is already pre...', languageCode: 'en-US'}
+page-78eff5e13517664f.js:1 [DEBUG] Agent response for lead capture: {leadName: null, leadEmail: null, leadPhone: null, fallbackFromText: {…}, finalLead: {…}, …}
+page-78eff5e13517664f.js:1 [DEBUG] Contact info check: {hasName: false, hasEmail: false, hasPhone: false, hasAnyContactInfo: false, shouldSaveLead: 'lead_1760547817268'}
+page-78eff5e13517664f.js:1 [DEBUG] Current lead ID: lead_1760547817268
+page-78eff5e13517664f.js:1 [DEBUG] Tenant from storage: {id: 'tenant_1755699142380', name: 'WMart.in', companyLogoUrl: 'https://i.ibb.co/vvVYpTMC/Wmart-Logo.png', brandColor: '#8A65FF', companyDetails: "WMart.in Is India's first fully autonomous AI agen…and reduce costs with cutting-edge AI technology.", …}
+page-78eff5e13517664f.js:1 [DEBUG] Lead limit check: 1 < 3000
+page-78eff5e13517664f.js:1 [DEBUG] Entering lead save section
+page-78eff5e13517664f.js:1 [DEBUG] Lead limit check passed, proceeding with save
+page-78eff5e13517664f.js:1 [DEBUG] Generated comprehensive summary: {summary: 'Gayatri Talwar is seeking to develop an AI chatbot…specific requirements and vision for the chatbot.', customerName: 'Gayatri Talwar', customerEmail: 'gayatri@demo.com', customerPhone: '+917894561230', problemsCount: 3, …}
+page-78eff5e13517664f.js:1 [DEBUG] Saving lead (create/update): {isNewLead: false, id: 'lead_1760547817268'}
+page-78eff5e13517664f.js:1 [DEBUG] API response status: 201
+page-78eff5e13517664f.js:1 [DEBUG] API response data: {lead: {…}}
+page-78eff5e13517664f.js:1 [WEBHOOK] No webhook URL configured for this tenant

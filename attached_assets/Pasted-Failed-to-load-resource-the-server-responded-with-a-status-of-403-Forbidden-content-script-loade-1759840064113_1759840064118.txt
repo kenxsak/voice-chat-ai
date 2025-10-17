@@ -1,0 +1,295 @@
+Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+react-dom-client.development.js:24914 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+use-websocket.ts:16 WebSocket connection to 'wss://7d715116-b840-4acf-a596-ce66b8231d37-00-2ntvjv5u6awvm.pike.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ use-websocket.ts:16
+/api/tenants:1  Failed to load resource: the server responded with a status of 401 (Unauthorized)
+page.tsx:1300 [DEBUG] Loaded tenants from API: Array(0)
+/api/leads:1  Failed to load resource: the server responded with a status of 401 (Unauthorized)
+/api/gaps:1  Failed to load resource: the server responded with a status of 401 (Unauthorized)
+/api/auth/me:1  Failed to load resource: the server responded with a status of 401 (Unauthorized)
+131The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+page.tsx:1300 [DEBUG] Loaded tenants from API: Array(1)
+page.tsx:1300 [DEBUG] Loaded tenants from API: Array(1)
+page.tsx:1440 [DEBUG] Loading tenant data: Object
+page.tsx:1146 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1478 [DEBUG] Setting training contexts: Array(2)
+page.tsx:1155 [DEBUG] Analytics data loaded: Object
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+ [VoiceChat Widget] Initializing with config: [object Object]
+page.tsx:1440 [DEBUG] Loading tenant data: Object
+page.tsx:1146 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1478 [DEBUG] Setting training contexts: Array(2)
+page.tsx:1155 [DEBUG] Analytics data loaded: Object
+ [VoiceChat Widget] Loaded configuration: [object Object]
+ [VoiceChat Widget] Initialized successfully
+page.tsx:1440 [DEBUG] Loading tenant data: Object
+page.tsx:1146 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1478 [DEBUG] Setting training contexts: Array(2)
+page.tsx:1155 [DEBUG] Analytics data loaded: Object
+page.tsx:1440 [DEBUG] Loading tenant data: Object
+page.tsx:1146 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1478 [DEBUG] Setting training contexts: Array(2)
+page.tsx:1155 [DEBUG] Analytics data loaded: Object
+page.tsx:1440 [DEBUG] Loading tenant data: Object
+page.tsx:1478 [DEBUG] Setting training contexts: Array(2)
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+page.tsx:1440 [DEBUG] Loading tenant data: Object
+page.tsx:1146 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1478 [DEBUG] Setting training contexts: Array(2)
+ [VoiceChat Widget] Initializing with config: [object Object]
+ [VoiceChat Widget] Loaded configuration: [object Object]
+ [VoiceChat Widget] Initialized successfully
+page.tsx:1155 [DEBUG] Analytics data loaded: Object
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+widget.js?tenantId=tenant_1754983849007&position=bottom-right&agentId=agent_1755001935955:225 [VoiceChat Widget] Initializing with config: Object
+widget.js?tenantId=tenant_1754983849007&position=bottom-right&agentId=agent_1755001935955:228 [VoiceChat Widget] Loaded configuration: Object
+widget.js?tenantId=tenant_1754983849007&position=bottom-right&agentId=agent_1755001935955:382 [VoiceChat Widget] Initialized successfully
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+Console.js:61 A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+Mt.forEach.n.<computed> @ Console.js:61
+Network.js:227 WebSocket connection to 'wss://7d715116-b840-4acf-a596-ce66b8231d37-00-2ntvjv5u6awvm.pike.replit.dev/_next/webpack-hmr' failed: 
+t @ Network.js:227
+Console.js:61 Audio context unlocked for this session.
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "Thank you so much for providing your details, Santosh Sharma. I've noted down your number as +91 9876543210 and your email address.\n\nIt's wonderful that you're looking for a solution for your pet store! To help you better, could you please tell me the name of your store and where it is located?",
+  "conversationId": "conv_1759839134768_6xbd1gcjh",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about need software for pet store my name Santosh Sharma...",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759839134768_6xbd1gcjh
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Lead info captured? true
+Console.js:61 [DEBUG] Current lead ID: null
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 0 < 3000
+Console.js:61 [DEBUG] Entering lead save section
+Console.js:61 [DEBUG] Lead limit check passed, proceeding with save
+Console.js:61 [DEBUG] Generated comprehensive summary: Object
+Console.js:61 [DEBUG] Saving lead (create/update): Object
+Console.js:61 [DEBUG] API response status: 201
+Console.js:61 [DEBUG] API response data: Object
+Console.js:61 [WEBHOOK] No webhook URL configured for this tenant
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "That's a lovely name! Thank you for sharing that, Santosh. It's great to have Santosh Pets from Mumbai with us today.\n\nTo understand your needs better, could you let me know if you are looking for a solution for a single store, or do you have multiple locations?",
+  "conversationId": "conv_1759839134768_6xbd1gcjh",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about Santosh Pets from mumbai",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759839134768_6xbd1gcjh
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Lead info captured? false
+Console.js:61 [DEBUG] Current lead ID: lead_1759839170359
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 1 < 3000
+Console.js:61 [DEBUG] Entering lead save section
+Console.js:61 [DEBUG] Lead limit check passed, proceeding with save
+Console.js:61 [DEBUG] Generated comprehensive summary: Object
+Console.js:61 [DEBUG] Saving lead (create/update): Object
+Console.js:61 [DEBUG] API response status: 201
+Console.js:61 [DEBUG] API response data: Object
+Console.js:61 [WEBHOOK] No webhook URL configured for this tenant
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "Great, thank you for confirming that. A single store setup is perfect.\n\nTo make sure I suggest the best features for Santosh Pets, could you share some of the main challenges you're currently facing with managing your store? For example, are you looking to improve inventory tracking, appointment scheduling for services, or something else?",
+  "conversationId": "conv_1759839134768_6xbd1gcjh",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about single location",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759839134768_6xbd1gcjh
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Lead info captured? false
+Console.js:61 [DEBUG] Current lead ID: lead_1759839170359
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 1 < 3000
+Console.js:61 [DEBUG] Entering lead save section
+Console.js:61 [DEBUG] Lead limit check passed, proceeding with save
+Console.js:61 [DEBUG] Generated comprehensive summary: Object
+Console.js:61 [DEBUG] Saving lead (create/update): Object
+Console.js:61 [DEBUG] API response status: 201
+Console.js:61 [DEBUG] API response data: Object
+Console.js:61 [WEBHOOK] No webhook URL configured for this tenant
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "That makes perfect sense, Santosh. Managing inventory, especially with products that have expiry dates, and scheduling services like grooming can be quite a task.\n\nPosible POS is designed to solve exactly these challenges for pet stores. Our system offers real-time **Inventory Management with Expiration Date Tracking**, so you always know what's in stock and can avoid waste. Plus, our **Service & Appointment Scheduling** feature makes it easy to book and manage appointments for all your services.\n\nWe also have a wonderful **Pet Profile Management** feature, which allows you to track vaccination history, grooming preferences, and dietary needs for each pet, helping you provide a truly personalized service.",
+  "conversationId": "conv_1759839134768_6xbd1gcjh",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about looking to improve inventory tracking, appointment...",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759839134768_6xbd1gcjh
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Lead info captured? false
+Console.js:61 [DEBUG] Current lead ID: lead_1759839170359
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 1 < 3000
+Console.js:61 [DEBUG] Entering lead save section
+Console.js:61 [DEBUG] Lead limit check passed, proceeding with save
+Console.js:61 [DEBUG] Generated comprehensive summary: Object
+Console.js:61 [DEBUG] Saving lead (create/update): Object
+Console.js:61 [DEBUG] API response status: 201
+Console.js:61 [DEBUG] API response data: Object
+Console.js:61 [WEBHOOK] No webhook URL configured for this tenant
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "I'm here to help! What would you like to know?",
+  "conversationId": "conv_1759839134768_6xbd1gcjh",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about ok thanks please let me know the best plans and pr...",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759839134768_6xbd1gcjh
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Lead info captured? false
+Console.js:61 [DEBUG] Current lead ID: lead_1759839170359
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 1 < 3000
+Console.js:61 [DEBUG] Entering lead save section
+Console.js:61 [DEBUG] Lead limit check passed, proceeding with save
+Console.js:61 [DEBUG] Generated comprehensive summary: Object
+Console.js:61 [DEBUG] Saving lead (create/update): Object
+Console.js:61 [DEBUG] API response status: 201
+Console.js:61 [DEBUG] API response data: Object
+Console.js:61 [WEBHOOK] No webhook URL configured for this tenant
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "Of course, Santosh. Based on your need for inventory tracking and appointment scheduling, our **Professional Plan** would be the perfect fit for Santosh Pets. It includes",
+  "conversationId": "conv_1759839134768_6xbd1gcjh",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about looking to improve inventory tracking, appointment...",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759839134768_6xbd1gcjh
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Lead info captured? false
+Console.js:61 [DEBUG] Current lead ID: lead_1759839170359
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 1 < 3000
+Console.js:61 [DEBUG] Entering lead save section
+Console.js:61 [DEBUG] Lead limit check passed, proceeding with save
+Console.js:61 [DEBUG] Generated comprehensive summary: Object
+Console.js:61 [DEBUG] Saving lead (create/update): Object
+Console.js:61 [DEBUG] API response status: 201
+Console.js:61 [DEBUG] API response data: Object
+Console.js:61 [WEBHOOK] No webhook URL configured for this tenant
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "My sincere apologies, Santosh! It seems my last message was incomplete. Let me provide the full details for you.\n\nBased on your need for inventory tracking and appointment scheduling, our **Professional Plan** would be the perfect fit for Santosh Pets. It includes everything you need, such as advanced **Inventory Management**, **Appointment Booking**, and a powerful **Customer Loyalty Program** to keep your clients coming back.\n\nThis plan is currently available for just ₹9,999 per year, offering excellent value for a growing business like yours. Would you like to know more about its specific features?",
+  "conversationId": "conv_1759839134768_6xbd1gcjh",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about why it it stopped and not completing sentence",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759839134768_6xbd1gcjh
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Lead info captured? false
+Console.js:61 [DEBUG] Current lead ID: lead_1759839170359
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 1 < 3000
+Console.js:61 [DEBUG] Entering lead save section
+Console.js:61 [DEBUG] Lead limit check passed, proceeding with save
+Console.js:61 [DEBUG] Generated comprehensive summary: Object
+Console.js:61 [DEBUG] Saving lead (create/update): Object
+Console.js:61 [DEBUG] API response status: 201
+Console.js:61 [DEBUG] API response data: Object
+Console.js:61 [WEBHOOK] No webhook URL configured for this tenant
+Console.js:61 [Unload] Closing conversation: {conversationId: 'conv_1759839134768_6xbd1gcjh', tenantId: 'tenant_1754983849007', sessionId: 'sid_1759839124947_ha34ce', agentName: 'Simran AI Sales Agent', businessContext: 'AI-Powered POS System for Modern Business\nTransfor… online, perfect for retail, ecommerce, and more.'}
+page.tsx:1293  POST https://7d715116-b840-4acf-a596-ce66b8231d37-00-2ntvjv5u6awvm.pike.replit.dev/api/conversations/close 500 (Internal Server Error)
+ChatPageContent.useEffect.handleUnload @ page.tsx:1293
+ChatPageContent.useEffect.handleVisibilityChange @ page.tsx:1313
+Console.js:61 [Unload] Closing conversation: {conversationId: 'conv_1759839134768_6xbd1gcjh', tenantId: 'tenant_1754983849007', sessionId: 'sid_1759839124947_ha34ce', agentName: 'Simran AI Sales Agent', businessContext: 'AI-Powered POS System for Modern Business\nTransfor… online, perfect for retail, ecommerce, and more.'}
+page.tsx:1293  POST https://7d715116-b840-4acf-a596-ce66b8231d37-00-2ntvjv5u6awvm.pike.replit.dev/api/conversations/close 500 (Internal Server Error)
+ChatPageContent.useEffect.handleUnload @ page.tsx:1293
+ChatPageContent.useEffect.handleVisibilityChange @ page.tsx:1313
+Console.js:61 [Unload] Closing conversation: {conversationId: 'conv_1759839134768_6xbd1gcjh', tenantId: 'tenant_1754983849007', sessionId: 'sid_1759839124947_ha34ce', agentName: 'Simran AI Sales Agent', businessContext: 'AI-Powered POS System for Modern Business\nTransfor… online, perfect for retail, ecommerce, and more.'}
+page.tsx:1293  POST https://7d715116-b840-4acf-a596-ce66b8231d37-00-2ntvjv5u6awvm.pike.replit.dev/api/conversations/close 500 (Internal Server Error)
+ChatPageContent.useEffect.handleUnload @ page.tsx:1293
+ChatPageContent.useEffect.handleVisibilityChange @ page.tsx:1313

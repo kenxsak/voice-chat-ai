@@ -1,0 +1,54 @@
+My Voice Chat Bot Rightly Cpaturing Every Details as i wanted but still my Voice Chat bot cant support on image attachements for seeing that image and supporting so please check that . I am pasting full conversation where i see that after few replies voice bot do not remember the entire chat history as need memory rather than guiding and just collecting personal details than actual sales or support its not remembering entire chat history from start to reply . also by default syestem mesaage "I'm here to help! What would you like to know?" after this message comes it starts keep asking full name , number and email and get into loop. Sometimes the chat bot relies hal way message you can understand all this flaw from my chat conversation done . Also in analytic in recent interaction On Clicking View image it does not open the same image for viewing . Make sure our chat bot is multimodal support image aswell voice aswell chat . last but not least if we can reduce the waiting time as conversations are little slow and customer has to wait a lot as voice bot taking time to go through all details like past conversations aswell , training data of website or doc aswell Agent Description (for AI) from aswell custom instruction on agent management section aswell agent specific training on website scraping aswell doc uploading in pdf and text.Go throuh all probelems and correct everything also check if lead data preperly captured can send Via Lead Notification Webhook URL so that only captured leads Send captured lead data to your CRM or Google Sheet and ignore the anaonymous data in this for getting clean data in CRM or google sheet to follow up by humans
+
+46 minutes ago
+Checkpoint made
+46 minutes ago
+•
+Free
+Saved your changes before starting work
+
+Diagnosed all system issues (8 seconds)
+Based on my analysis of your codebase and the conversation log you provided, I've identified multiple critical issues affecting your voice chatbot. Let me create a comprehensive plan to fix all of them:
+
+
+Decided on image passing syntax (8 seconds)
+
+Fixed image support in Genkit AI flow
+
+Decided on media handling strategy
+
+Fixed image support in AI flow
+
+Decided on next task progression
+
+Decided on chat history fix approach (4 seconds)
+
+Fixed repeated contact info requests
+
+Marked task as completed pending review
+
+Decided on fallback message strategy (8 seconds)
+
+Improved AI response fallback context
+
+Decided on imageUrl field addition (4 seconds)
+
+Fixed analytics view full image functionality
+
+Marked task as completed pending review
+
+Decided on response speed optimization (7 seconds)
+
+Optimizing AI response speed
+Task
+Reduce data processing load and limit knowledge contexts sent to the AI in generate-agent-response.ts to improve response times and reduce token usage.
+
+Show more
+
+Added comprehensive logging for AI data
+Keep only top three knowledge items
+Checkpoint made
+20 minutes ago
+Improve conversation memory and add image attachment support
+25 minutes of work
+Agent encountered an error while running, we are investigating the issue.

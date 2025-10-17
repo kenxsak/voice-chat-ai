@@ -1,0 +1,298 @@
+ailed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+node_modules_next_dist_compiled_2ce9398a._.js:sourcemap:16330 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+node_modules_next_dist_client_43e3ffb8._.js:sourcemap:14247 WebSocket connection to 'wss://b1ee8190-d06e-4612-8654-8c2ed11f2aa0-00-1uy2ppwsm4og9.pike.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ node_modules_next_dist_client_43e3ffb8._.js:sourcemap:14247
+/api/tenants:1  Failed to load resource: the server responded with a status of 401 (Unauthorized)
+src_app_dashboard_page_tsx_04fd597f._.js:sourcemap:2704 [DEBUG] Loaded tenants from API: Array(0)
+/icon-192.png:1  Failed to load resource: the server responded with a status of 404 (Not Found)
+/dashboard?tab=analytics:1 Error while trying to use the following icon from the Manifest: https://b1ee8190-d06e-4612-8654-8c2ed11f2aa0-00-1uy2ppwsm4og9.pike.replit.dev/icon-192.png (Download error or resource isn't a valid image)
+/api/gaps:1  Failed to load resource: the server responded with a status of 401 (Unauthorized)
+/api/leads:1  Failed to load resource: the server responded with a status of 401 (Unauthorized)
+/api/auth/me:1  Failed to load resource: the server responded with a status of 401 (Unauthorized)
+/icon-192.png:1  Failed to load resource: the server responded with a status of 404 (Not Found)
+/login:1 Error while trying to use the following icon from the Manifest: https://b1ee8190-d06e-4612-8654-8c2ed11f2aa0-00-1uy2ppwsm4og9.pike.replit.dev/icon-192.png (Download error or resource isn't a valid image)
+131The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+/api/auth/login:1  Failed to load resource: the server responded with a status of 401 (Unauthorized)
+src_app_dashboard_page_tsx_04fd597f._.js:sourcemap:2704 [DEBUG] Loaded tenants from API: Array(1)
+src_app_dashboard_page_tsx_04fd597f._.js:sourcemap:2704 [DEBUG] Loaded tenants from API: Array(1)
+/icon-192.png:1  Failed to load resource: the server responded with a status of 404 (Not Found)
+/dashboard:1 Error while trying to use the following icon from the Manifest: https://b1ee8190-d06e-4612-8654-8c2ed11f2aa0-00-1uy2ppwsm4og9.pike.replit.dev/icon-192.png (Download error or resource isn't a valid image)
+src_app_dashboard_page_tsx_04fd597f._.js:sourcemap:2870 [DEBUG] Loading tenant data: Object
+src_app_dashboard_page_tsx_04fd597f._.js:sourcemap:2494 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+src_app_dashboard_page_tsx_04fd597f._.js:sourcemap:2913 [DEBUG] Setting training contexts: Array(2)
+src_app_dashboard_page_tsx_04fd597f._.js:sourcemap:2502 [DEBUG] Analytics data loaded: Object
+src_app_dashboard_page_tsx_04fd597f._.js:sourcemap:2870 [DEBUG] Loading tenant data: Object
+src_app_dashboard_page_tsx_04fd597f._.js:sourcemap:2494 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+src_app_dashboard_page_tsx_04fd597f._.js:sourcemap:2913 [DEBUG] Setting training contexts: Array(2)
+src_app_dashboard_page_tsx_04fd597f._.js:sourcemap:2502 [DEBUG] Analytics data loaded: Object
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+src_app_dashboard_page_tsx_04fd597f._.js:sourcemap:2870 [DEBUG] Loading tenant data: Object
+src_app_dashboard_page_tsx_04fd597f._.js:sourcemap:2494 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+src_app_dashboard_page_tsx_04fd597f._.js:sourcemap:2913 [DEBUG] Setting training contexts: Array(2)
+ [VoiceChat Widget] Initializing with config: [object Object]
+src_app_dashboard_page_tsx_04fd597f._.js:sourcemap:2502 [DEBUG] Analytics data loaded: Object
+ [VoiceChat Widget] Loaded configuration: [object Object]
+ [VoiceChat Widget] Initialized successfully
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+injected.js:27 A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+(anonymous) @ injected.js:27
+node_modules_next_dist_client_43e3ffb8._.js:sourcemap:14247 WebSocket connection to 'wss://b1ee8190-d06e-4612-8654-8c2ed11f2aa0-00-1uy2ppwsm4og9.pike.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ node_modules_next_dist_client_43e3ffb8._.js:sourcemap:14247
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+widget.js?tenantId=tenant_1754983849007&position=bottom-right&agentId=agent_1755001935955:225 [VoiceChat Widget] Initializing with config: Object
+widget.js?tenantId=tenant_1754983849007&position=bottom-right&agentId=agent_1755001935955:228 [VoiceChat Widget] Loaded configuration: Object
+widget.js?tenantId=tenant_1754983849007&position=bottom-right&agentId=agent_1755001935955:382 [VoiceChat Widget] Initialized successfully
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+injected.js:27 A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+(anonymous) @ injected.js:27
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+node_modules_next_dist_client_43e3ffb8._.js:sourcemap:14247 WebSocket connection to 'wss://b1ee8190-d06e-4612-8654-8c2ed11f2aa0-00-1uy2ppwsm4og9.pike.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ node_modules_next_dist_client_43e3ffb8._.js:sourcemap:14247
+injected.js:27 Audio context unlocked for this session.
+injected.js:27 [DEBUG] Knowledge contexts for chat: Object
+injected.js:27 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+injected.js:27 📜 [HISTORY CHECK] Sending history to AI: Object
+injected.js:27 [DEBUG] Raw AI response: {
+  "response": "I can certainly help you with that! Could you please share your full name so I can assist you better with Posible POS software?\n",
+  "conversationId": "conv_1760094622112_mrj7pfc6j",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about need support for adding product on my pos software",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+injected.js:27 [DEBUG] Conversation ID tracked: conv_1760094622112_mrj7pfc6j
+injected.js:27 [DEBUG] Translating text: Object
+injected.js:27 [DEBUG] Agent response for lead capture: Object
+injected.js:27 [DEBUG] Contact info check: Object
+injected.js:27 [DEBUG] Current lead ID: null
+injected.js:27 [DEBUG] Tenant from storage: Object
+injected.js:27 [DEBUG] Lead limit check: 0 < 3000
+injected.js:27 [DEBUG] Entering lead save section
+injected.js:27 [DEBUG] Lead limit check passed, proceeding with save
+/icon-192.png:1  Failed to load resource: the server responded with a status of 404 (Not Found)
+injected.js:27 [DEBUG] Generated comprehensive summary: Object
+injected.js:27 [DEBUG] Saving lead (create/update): Object
+injected.js:27 [DEBUG] API response status: 201
+injected.js:27 [DEBUG] API response data: Object
+injected.js:27 [WEBHOOK] No webhook URL configured for this tenant
+injected.js:27 [DEBUG] Knowledge contexts for chat: Object
+injected.js:27 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+injected.js:27 📜 [HISTORY CHECK] Sending history to AI: Object
+injected.js:27 [DEBUG] Raw AI response: {
+  "response": "Thank you, Rohit! It's a pleasure to assist you.\n\nTo help me guide you with adding products to your POS system, could you please share your WhatsApp number, including the country code? (e.g., +91 for India, +1 for the USA). This will help me provide you with the most relevant support.\n",
+  "conversationId": "conv_1760094622112_mrj7pfc6j",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about Rohit Das is my name",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+injected.js:27 [DEBUG] Conversation ID tracked: conv_1760094622112_mrj7pfc6j
+injected.js:27 [DEBUG] Translating text: Object
+injected.js:27 [DEBUG] Agent response for lead capture: Object
+injected.js:27 [DEBUG] Contact info check: Object
+injected.js:27 [DEBUG] Current lead ID: lead_1760094638759
+injected.js:27 [DEBUG] Tenant from storage: Object
+injected.js:27 [DEBUG] Lead limit check: 1 < 3000
+injected.js:27 [DEBUG] Entering lead save section
+injected.js:27 [DEBUG] Lead limit check passed, proceeding with save
+injected.js:27 [DEBUG] Generated comprehensive summary: Object
+injected.js:27 [DEBUG] Saving lead (create/update): Object
+injected.js:27 [DEBUG] API response status: 201
+injected.js:27 [DEBUG] API response data: Object
+injected.js:27 [WEBHOOK] No webhook URL configured for this tenant
+injected.js:27 [DEBUG] Knowledge contexts for chat: Object
+injected.js:27 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+injected.js:27 📜 [HISTORY CHECK] Sending history to AI: Object
+injected.js:27 [DEBUG] Raw AI response: {
+  "response": "Thank you, Rohit! I appreciate you sharing your WhatsApp number.\n\nTo assist you further, could you please provide your email address? This will allow me to send you helpful resources and updates regarding Posible POS software.\n",
+  "conversationId": "conv_1760094622112_mrj7pfc6j",
+  "customerId": "cust_1760094720956_okturg0lw",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about +91 9513574560",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": "+91 9513574560",
+  "knowledgeGapQuery": null
+}
+injected.js:27 [DEBUG] Conversation ID tracked: conv_1760094622112_mrj7pfc6j
+injected.js:27 [DEBUG] Translating text: Object
+injected.js:27 [DEBUG] Agent response for lead capture: Object
+injected.js:27 [DEBUG] Contact info check: Object
+injected.js:27 [DEBUG] Current lead ID: lead_1760094638759
+injected.js:27 [DEBUG] Tenant from storage: Object
+injected.js:27 [DEBUG] Lead limit check: 1 < 3000
+injected.js:27 [DEBUG] Entering lead save section
+injected.js:27 [DEBUG] Lead limit check passed, proceeding with save
+injected.js:27 [DEBUG] Generated comprehensive summary: Object
+injected.js:27 [DEBUG] Saving lead (create/update): Object
+injected.js:27 [DEBUG] API response status: 201
+injected.js:27 [DEBUG] API response data: Object
+injected.js:27 [WEBHOOK] No webhook URL configured for this tenant
+injected.js:27 [DEBUG] Knowledge contexts for chat: Object
+injected.js:27 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+injected.js:27 📜 [HISTORY CHECK] Sending history to AI: Object
+injected.js:27 [DEBUG] Raw AI response: {
+  "response": "Thank you, Rohit! I have noted your email address.\n\nTo best assist you with adding products to your POS software, could you please tell me what type of business you operate? Knowing your business vertical (e.g., retail, grocery, salon) will help me provide specific instructions.\n",
+  "conversationId": "conv_1760094622112_mrj7pfc6j",
+  "customerId": "cust_1760094762826_ldqmpg7y0",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about Rohit@test.com",
+  "leadName": null,
+  "leadEmail": "Rohit@test.com",
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+injected.js:27 [DEBUG] Conversation ID tracked: conv_1760094622112_mrj7pfc6j
+injected.js:27 [DEBUG] Translating text: Object
+injected.js:27 [DEBUG] Agent response for lead capture: Object
+injected.js:27 [DEBUG] Contact info check: Object
+injected.js:27 [DEBUG] Current lead ID: lead_1760094638759
+injected.js:27 [DEBUG] Tenant from storage: Object
+injected.js:27 [DEBUG] Lead limit check: 1 < 3000
+injected.js:27 [DEBUG] Entering lead save section
+injected.js:27 [DEBUG] Lead limit check passed, proceeding with save
+injected.js:27 [DEBUG] Generated comprehensive summary: Object
+injected.js:27 [DEBUG] Saving lead (create/update): Object
+injected.js:27 [DEBUG] API response status: 201
+injected.js:27 [DEBUG] API response data: Object
+injected.js:27 [WEBHOOK] No webhook URL configured for this tenant
+injected.js:27 [DEBUG] Knowledge contexts for chat: Object
+injected.js:27 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+injected.js:27 📜 [HISTORY CHECK] Sending history to AI: Object
+injected.js:27 [DEBUG] Raw AI response: {
+  "response": "Thank you, Rohit! Knowing you run a salon helps me tailor my advice.\n\nPosible POS is great for salons! We offer features like appointment scheduling, staff management, and customer loyalty programs, which can really streamline your operations. You can learn more about our salon and spa management solution here: https://posible.in/solutions\n",
+  "conversationId": "conv_1760094622112_mrj7pfc6j",
+  "customerId": "cust_1760094762826_ldqmpg7y0",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about salon",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+injected.js:27 [DEBUG] Conversation ID tracked: conv_1760094622112_mrj7pfc6j
+injected.js:27 [DEBUG] Translating text: Object
+injected.js:27 [DEBUG] Agent response for lead capture: Object
+injected.js:27 [DEBUG] Contact info check: Object
+injected.js:27 [DEBUG] Current lead ID: lead_1760094638759
+injected.js:27 [DEBUG] Tenant from storage: Object
+injected.js:27 [DEBUG] Lead limit check: 1 < 3000
+injected.js:27 [DEBUG] Entering lead save section
+injected.js:27 [DEBUG] Lead limit check passed, proceeding with save
+injected.js:27 [DEBUG] Generated comprehensive summary: Object
+injected.js:27 [DEBUG] Saving lead (create/update): Object
+injected.js:27 [DEBUG] API response status: 201
+injected.js:27 [DEBUG] API response data: Object
+injected.js:27 [WEBHOOK] No webhook URL configured for this tenant
+injected.js:27 [Unload] Closing conversation: Object
+injected.js:27 [Unload] Closing conversation: Object
+injected.js:27 [DEBUG] Knowledge contexts for chat: Object
+injected.js:27 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+injected.js:27 📜 [HISTORY CHECK] Sending history to AI: Object
+injected.js:27 [DEBUG] Raw AI response: {
+  "response": "Thank you for pointing that out, Rohit! I apologize for the incorrect URL. You're right, the correct URL for our solutions page is simply posible.in.\n\nNow that I know you're in the salon business, are you currently facing any specific challenges with managing your salon, such as inventory for products or scheduling appointments? Understanding your pain points will help me show you how Posible POS can make your work easier.\n",
+  "conversationId": "conv_1760094622112_mrj7pfc6j",
+  "customerId": "cust_1759842168186_zn0c6gls5",
+  "isReturningCustomer": true,
+  "conversationSummary": "User asked about https://posible.in/#solutions as the above url giv...",
+  "leadName": "right url wht",
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+injected.js:27 [DEBUG] Conversation ID tracked: conv_1760094622112_mrj7pfc6j
+injected.js:27 [DEBUG] Translating text: Object
+injected.js:27 [Unload] Closing conversation: Object
+injected.js:27 [Unload] Closing conversation: Object
+injected.js:27 [DEBUG] Agent response for lead capture: Object
+injected.js:27 [DEBUG] Contact info check: Object
+injected.js:27 [DEBUG] Current lead ID: lead_1760094638759
+injected.js:27 [DEBUG] Tenant from storage: Object
+injected.js:27 [DEBUG] Lead limit check: 1 < 3000
+injected.js:27 [DEBUG] Entering lead save section
+injected.js:27 [DEBUG] Lead limit check passed, proceeding with save
+injected.js:27 [DEBUG] Generated comprehensive summary: Object
+injected.js:27 [DEBUG] Saving lead (create/update): Object
+injected.js:27 [DEBUG] API response status: 201
+injected.js:27 [DEBUG] API response data: Object
+injected.js:27 [WEBHOOK] No webhook URL configured for this tenant
+injected.js:27 [DEBUG] Knowledge contexts for chat: Object
+injected.js:27 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+injected.js:27 📜 [HISTORY CHECK] Sending history to AI: Object
+injected.js:27 [Unload] Closing conversation: Object
+injected.js:27 [Unload] Closing conversation: Object
+injected.js:27 [Unload] Closing conversation: Object
+injected.js:27 [Unload] Closing conversation: Object
+injected.js:27 [Unload] Closing conversation: {conversationId: 'conv_1760094622112_mrj7pfc6j', tenantId: 'tenant_1754983849007', sessionId: 'sid_1760094610060_9jzexh', agentName: 'Simran AI Sales Agent', businessContext: 'AI-Powered POS System for Modern Business\nTransfor… online, perfect for retail, ecommerce, and more.'}
+injected.js:27 [Unload] Closing conversation: {conversationId: 'conv_1760094622112_mrj7pfc6j', tenantId: 'tenant_1754983849007', sessionId: 'sid_1760094610060_9jzexh', agentName: 'Simran AI Sales Agent', businessContext: 'AI-Powered POS System for Modern Business\nTransfor… online, perfect for retail, ecommerce, and more.'}

@@ -1,0 +1,138 @@
+Failed to load resource: the server responded with a status of 403 (Forbidden)
+index.iife.js:1 content script loaded
+react-dom-client.development.js:24914 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+register-sw.ts:14 ServiceWorker registration successful with scope: https://abf1bd47-d9b2-40d1-a4dc-b35350aa4bb1-00-14t85kd37ixb3.pike.replit.dev/
+use-websocket.ts:16 WebSocket connection to 'wss://abf1bd47-d9b2-40d1-a4dc-b35350aa4bb1-00-14t85kd37ixb3.pike.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ use-websocket.ts:16
+page.tsx:1489 [DEBUG] Loaded tenants from API: Array(1)
+page.tsx:1630 [DEBUG] Loading tenant data: Object
+page.tsx:1294 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1668 [DEBUG] Setting training contexts: Array(2)
+page.tsx:1303 [DEBUG] Analytics data loaded: Object
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+widget.js?tenantId=tenant_1754983849007&position=bottom-right:225 [VoiceChat Widget] Initializing with config: [object Object]
+widget.js?tenantId=tenant_1754983849007&position=bottom-right:228 [VoiceChat Widget] Loaded configuration: [object Object]
+widget.js?tenantId=tenant_1754983849007&position=bottom-right:382 [VoiceChat Widget] Initialized successfully
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+index.iife.js:1 content script loaded
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+intercept-console-error.ts:41 A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+error @ intercept-console-error.ts:41
+register-sw.ts:14 ServiceWorker registration successful with scope: https://abf1bd47-d9b2-40d1-a4dc-b35350aa4bb1-00-14t85kd37ixb3.pike.replit.dev/
+use-websocket.ts:16 WebSocket connection to 'wss://abf1bd47-d9b2-40d1-a4dc-b35350aa4bb1-00-14t85kd37ixb3.pike.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ use-websocket.ts:16
+53The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+page.tsx:1465 [Data Refresh] Page became visible, refreshing agent/tenant data...
+page.tsx:1484 [Data Refresh] Agent training contexts updated: 19
+page.tsx:1630 [DEBUG] Loading tenant data: Object
+page.tsx:1294 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1668 [DEBUG] Setting training contexts: Array(2)
+page.tsx:1303 [DEBUG] Analytics data loaded: Object
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+page.tsx:1630 [DEBUG] Loading tenant data: Object
+page.tsx:1294 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1668 [DEBUG] Setting training contexts: Array(2)
+widget.js?tenantId=tenant_1754983849007&position=bottom-right:225 [VoiceChat Widget] Initializing with config: Object
+page.tsx:1303 [DEBUG] Analytics data loaded: Object
+widget.js?tenantId=tenant_1754983849007&position=bottom-right:228 [VoiceChat Widget] Loaded configuration: Object
+widget.js?tenantId=tenant_1754983849007&position=bottom-right:382 [VoiceChat Widget] Initialized successfully
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+index.iife.js:1 content script loaded
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+intercept-console-error.ts:41 A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+error @ intercept-console-error.ts:41
+register-sw.ts:14 ServiceWorker registration successful with scope: https://abf1bd47-d9b2-40d1-a4dc-b35350aa4bb1-00-14t85kd37ixb3.pike.replit.dev/
+use-websocket.ts:16 WebSocket connection to 'wss://abf1bd47-d9b2-40d1-a4dc-b35350aa4bb1-00-14t85kd37ixb3.pike.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ use-websocket.ts:16
+page.tsx:549 Audio context unlocked for this session.
+page.tsx:781 [DEBUG] Knowledge contexts for chat: {selectedAgentWebsite: 'https://posible.in/', tenantTrainingContextsCount: 2, agentTrainingContextsCount: 19, tenantTrainingContexts: Array(2), agentTrainingContexts: Array(19), …}
+page.tsx:861 [DEBUG] Mapped knowledge contexts being sent to AI: {count: 2, contexts: Array(2), hasContent: true}
+page.tsx:868 📜 [HISTORY CHECK] Sending history to AI: {historyLength: 1, lastFewMessages: Array(1)}
+page.tsx:899  POST https://abf1bd47-d9b2-40d1-a4dc-b35350aa4bb1-00-14t85kd37ixb3.pike.replit.dev/api/public/chat 500 (Internal Server Error)
+ChatPageContent.useCallback[handleSendMessage] @ page.tsx:899
+onClick @ page.tsx:1862
+executeDispatch @ react-dom-client.development.js:16426
+runWithFiberInDEV @ react-dom-client.development.js:1510
+processDispatchQueue @ react-dom-client.development.js:16476
+(anonymous) @ react-dom-client.development.js:17074
+batchedUpdates$1 @ react-dom-client.development.js:3253
+dispatchEventForPluginEventSystem @ react-dom-client.development.js:16630
+dispatchEvent @ react-dom-client.development.js:20716
+dispatchDiscreteEvent @ react-dom-client.development.js:20684
+page.tsx:1465 [Data Refresh] Page became visible, refreshing agent/tenant data...
+page.tsx:1484 [Data Refresh] Agent training contexts updated: 19
+page.tsx:781 [DEBUG] Knowledge contexts for chat: {selectedAgentWebsite: 'https://posible.in/', tenantTrainingContextsCount: 2, agentTrainingContextsCount: 19, tenantTrainingContexts: Array(2), agentTrainingContexts: Array(19), …}
+page.tsx:861 [DEBUG] Mapped knowledge contexts being sent to AI: {count: 2, contexts: Array(2), hasContent: true}
+page.tsx:868 📜 [HISTORY CHECK] Sending history to AI: {historyLength: 1, lastFewMessages: Array(1)}
+page.tsx:899  POST https://abf1bd47-d9b2-40d1-a4dc-b35350aa4bb1-00-14t85kd37ixb3.pike.replit.dev/api/public/chat 500 (Internal Server Error)
+ChatPageContent.useCallback[handleSendMessage] @ page.tsx:899
+onKeyPress @ page.tsx:1855
+executeDispatch @ react-dom-client.development.js:16426
+runWithFiberInDEV @ react-dom-client.development.js:1510
+processDispatchQueue @ react-dom-client.development.js:16476
+(anonymous) @ react-dom-client.development.js:17074
+batchedUpdates$1 @ react-dom-client.development.js:3253
+dispatchEventForPluginEventSystem @ react-dom-client.development.js:16630
+dispatchEvent @ react-dom-client.development.js:20716
+dispatchDiscreteEvent @ react-dom-client.development.js:20684

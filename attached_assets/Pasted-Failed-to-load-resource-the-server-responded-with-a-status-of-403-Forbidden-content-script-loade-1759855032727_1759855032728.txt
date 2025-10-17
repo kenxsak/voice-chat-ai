@@ -1,0 +1,106 @@
+Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+ Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+ WebSocket connection to 'wss://45bec390-139a-42c3-967b-c548b8a8093d-00-2rsq4142jwv9g.sisko.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ /_next/static/chunks…43e3ffb8._.js:14247
+page.tsx:1303 [DEBUG] Loaded tenants from API: Array(1)
+page.tsx:1443 [DEBUG] Loading tenant data: Object
+page.tsx:1147 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1481 [DEBUG] Setting training contexts: Array(2)
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+page.tsx:1156 [DEBUG] Analytics data loaded: Object
+ [VoiceChat Widget] Initializing with config: [object Object]
+ [VoiceChat Widget] Loaded configuration: [object Object]
+ [VoiceChat Widget] Initialized successfully
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+ A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+Mt.forEach.n.<computed> @ /__replco/static/dev…da/3.2.3/eruda.js:2
+ WebSocket connection to 'wss://45bec390-139a-42c3-967b-c548b8a8093d-00-2rsq4142jwv9g.sisko.replit.dev/_next/webpack-hmr' failed: 
+t @ /__replco/static/dev…da/3.2.3/eruda.js:2
+page.tsx:1443 [DEBUG] Loading tenant data: Object
+page.tsx:1147 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1481 [DEBUG] Setting training contexts: Array(2)
+page.tsx:1156 [DEBUG] Analytics data loaded: Object
+9The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+page.tsx:1443 [DEBUG] Loading tenant data: Object
+page.tsx:1147 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1481 [DEBUG] Setting training contexts: Array(2)
+ [VoiceChat Widget] Initializing with config: [object Object]
+page.tsx:1156 [DEBUG] Analytics data loaded: Object
+ [VoiceChat Widget] Loaded configuration: [object Object]
+ [VoiceChat Widget] Initialized successfully
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+ A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+Mt.forEach.n.<computed> @ /__replco/static/dev…da/3.2.3/eruda.js:2
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+ WebSocket connection to 'wss://45bec390-139a-42c3-967b-c548b8a8093d-00-2rsq4142jwv9g.sisko.replit.dev/_next/webpack-hmr' failed: 
+t @ /__replco/static/dev…da/3.2.3/eruda.js:2
+page.tsx:1443 [DEBUG] Loading tenant data: Object
+page.tsx:1147 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1481 [DEBUG] Setting training contexts: Array(2)
+page.tsx:1156 [DEBUG] Analytics data loaded: Object

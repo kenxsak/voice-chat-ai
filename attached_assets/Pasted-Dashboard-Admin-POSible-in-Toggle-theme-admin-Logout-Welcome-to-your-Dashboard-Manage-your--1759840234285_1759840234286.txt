@@ -1,0 +1,398 @@
+Dashboard
+Admin (POSible.in)
+Toggle theme
+admin
+Logout
+Welcome to your Dashboard!
+Manage your chatbot configurations, settings, and view your subscription for POSible.in.
+
+Subscription
+
+General
+
+Agents
+
+Languages
+
+Training
+
+Analytics
+
+Embed Widget
+
+Help
+Conversation Insights & Lead Data
+View conversation summaries and access details for follow-up and integration.
+Total Conversations
+3
+All chats this month
+
+Resolution Rate
+85%
++2.1% from last month
+
+Leads Captured
+5
+With contact info
+
+Avg. Interaction
+2m 15s
+-5s from last month
+
+Conversations Over Last 7 Days
+Oct 1
+Oct 2
+Oct 3
+Oct 4
+Oct 5
+Oct 6
+Oct 7
+0
+0.5
+1
+1.5
+2
+Leads Captured Per Month
+2025-08
+2025-09
+2025-10
+0
+9
+18
+27
+36
+Recent Interactions
+Qualified leads with contact information (name, email, or phone). Search, filter, and view complete chat logs.
+Search leads by info, summary...
+
+All Websites
+
+All Agents
+
+All Time
+Date: 2025-10-07 17:53
+
+Customer: John Smith
+
+Email: john.123@gmail.com
+
+Status: Follow-up needed
+
+Reference/Agent: Chat with Simran AI Sales Agent
+
+Website Context: https://posible.in/, https://posible.in/RetailPOS
+
+AI Summary:
+
+John Smith contacted support to inquire about integrating their existing CRM with the company's marketing automation platform. He was looking for a solution that would allow for seamless data transfer and lead nurturing. The support agent explained the platform's API capabilities and provided documentation for custom integration, as well as suggesting exploring pre-built connectors available in the marketplace.
+
+
+English
+Translate
+View Full Log
+Date: 2025-10-07 16:56
+
+Customer: John Smith
+
+Email: john.123@gmail.com
+
+Status: Follow-up needed
+
+Reference/Agent: Chat with Simran AI Sales Agent
+
+Website Context: https://posible.in/, https://posible.in/RetailPOS
+
+AI Summary:
+
+John Smith contacted support to inquire about integrating their existing CRM with the company's marketing automation platform. He expressed frustration with the current lack of data synchronization between systems. The agent explained the platform's API capabilities and provided documentation for developers to facilitate the integration, suggesting a consultation with the solutions architect for complex requirements.
+
+
+English
+Translate
+View Full Log
+Date: 2025-10-07 11:15
+
+Customer: Anonymous User (Oct 7
+
+Status: In Progress
+
+Reference/Agent: Chat with Simran AI Sales Agent
+
+Website Context: https://posible.in/, https://posible.in/RetailPOS
+
+AI Summary:
+
+The AI service failed to generate a response.
+
+
+English
+Translate
+View Full Log
+Date: 2025-10-07 08:59
+
+Customer: John Smith
+
+Email: john.123@sample.com
+
+Phone: +14165554444
+
+Status: Follow-up needed
+
+Reference/Agent: Chat with Simran AI Sales Agent
+
+Website Context: https://posible.in/, https://posible.in/RetailPOS
+
+AI Summary:
+
+John Smith contacted support to inquire about integrating their existing CRM with the company's marketing automation platform. He was looking for guidance on data synchronization and workflow automation between the two systems. The agent provided information on available API integrations and recommended a consultation with the solutions architect team to discuss specific requirements and implementation strategies.
+
+
+English
+Translate
+View Full Log
+Date: 2025-10-06 23:00
+
+Customer: Anonymous User (Oct 6
+
+Status: In Progress
+
+Reference/Agent: Chat with Simran AI Sales Agent
+
+Website Context: https://posible.in/, https://posible.in/RetailPOS
+
+AI Summary:
+
+The AI service failed to generate a response.
+
+
+English
+Translate
+View Full Log
+Previous
+Page 1 of 14
+Next
+Knowledge Base Opportunities
+This list shows questions the AI could not answer. Use these insights to update your website content or training documents, making your agent smarter.
+Question:
+
+Sep 20, 2025
+
+યા મને તમારું.
+
+
+English
+Translate
+Question:
+
+Aug 20, 2025
+
+पोर्टफोलियो स्टॉक मैनेजमेंट में शेयर मार्केट में मैं कैसे कर सकता हूं
+
+
+English
+Translate
+Question:
+
+Aug 14, 2025
+
+what type of software does you company make?
+
+
+English
+Translate
+Question:
+
+Aug 14, 2025
+
+please give details about software of your company in hindi as per my requirements
+
+
+English
+Translate
+Question:
+
+Aug 14, 2025
+
+what is your company website
+
+
+English
+Translate
+Question:
+
+Aug 14, 2025
+
+aap ki company konsa software deti hai ?
+
+
+English
+Translate
+Question:
+
+Aug 14, 2025
+
+aap ki company konsa software deti hai ?
+
+
+English
+Translate
+Question:
+
+Aug 14, 2025
+
+आपकी कंपनी कौन से प्रोडक्ट और सर्विसेज देती है
+
+
+English
+Translate
+Question:
+
+Aug 14, 2025
+
+आपकी कंपनी कौन से प्रोडक्ट और सर्विसेज देती है
+
+
+English
+Translate
+Question:
+
+Aug 13, 2025
+
+मेक ऑनलाइन स्टोर चलाता हूं मुझे मेरे बिजनेस को बढ़ाने के लिए सॉफ्टवेयर चाहिए
+
+
+English
+Translate
+Question:
+
+Aug 13, 2025
+
+आपकी कंपनी मुझे कैसे मदद कर सकती है क्योंकि मुझे सॉफ्टवेयर का रिटायरमेंट है
+
+
+English
+Translate
+Question:
+
+Aug 13, 2025
+
+need to know what type of help you can provide
+
+
+English
+Translate
+Question:
+
+Aug 13, 2025
+
+what
+
+
+English
+Translate
+Question:
+
+Aug 13, 2025
+
+मादत करो
+
+
+English
+Translate
+Question:
+
+Aug 13, 2025
+
+हमारी कंपनी किस प्रकार का सॉफ्टवेयर बनाती है
+
+
+English
+Translate
+Question:
+
+Aug 13, 2025
+
+what type of software your company make
+
+
+English
+Translate
+Question:
+
+Aug 12, 2025
+
+vada pav?
+
+
+English
+Translate
+Question:
+
+Aug 12, 2025
+
+heko
+
+
+English
+Translate
+Question:
+
+Aug 12, 2025
+
+मुझे बताइए आपकी वेबसाइट मुझे किस तरह की हेल्प और सॉफ्टवेयर दे सकती है
+
+
+English
+Translate
+Question:
+
+Aug 12, 2025
+
+मुझे बताइए आपकी वेबसाइट मुझे किस तरह की हेल्प और सॉफ्टवेयर दे सकती है
+
+
+English
+Translate
+Data from paid plans can be connected to tools like Zapier, Pabbly Connect, or n8n.io for advanced sales and support automation workflows. Premium plans allow per-website data segregation for more targeted automation.
+
+Logged in as: admin (Tenant: tenant_1754983849007)
+
+9
+Conversation Log
+For lead: John Smith, captured on Oct 7, 2025, 5:53:38 PM
+
+Full conversation log
+
+English
+Translate
+Hello This is Simran ! How can I assist you Today? (Voice Chat By Selecting Any Language of Your Choice from Below)
+
+need software for pet store my name Santosh Sharma , number 9876543210 and email santosh@gmail.com
+
+Thank you so much for providing your details, Santosh Sharma. I've noted down your number as +91 9876543210 and your email address. It's wonderful that you're looking for a solution for your pet store! To help you better, could you please tell me the name of your store and where it is located?
+
+Santosh Pets from mumbai
+
+That's a lovely name! Thank you for sharing that, Santosh. It's great to have Santosh Pets from Mumbai with us today. To understand your needs better, could you let me know if you are looking for a solution for a single store, or do you have multiple locations?
+
+single location
+
+Great, thank you for confirming that. A single store setup is perfect. To make sure I suggest the best features for Santosh Pets, could you share some of the main challenges you're currently facing with managing your store? For example, are you looking to improve inventory tracking, appointment scheduling for services, or something else?
+
+looking to improve inventory tracking, appointment scheduling for services
+
+That makes perfect sense, Santosh. Managing inventory, especially with products that have expiry dates, and scheduling services like grooming can be quite a task. Posible POS is designed to solve exactly these challenges for pet stores. Our system offers real-time **Inventory Management with Expiration Date Tracking**, so you always know what's in stock and can avoid waste. Plus, our **Service & Appointment Scheduling** feature makes it easy to book and manage appointments for all your services. We also have a wonderful **Pet Profile Management** feature, which allows you to track vaccination history, grooming preferences, and dietary needs for each pet, helping you provide a truly personalized service.
+
+ok thanks please let me know the best plans and pricing with offers and discounts
+
+I'm here to help! What would you like to know?
+
+looking to improve inventory tracking, appointment scheduling for services
+
+Of course, Santosh. Based on your need for inventory tracking and appointment scheduling, our **Professional Plan** would be the perfect fit for Santosh Pets. It includes
+
+why it it stopped and not completing sentence
+
+My sincere apologies, Santosh! It seems my last message was incomplete. Let me provide the full details for you. Based on your need for inventory tracking and appointment scheduling, our **Professional Plan** would be the perfect fit for Santosh Pets. It includes everything you need, such as advanced **Inventory Management**, **Appointment Booking**, and a powerful **Customer Loyalty Program** to keep your clients coming back. This plan is currently available for just ₹9,999 per year, offering excellent value for a growing business like yours. Would you like to know more about its specific features?
+
+Close

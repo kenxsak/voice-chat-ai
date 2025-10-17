@@ -1,0 +1,271 @@
+ailed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+react-dom-client.development.js:24914 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+use-websocket.ts:16 WebSocket connection to 'wss://d27985c1-a833-419e-bc9d-5490aec2567a-00-3glogxqzvbqoi.pike.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ use-websocket.ts:16
+page.tsx:1303 [DEBUG] Loaded tenants from API: Array(1)
+page.tsx:1443 [DEBUG] Loading tenant data: Object
+page.tsx:1147 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1481 [DEBUG] Setting training contexts: Array(2)
+page.tsx:1156 [DEBUG] Analytics data loaded: Object
+87The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+widget.js?tenantId=tenant_1754983849007&position=bottom-right:225 [VoiceChat Widget] Initializing with config: Object
+page.tsx:1443 [DEBUG] Loading tenant data: Object
+page.tsx:1147 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1481 [DEBUG] Setting training contexts: Array(2)
+widget.js?tenantId=tenant_1754983849007&position=bottom-right:228 [VoiceChat Widget] Loaded configuration: Object
+widget.js?tenantId=tenant_1754983849007&position=bottom-right:382 [VoiceChat Widget] Initialized successfully
+page.tsx:1156 [DEBUG] Analytics data loaded: Object
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+Console.js:61 A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+Mt.forEach.n.<computed> @ Console.js:61
+Network.js:227 WebSocket connection to 'wss://d27985c1-a833-419e-bc9d-5490aec2567a-00-3glogxqzvbqoi.pike.replit.dev/_next/webpack-hmr' failed: 
+t @ Network.js:227
+Console.js:61 Audio context unlocked for this session.
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "Hello! It's great to hear from you. Posible has a fantastic, all-in-one solution designed specifically for Pet Stores to help streamline operations and enhance customer experiences.\n\nI can definitely help you find the right fit. To get started, could you please tell me your full name?",
+  "conversationId": "conv_1759846604897_u7aaau3qa",
+  "customerId": "cust_1759848909217_yugmh63es",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about need software for pet store",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759846604897_u7aaau3qa
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Contact info check: Object
+Console.js:61 [DEBUG] Current lead ID: null
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 0 < 3000
+Console.js:61 [DEBUG] No valid lead captured (need name AND email/phone)
+Console.js:61 [DEBUG] Saving as anonymous conversation with partial info: Object
+anonymous-conversations:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+Console.js:61 [DEBUG] Failed to save anonymous conversation: 500
+Mt.forEach.n.<computed> @ Console.js:61
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "Thank you, Rati. It's a pleasure to connect with you.\n\nTo ensure we can stay in touch easily, could you please share your WhatsApp number? It would be helpful if you could include the country code, for example, +91 for India.",
+  "conversationId": "conv_1759846604897_u7aaau3qa",
+  "customerId": "cust_1759848909217_yugmh63es",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about RATI AGNIHOTRI",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759846604897_u7aaau3qa
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Contact info check: Object
+Console.js:61 [DEBUG] Current lead ID: null
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 0 < 3000
+Console.js:61 [DEBUG] No valid lead captured (need name AND email/phone)
+Console.js:61 [DEBUG] Saving as anonymous conversation with partial info: Object
+anonymous-conversations:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+Console.js:61 [DEBUG] Failed to save anonymous conversation: 500
+Mt.forEach.n.<computed> @ Console.js:61
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "Thank you for sharing your number, Rati. I've noted it down.\n\nNext, could you please provide your email address? This will help us send you more detailed information if needed.",
+  "conversationId": "conv_1759846604897_u7aaau3qa",
+  "customerId": "cust_1759848874607_inpho6d4g",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about +919876543210",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": "+919876543210",
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759846604897_u7aaau3qa
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Contact info check: Object
+Console.js:61 [DEBUG] Current lead ID: null
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 0 < 3000
+Console.js:61 [DEBUG] No valid lead captured (need name AND email/phone)
+Console.js:61 [DEBUG] Saving as anonymous conversation with partial info: Object
+anonymous-conversations:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+Console.js:61 [DEBUG] Failed to save anonymous conversation: 500
+Mt.forEach.n.<computed> @ Console.js:61
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "Perfect, thank you for providing your email, Rati. I appreciate you sharing that.\n\nYou mentioned you run a pet store, which is fantastic. To better understand your business, could you please share its name and the city where it's located?",
+  "conversationId": "conv_1759846604897_u7aaau3qa",
+  "customerId": "cust_1759851526395_clnatsp7k",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about rati@indo.com",
+  "leadName": null,
+  "leadEmail": "rati@indo.com",
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759846604897_u7aaau3qa
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Contact info check: Object
+Console.js:61 [DEBUG] Current lead ID: null
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 0 < 3000
+Console.js:61 [DEBUG] No valid lead captured (need name AND email/phone)
+Console.js:61 [DEBUG] Saving as anonymous conversation with partial info: Object
+/api/anonymous-conversations:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+Console.js:61 [DEBUG] Failed to save anonymous conversation: 500
+Mt.forEach.n.<computed> @ Console.js:61
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "Thank you for sharing that, Rati. Petty Puffy in Mumbai sounds like a wonderful place for pet lovers!\n\nTo help me understand the scale of your operations, could you let me know if you are managing a single store, or do you have multiple locations?",
+  "conversationId": "conv_1759846604897_u7aaau3qa",
+  "customerId": "cust_1759842168186_zn0c6gls5",
+  "isReturningCustomer": true,
+  "conversationSummary": "User asked about Petty Puffy store name  in Mumbai",
+  "leadName": "in Mumbai",
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759846604897_u7aaau3qa
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Contact info check: Object
+Console.js:61 [DEBUG] Current lead ID: null
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 0 < 3000
+Console.js:61 [DEBUG] No valid lead captured (need name AND email/phone)
+Console.js:61 [DEBUG] Saving as anonymous conversation with partial info: Object
+/api/anonymous-conversations:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+Console.js:61 [DEBUG] Failed to save anonymous conversation: 500
+Mt.forEach.n.<computed> @ Console.js:61
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "Wow, 10 locations across Mumbai is very impressive, Rati! Managing a multi-store operation like Petty Puffy must be quite an undertaking.\n\nTo ensure I suggest the best solution for your business, could you share some of the biggest operational challenges you're currently facing with managing all 10 stores?",
+  "conversationId": "conv_1759846604897_u7aaau3qa",
+  "customerId": "cust_1759842168186_zn0c6gls5",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about 10 locations in Mumbai",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759846604897_u7aaau3qa
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Contact info check: Object
+Console.js:61 [DEBUG] Current lead ID: null
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 0 < 3000
+Console.js:61 [DEBUG] No valid lead captured (need name AND email/phone)
+Console.js:61 [DEBUG] Saving as anonymous conversation with partial info: Object
+/api/anonymous-conversations:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+Console.js:61 [DEBUG] Failed to save anonymous conversation: 500
+Mt.forEach.n.<computed> @ Console.js:61
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "I'm here to help! What would you like to know?",
+  "conversationId": "conv_1759846604897_u7aaau3qa",
+  "customerId": "cust_1759842168186_zn0c6gls5",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about managing appointments , inventory and daya today o...",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759846604897_u7aaau3qa
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: Object
+Console.js:61 [DEBUG] Contact info check: Object
+Console.js:61 [DEBUG] Current lead ID: null
+Console.js:61 [DEBUG] Tenant from storage: Object
+Console.js:61 [DEBUG] Lead limit check: 0 < 3000
+Console.js:61 [DEBUG] No valid lead captured (need name AND email/phone)
+Console.js:61 [DEBUG] Saving as anonymous conversation with partial info: Object
+/api/anonymous-conversations:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+Console.js:61 [DEBUG] Failed to save anonymous conversation: 500
+Mt.forEach.n.<computed> @ Console.js:61
+Console.js:61 [DEBUG] Knowledge contexts for chat: Object
+Console.js:61 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+Console.js:61 📜 [HISTORY CHECK] Sending history to AI: Object
+Console.js:61 [DEBUG] Raw AI response: {
+  "response": "I'm here to help! What would you like to know?",
+  "conversationId": "conv_1759846604897_u7aaau3qa",
+  "customerId": "cust_1759842168186_zn0c6gls5",
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about managing appointments , inventory and day today op...",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+Console.js:61 [DEBUG] Conversation ID tracked: conv_1759846604897_u7aaau3qa
+Console.js:61 [DEBUG] Translating text: Object
+Console.js:61 [DEBUG] Agent response for lead capture: {leadName: null, leadEmail: null, leadPhone: null, fallbackFromText: {…}, finalLead: {…}, …}
+Console.js:61 [DEBUG] Contact info check: {hasName: false, hasEmail: false, hasPhone: false, isValidLead: false, hasPartialInfo: false}
+Console.js:61 [DEBUG] Current lead ID: null
+Console.js:61 [DEBUG] Tenant from storage: {id: 'tenant_1754983849007', name: 'POSible.in', companyLogoUrl: 'https://app.posible.in/static/media/logo_option1.919a5cde.png', brandColor: '#7c38ab', companyDetails: 'AI-Powered POS System for Modern Business\nTransfor… online, perfect for retail, ecommerce, and more.', …}
+Console.js:61 [DEBUG] Lead limit check: 0 < 3000
+Console.js:61 [DEBUG] No valid lead captured (need name AND email/phone)
+Console.js:61 [DEBUG] Saving as anonymous conversation with partial info: {hasName: false, hasEmail: false, hasPhone: false}
+injected.js:278  POST https://d27985c1-a833-419e-bc9d-5490aec2567a-00-3glogxqzvbqoi.pike.replit.dev/api/anonymous-conversations 500 (Internal Server Error)
+window.fetch @ Network.js:219
+apply @ injected.js:278
+ChatPageContent.useCallback[handleSendMessage] @ page.tsx:1172
+Console.js:61 [DEBUG] Failed to save anonymous conversation: 500
+Mt.forEach.n.<computed> @ Console.js:61
+error @ intercept-console-error.ts:41
+ChatPageContent.useCallback[handleSendMessage] @ page.tsx:1182

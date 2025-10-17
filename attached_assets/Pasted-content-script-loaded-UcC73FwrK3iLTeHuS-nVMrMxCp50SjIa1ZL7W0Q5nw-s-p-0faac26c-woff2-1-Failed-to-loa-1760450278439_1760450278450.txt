@@ -1,0 +1,568 @@
+content script loaded
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+react-dom-client.development.js:24914 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+register-sw.ts:14 ServiceWorker registration successful with scope: https://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/
+use-websocket.ts:16 WebSocket connection to 'wss://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ use-websocket.ts:16
+page.tsx:1498 [DEBUG] Loaded tenants from API: Array(1)
+220The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+page.tsx:1639 [DEBUG] Loading tenant data: Object
+page.tsx:1303 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+page.tsx:1677 [DEBUG] Setting training contexts: Array(2)
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+ [VoiceChat Widget] Initializing with config: [object Object]
+ [VoiceChat Widget] Loaded configuration: [object Object]
+ [VoiceChat Widget] Initialized successfully
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+intercept-console-error.ts:41 A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+error @ intercept-console-error.ts:41
+register-sw.ts:14 ServiceWorker registration successful with scope: https://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/
+use-websocket.ts:16 WebSocket connection to 'wss://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ use-websocket.ts:16
+page.tsx:1312 [DEBUG] Analytics data loaded: Object
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+widget.js?tenantId=tenant_1754983849007&position=bottom-right&agentId=agent_1755001935955:225 [VoiceChat Widget] Initializing with config: Object
+widget.js?tenantId=tenant_1754983849007&position=bottom-right&agentId=agent_1755001935955:228 [VoiceChat Widget] Loaded configuration: Object
+widget.js?tenantId=tenant_1754983849007&position=bottom-right&agentId=agent_1755001935955:382 [VoiceChat Widget] Initialized successfully
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+intercept-console-error.ts:41 A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+error @ intercept-console-error.ts:41
+register-sw.ts:14 ServiceWorker registration successful with scope: https://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/
+use-websocket.ts:16 WebSocket connection to 'wss://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ use-websocket.ts:16
+page.tsx:549 Audio context unlocked for this session.
+page.tsx:781 [DEBUG] Knowledge contexts for chat: Object
+page.tsx:861 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+page.tsx:868 📜 [HISTORY CHECK] Sending history to AI: Object
+page.tsx:910 [DEBUG] Raw AI response: {
+  "response": "Hello! I can certainly help you with our QSR software. Posible POS offers a dedicated Quick Service Restaurant & Food Service Solution designed to speed up service and enhance customer satisfaction in fast-paced environments.\n\nThis solution includes features like fast order processing with customizable menu options, Kitchen Order Tickets (KOT), Swiggy & Zomato integration, and recipe & ingredient management. It also comes with a real-time Kitchen Display System for improved kitchen efficiency.\n\nWould you like me to explain any of these QSR features in more detail, or do you have a specific aspect you'd like to focus on?",
+  "conversationId": "conv_1760443995544_7myycpvhu",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about hello need qsr software",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+page.tsx:915 [DEBUG] Conversation ID tracked: conv_1760443995544_7myycpvhu
+page.tsx:921 [DEBUG] Translating text: Object
+page.tsx:947 [TTS] Timeout after 20s, falling back to browser TTS
+page.tsx:549 Audio context unlocked for this session.
+page.tsx:616 [Browser TTS] Selected voice: Microsoft Heera - English (India) (en-IN) for target: en-US
+page.tsx:1010 [DEBUG] Agent response for lead capture: Object
+page.tsx:1027 [DEBUG] Contact info check: Object
+page.tsx:1028 [DEBUG] Current lead ID: null
+page.tsx:1029 [DEBUG] Tenant from storage: Object
+page.tsx:1030 [DEBUG] Lead limit check: 0 < 3000
+page.tsx:1033 [DEBUG] Entering lead save section
+page.tsx:1035 [DEBUG] Lead limit check passed, proceeding with save
+page.tsx:1081 [DEBUG] Generated comprehensive summary: Object
+page.tsx:1131 [DEBUG] Saving lead (create/update): Object
+page.tsx:1137 [DEBUG] API response status: 201
+page.tsx:1139 [DEBUG] API response data: Object
+page.tsx:1192 [WEBHOOK] No webhook URL configured for this tenant
+page.tsx:781 [DEBUG] Knowledge contexts for chat: Object
+page.tsx:861 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+page.tsx:868 📜 [HISTORY CHECK] Sending history to AI: Object
+page.tsx:910 [DEBUG] Raw AI response: {
+  "response": "Certainly! You can absolutely experience Posible POS for your QSR with a 14-day free trial, and no credit card is required to start. Simply visit Posible.in and click on the \"Start Free Trial\" button to get full access to all features. If you'd prefer a personalized walkthrough, you can also schedule a demo directly from our website.\n\nWould you like me to guide you on finding the \"Start Free Trial\" button on the Posible.in homepage?",
+  "conversationId": "conv_1760443995544_7myycpvhu",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about need demo with 14 days of trial",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+page.tsx:915 [DEBUG] Conversation ID tracked: conv_1760443995544_7myycpvhu
+page.tsx:921 [DEBUG] Translating text: Object
+page.tsx:1010 [DEBUG] Agent response for lead capture: Object
+page.tsx:1027 [DEBUG] Contact info check: Object
+page.tsx:1028 [DEBUG] Current lead ID: lead_1760447992861
+page.tsx:1029 [DEBUG] Tenant from storage: Object
+page.tsx:1030 [DEBUG] Lead limit check: 1 < 3000
+page.tsx:1033 [DEBUG] Entering lead save section
+page.tsx:1035 [DEBUG] Lead limit check passed, proceeding with save
+page.tsx:1081 [DEBUG] Generated comprehensive summary: Object
+page.tsx:1131 [DEBUG] Saving lead (create/update): Object
+page.tsx:1137 [DEBUG] API response status: 201
+page.tsx:1139 [DEBUG] API response data: Object
+page.tsx:1192 [WEBHOOK] No webhook URL configured for this tenant
+page.tsx:781 [DEBUG] Knowledge contexts for chat: Object
+page.tsx:861 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+page.tsx:868 📜 [HISTORY CHECK] Sending history to AI: Object
+page.tsx:910 [DEBUG] Raw AI response: {
+  "response": "I'm happy I could help today! If you ever need more assistance, just say ‘Hi Simran’. Have a wonderful day and happy billing with Posible POS!",
+  "conversationId": "conv_1760443995544_7myycpvhu",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about no i will do it thanks for support",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+page.tsx:915 [DEBUG] Conversation ID tracked: conv_1760443995544_7myycpvhu
+page.tsx:921 [DEBUG] Translating text: Object
+page.tsx:1010 [DEBUG] Agent response for lead capture: Object
+page.tsx:1027 [DEBUG] Contact info check: Object
+page.tsx:1028 [DEBUG] Current lead ID: lead_1760447992861
+page.tsx:1029 [DEBUG] Tenant from storage: Object
+page.tsx:1030 [DEBUG] Lead limit check: 1 < 3000
+page.tsx:1033 [DEBUG] Entering lead save section
+page.tsx:1035 [DEBUG] Lead limit check passed, proceeding with save
+page.tsx:1081 [DEBUG] Generated comprehensive summary: Object
+page.tsx:1131 [DEBUG] Saving lead (create/update): Object
+page.tsx:1137 [DEBUG] API response status: 201
+page.tsx:1139 [DEBUG] API response data: Object
+page.tsx:1192 [WEBHOOK] No webhook URL configured for this tenant
+page.tsx:781 [DEBUG] Knowledge contexts for chat: Object
+page.tsx:861 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+page.tsx:868 📜 [HISTORY CHECK] Sending history to AI: Object
+page.tsx:910 [DEBUG] Raw AI response: {
+  "response": "Certainly! For complete details and tutorials for every module, you can visit our official Help section.\n\nYou'll find it by going to Posible.in, scrolling to the right-hand bottom corner, and clicking on \"Help\". This section provides detailed guides for all modules, from getting started to advanced features.\n\nWould you like me to guide you through what you'll find on the Help page?",
+  "conversationId": "conv_1760443995544_7myycpvhu",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about ok can you send link for help doc",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+page.tsx:915 [DEBUG] Conversation ID tracked: conv_1760443995544_7myycpvhu
+page.tsx:921 [DEBUG] Translating text: Object
+page.tsx:1010 [DEBUG] Agent response for lead capture: Object
+page.tsx:1027 [DEBUG] Contact info check: Object
+page.tsx:1028 [DEBUG] Current lead ID: lead_1760447992861
+page.tsx:1029 [DEBUG] Tenant from storage: Object
+page.tsx:1030 [DEBUG] Lead limit check: 1 < 3000
+page.tsx:1033 [DEBUG] Entering lead save section
+page.tsx:1035 [DEBUG] Lead limit check passed, proceeding with save
+page.tsx:1081 [DEBUG] Generated comprehensive summary: Object
+page.tsx:1131 [DEBUG] Saving lead (create/update): Object
+page.tsx:1137 [DEBUG] API response status: 201
+page.tsx:1139 [DEBUG] API response data: Object
+page.tsx:1192 [WEBHOOK] No webhook URL configured for this tenant
+page.tsx:781 [DEBUG] Knowledge contexts for chat: Object
+page.tsx:861 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+page.tsx:868 📜 [HISTORY CHECK] Sending history to AI: Object
+page.tsx:910 [DEBUG] Raw AI response: {
+  "response": "Certainly! On the Posible POS Help page, you'll find comprehensive guides for every module, organized for easy learning. It starts with \"Get Started,\" then covers modules like Catalogue, Inventory, Sales, CRM, Loyalty, Appointment, Expense, Staff, Report, Setup, and Online Store.\n\nThis structured flow ensures you can easily learn about every aspect of Posible POS to run your business smoothly. Does this give you a good idea of what's available there?",
+  "conversationId": "conv_1760443995544_7myycpvhu",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about yes whats things are available on help page gude",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+page.tsx:915 [DEBUG] Conversation ID tracked: conv_1760443995544_7myycpvhu
+page.tsx:921 [DEBUG] Translating text: Object
+page.tsx:1010 [DEBUG] Agent response for lead capture: Object
+page.tsx:1027 [DEBUG] Contact info check: Object
+page.tsx:1028 [DEBUG] Current lead ID: lead_1760447992861
+page.tsx:1029 [DEBUG] Tenant from storage: Object
+page.tsx:1030 [DEBUG] Lead limit check: 1 < 3000
+page.tsx:1033 [DEBUG] Entering lead save section
+page.tsx:1035 [DEBUG] Lead limit check passed, proceeding with save
+page.tsx:1081 [DEBUG] Generated comprehensive summary: Object
+page.tsx:1131 [DEBUG] Saving lead (create/update): Object
+page.tsx:1137 [DEBUG] API response status: 201
+page.tsx:1139 [DEBUG] API response data: Object
+page.tsx:1192 [WEBHOOK] No webhook URL configured for this tenant
+page.tsx:781 [DEBUG] Knowledge contexts for chat: Object
+page.tsx:861 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+page.tsx:868 📜 [HISTORY CHECK] Sending history to AI: Object
+page.tsx:910 [DEBUG] Raw AI response: {
+  "response": "ચોક્કસ! ચાલો આપણે તમારા સ્ટોરને સેટ કરવા માટે સ્ટેપ-બાય-સ્ટેપ માર્ગદર્શિકા સાથે આગળ વધીએ.\n\nસૌ પ્રથમ, આપણે તમારા ડેશબોર્ડમાંથી \"સ્ટોર સેટઅપ\" સાથે શરૂ કરીશું. તમારે તમારા સ્ટોર કોડ, નામ, સરનામું અને સંપર્ક માહિતી જેવી મૂળભૂત વિગતો ઉમેરવાની રહેશે, વ્યવસાયના કલાકો સેટ કરવાના રહેશે અને જો તમે ઇચ્છો તો લોગો અને સ્ટોરની છબીઓ પણ અપલોડ કરી શકો છો.\n\nઆ કરવાથી તમારા ઇન્વૉઇસ અને ઑનલાઇન લિસ્ટિંગ પર તમારા સ્ટોરનું નામ અને વિગતો યોગ્ય રીતે દેખાશે. શું આ પગલું તમને સ્પષ્ટ છે?",
+  "conversationId": "conv_1760443995544_7myycpvhu",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about yes can you help step by step guide also to set up...",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+page.tsx:915 [DEBUG] Conversation ID tracked: conv_1760443995544_7myycpvhu
+page.tsx:921 [DEBUG] Translating text: Object
+page.tsx:1010 [DEBUG] Agent response for lead capture: Object
+page.tsx:1027 [DEBUG] Contact info check: Object
+page.tsx:1028 [DEBUG] Current lead ID: lead_1760447992861
+page.tsx:1029 [DEBUG] Tenant from storage: Object
+page.tsx:1030 [DEBUG] Lead limit check: 1 < 3000
+page.tsx:1033 [DEBUG] Entering lead save section
+page.tsx:1035 [DEBUG] Lead limit check passed, proceeding with save
+page.tsx:1081 [DEBUG] Generated comprehensive summary: Object
+page.tsx:1131 [DEBUG] Saving lead (create/update): Object
+page.tsx:1137 [DEBUG] API response status: 201
+page.tsx:1139 [DEBUG] API response data: Object
+page.tsx:1192 [WEBHOOK] No webhook URL configured for this tenant
+page.tsx:781 [DEBUG] Knowledge contexts for chat: Object
+page.tsx:861 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+page.tsx:868 📜 [HISTORY CHECK] Sending history to AI: Object
+page.tsx:910 [DEBUG] Raw AI response: {
+  "response": "ચોક્કસ! સ્ટોર સેટઅપ પછી, આપણું આગલું પગલું \"ટેક્સ સેટઅપ\" છે.\n\nઆમાં તમારે સચોટ ટેક્સ કન્ફિગરેશન સેટ કરવા પડશે: ટેક્સ રેટ અને કેટેગરીઝ વ્યાખ્યાયિત કરવા, સમાવિષ્ટ/અસમાવિષ્ટ કિંમતો પસંદ કરવી, અને જો લાગુ પડે તો ટેક્સ મુક્તિ ઉમેરવી. આનાથી GST-સુસંગત બિલ બનાવવામાં મદદ મળશે.\n\nશું તમને આ પગલું સ્પષ્ટ છે, અથવા તમે ઇચ્છો છો કે હું આ વિશે વધુ વિગતવાર સમજાવું?",
+  "conversationId": "conv_1760443995544_7myycpvhu",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about ok whats is the next step",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+page.tsx:915 [DEBUG] Conversation ID tracked: conv_1760443995544_7myycpvhu
+page.tsx:921 [DEBUG] Translating text: Object
+page.tsx:947 [TTS] Timeout after 20s, falling back to browser TTS
+page.tsx:549 Audio context unlocked for this session.
+page.tsx:596 [Browser TTS] Gender consistency: Using female voice from en-IN instead of potentially opposite gender from mr-IN
+page.tsx:616 [Browser TTS] Selected voice: Microsoft Heera - English (India) (en-IN) for target: mr-IN
+page.tsx:1010 [DEBUG] Agent response for lead capture: Object
+page.tsx:1027 [DEBUG] Contact info check: Object
+page.tsx:1028 [DEBUG] Current lead ID: lead_1760447992861
+page.tsx:1029 [DEBUG] Tenant from storage: Object
+page.tsx:1030 [DEBUG] Lead limit check: 1 < 3000
+page.tsx:1033 [DEBUG] Entering lead save section
+page.tsx:1035 [DEBUG] Lead limit check passed, proceeding with save
+page.tsx:1395 [Conversation Close] Initiating conversation close - triggered by page unload/visibility change
+page.tsx:1409 [Unload] Closing conversation: {conversationId: 'conv_1760443995544_7myycpvhu', tenantId: 'tenant_1754983849007', sessionId: 'sid_1760443987755_ck4yms', agentName: 'Simran AI Sales Agent', businessContext: 'AI-Powered POS System for Modern Business\nTransfor… online, perfect for retail, ecommerce, and more.', …}
+page.tsx:1434 [Conversation Close] Reset close flag after sendBeacon
+page.tsx:1465 [Data Refresh] Page became visible, refreshing agent/tenant data...
+page.tsx:1484 [Data Refresh] Agent training contexts updated: 19
+page.tsx:1081 [DEBUG] Generated comprehensive summary: {summary: 'The customer inquired about QSR software and reque…their store, including store setup and tax setup.', customerName: 'null', customerEmail: 'null', customerPhone: 'null', problemsCount: 6, …}
+page.tsx:1131 [DEBUG] Saving lead (create/update): {isNewLead: false, id: 'lead_1760447992861'}
+page.tsx:1137 [DEBUG] API response status: 201
+page.tsx:1139 [DEBUG] API response data: {lead: {…}}
+page.tsx:1192 [WEBHOOK] No webhook URL configured for this tenant
+page.tsx:781 [DEBUG] Knowledge contexts for chat: {selectedAgentWebsite: 'https://posible.in/', tenantTrainingContextsCount: 2, agentTrainingContextsCount: 19, tenantTrainingContexts: Array(2), agentTrainingContexts: Array(19), …}
+page.tsx:861 [DEBUG] Mapped knowledge contexts being sent to AI: {count: 2, contexts: Array(2), hasContent: true}
+page.tsx:868 📜 [HISTORY CHECK] Sending history to AI: {historyLength: 1, lastFewMessages: Array(1)}
+page.tsx:910 [DEBUG] Raw AI response: {
+  "response": "Great! After setting up your taxes, the next important step is to \"Setup Catalogue.\"\n\nThis involves organizing your products for billing and management. You'll want to add categories and subcategories first, and then add your products either manually or by importing them in bulk via Excel, setting their SKUs, pricing, variants, and taxes.\n\nRemember, the clearer your catalog, the faster and more efficient your billing will be. Does this make sense, and are you ready for the next part?",
+  "conversationId": "conv_1760443995544_7myycpvhu",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about next step",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+page.tsx:915 [DEBUG] Conversation ID tracked: conv_1760443995544_7myycpvhu
+page.tsx:921 [DEBUG] Translating text: {originalText: 'Great! After setting up your taxes, the next impor… step is to "Setup Catalogue."\n\nThis involves ...', languageCode: 'en-US'}
+page.tsx:1010 [DEBUG] Agent response for lead capture: {leadName: null, leadEmail: null, leadPhone: null, fallbackFromText: {…}, finalLead: {…}, …}
+page.tsx:1027 [DEBUG] Contact info check: {hasName: false, hasEmail: false, hasPhone: false, hasAnyContactInfo: false, shouldSaveLead: true}
+page.tsx:1028 [DEBUG] Current lead ID: null
+page.tsx:1029 [DEBUG] Tenant from storage: {id: 'tenant_1754983849007', name: 'POSible.in', companyLogoUrl: 'https://app.posible.in/static/media/logo_option1.919a5cde.png', brandColor: '#7c38ab', companyDetails: 'AI-Powered POS System for Modern Business\nTransfor… online, perfect for retail, ecommerce, and more.', …}
+page.tsx:1030 [DEBUG] Lead limit check: 0 < 3000
+page.tsx:1033 [DEBUG] Entering lead save section
+page.tsx:1035 [DEBUG] Lead limit check passed, proceeding with save
+page.tsx:1081 [DEBUG] Generated comprehensive summary: {summary: 'The customer inquired about the next steps in sett…ortance of a clear catalog for efficient billing.', customerName: 'null', customerEmail: 'null', customerPhone: 'null', problemsCount: 1, …}
+page.tsx:1131 [DEBUG] Saving lead (create/update): {isNewLead: true, id: 'lead_1760448615234'}
+page.tsx:1137 [DEBUG] API response status: 201
+page.tsx:1139 [DEBUG] API response data: {lead: {…}}
+page.tsx:1192 [WEBHOOK] No webhook URL configured for this tenant
+page.tsx:1395 [Conversation Close] Initiating conversation close - triggered by page unload/visibility change
+page.tsx:1409 [Unload] Closing conversation: {conversationId: 'conv_1760443995544_7myycpvhu', tenantId: 'tenant_1754983849007', sessionId: 'sid_1760443987755_ck4yms', agentName: 'Simran AI Sales Agent', businessContext: 'AI-Powered POS System for Modern Business\nTransfor… online, perfect for retail, ecommerce, and more.', …}
+page.tsx:1434 [Conversation Close] Reset close flag after sendBeacon
+page.tsx:1465 [Data Refresh] Page became visible, refreshing agent/tenant data...
+page.tsx:781 [DEBUG] Knowledge contexts for chat: {selectedAgentWebsite: 'https://posible.in/', tenantTrainingContextsCount: 2, agentTrainingContextsCount: 19, tenantTrainingContexts: Array(2), agentTrainingContexts: Array(19), …}
+page.tsx:861 [DEBUG] Mapped knowledge contexts being sent to AI: {count: 2, contexts: Array(2), hasContent: true}
+page.tsx:868 📜 [HISTORY CHECK] Sending history to AI: {historyLength: 3, lastFewMessages: Array(3)}
+page.tsx:1484 [Data Refresh] Agent training contexts updated: 19
+page.tsx:910 [DEBUG] Raw AI response: {
+  "response": "उत्તમ! कॅटलॉग सेट करण्यामध्ये दोन मुख्य भाग आहेत.\n\nपहिला भाग म्हणजे **श्रेणी (Categories) तयार करणे**. यामध्ये तुम्हाला तुमच्या उत्पादनांसाठी मुख्य आणि उपश्रेणी (subcategories) तयार करायच्या आहेत. तुम्ही त्यांना प्रतिमा (images) आणि त्यांची पदानुक्रम (hierarchy) देखील देऊ शकता, ज्यामुळे तुमचे उत्पादन व्यवस्थित दिसेल.\n\nदुसरा भाग म्हणजे **उत्पादने (Products) जोडणे**. तुम्ही उत्पादने स्वतः मॅन्युअली जोडू शकता किंवा Excel द्वारे मोठ्या प्रमाणात (bulk) आयात (import) करू शकता. यामध्ये तुम्हाला त्यांचे SKU, किंमत, प्रकार (variants) आणि कर (taxes) सेट करावे लागतील.\n\nतुमचा कॅटलॉग जेवढा स्पष्ट असेल, तेवढी तुमची बिलिंग प्रक्रिया जलद होईल. हे तुम्हाला समजले का?",
+  "conversationId": "conv_1760443995544_7myycpvhu",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about yes explain next part",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+page.tsx:915 [DEBUG] Conversation ID tracked: conv_1760443995544_7myycpvhu
+page.tsx:921 [DEBUG] Translating text: {originalText: 'उत्તમ! कॅटलॉग सेट करण्यामध्ये दोन मुख्य भाग आहेत.\n…ला भाग म्हणजे **श्रेणी (Categories) तयार करणे*...', languageCode: 'mr-IN'}
+page.tsx:947 [TTS] Timeout after 20s, falling back to browser TTS
+page.tsx:549 Audio context unlocked for this session.
+page.tsx:596 [Browser TTS] Gender consistency: Using female voice from en-IN instead of potentially opposite gender from mr-IN
+page.tsx:616 [Browser TTS] Selected voice: Microsoft Heera - English (India) (en-IN) for target: mr-IN
+page.tsx:1010 [DEBUG] Agent response for lead capture: {leadName: null, leadEmail: null, leadPhone: null, fallbackFromText: {…}, finalLead: {…}, …}
+page.tsx:1027 [DEBUG] Contact info check: {hasName: false, hasEmail: false, hasPhone: false, hasAnyContactInfo: false, shouldSaveLead: 'lead_1760448615234'}
+page.tsx:1028 [DEBUG] Current lead ID: lead_1760448615234
+page.tsx:1029 [DEBUG] Tenant from storage: {id: 'tenant_1754983849007', name: 'POSible.in', companyLogoUrl: 'https://app.posible.in/static/media/logo_option1.919a5cde.png', brandColor: '#7c38ab', companyDetails: 'AI-Powered POS System for Modern Business\nTransfor… online, perfect for retail, ecommerce, and more.', …}
+page.tsx:1030 [DEBUG] Lead limit check: 1 < 3000
+page.tsx:1033 [DEBUG] Entering lead save section
+page.tsx:1035 [DEBUG] Lead limit check passed, proceeding with save
+page.tsx:1081 [DEBUG] Generated comprehensive summary: {summary: 'The customer inquired about the next steps after s…enefits of a clear catalog for efficient billing.', customerName: 'null', customerEmail: 'null', customerPhone: 'null', problemsCount: 2, …}
+page.tsx:1131 [DEBUG] Saving lead (create/update): {isNewLead: false, id: 'lead_1760448615234'}
+page.tsx:1132  POST https://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/api/leads 502 (Bad Gateway)
+ChatPageContent.useCallback[handleSendMessage] @ page.tsx:1132
+await in ChatPageContent.useCallback[handleSendMessage]
+onKeyPress @ page.tsx:1855
+executeDispatch @ react-dom-client.development.js:16426
+runWithFiberInDEV @ react-dom-client.development.js:1510
+processDispatchQueue @ react-dom-client.development.js:16476
+(anonymous) @ react-dom-client.development.js:17074
+batchedUpdates$1 @ react-dom-client.development.js:3253
+dispatchEventForPluginEventSystem @ react-dom-client.development.js:16630
+dispatchEvent @ react-dom-client.development.js:20716
+dispatchDiscreteEvent @ react-dom-client.development.js:20684
+page.tsx:1137 [DEBUG] API response status: 502
+page.tsx:1139 [DEBUG] API response data: {}
+page.tsx:1141 [DEBUG] Lead save failed - HTTP not OK {status: 502, body: {…}}
+error @ intercept-console-error.ts:41
+ChatPageContent.useCallback[handleSendMessage] @ page.tsx:1141
+await in ChatPageContent.useCallback[handleSendMessage]
+onKeyPress @ page.tsx:1855
+executeDispatch @ react-dom-client.development.js:16426
+runWithFiberInDEV @ react-dom-client.development.js:1510
+processDispatchQueue @ react-dom-client.development.js:16476
+(anonymous) @ react-dom-client.development.js:17074
+batchedUpdates$1 @ react-dom-client.development.js:3253
+dispatchEventForPluginEventSystem @ react-dom-client.development.js:16630
+dispatchEvent @ react-dom-client.development.js:20716
+dispatchDiscreteEvent @ react-dom-client.development.js:20684
+stack-frame.ts:95  POST https://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/__nextjs_original-stack-frames 502 (Bad Gateway)
+getOriginalStackFrames @ stack-frame.ts:95
+(anonymous) @ get-error-by-type.ts:58
+createMemoizedPromise @ get-error-by-type.ts:97
+getErrorByType @ get-error-by-type.ts:57
+(anonymous) @ render-error.tsx:98
+react-stack-bottom-frame @ react-dom-client.development.js:24035
+runWithFiberInDEV @ react-dom-client.development.js:1510
+commitHookEffectListMount @ react-dom-client.development.js:10514
+commitHookPassiveMountEffects @ react-dom-client.development.js:10635
+commitPassiveMountOnFiber @ react-dom-client.development.js:12441
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12434
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12557
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12434
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12434
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12434
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12434
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12557
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12557
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12557
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12557
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12557
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12557
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12434
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12444
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12434
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12434
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12557
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12434
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12434
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12557
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12557
+recursivelyTraversePassiveMountEffects @ react-dom-client.development.js:12415
+commitPassiveMountOnFiber @ react-dom-client.development.js:12453
+flushPassiveEffects @ react-dom-client.development.js:15795
+flushPendingEffects @ react-dom-client.development.js:15760
+performSyncWorkOnRoot @ react-dom-client.development.js:16286
+flushSyncWorkAcrossRoots_impl @ react-dom-client.development.js:16137
+flushSpawnedWork @ react-dom-client.development.js:15664
+commitRoot @ react-dom-client.development.js:15390
+commitRootWhenReady @ react-dom-client.development.js:14643
+performWorkOnRoot @ react-dom-client.development.js:14566
+performWorkOnRootViaSchedulerTask @ react-dom-client.development.js:16274
+performWorkUntilDeadline @ scheduler.development.js:45
+page.tsx:781 [DEBUG] Knowledge contexts for chat: {selectedAgentWebsite: 'https://posible.in/', tenantTrainingContextsCount: 2, agentTrainingContextsCount: 19, tenantTrainingContexts: Array(2), agentTrainingContexts: Array(19), …}
+page.tsx:861 [DEBUG] Mapped knowledge contexts being sent to AI: {count: 2, contexts: Array(2), hasContent: true}
+page.tsx:868 📜 [HISTORY CHECK] Sending history to AI: {historyLength: 2, lastFewMessages: Array(2)}
+page.tsx:899  POST https://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/api/public/chat 502 (Bad Gateway)
+ChatPageContent.useCallback[handleSendMessage] @ page.tsx:899
+onKeyPress @ page.tsx:1855
+executeDispatch @ react-dom-client.development.js:16426
+runWithFiberInDEV @ react-dom-client.development.js:1510
+processDispatchQueue @ react-dom-client.development.js:16476
+(anonymous) @ react-dom-client.development.js:17074
+batchedUpdates$1 @ react-dom-client.development.js:3253
+dispatchEventForPluginEventSystem @ react-dom-client.development.js:16630
+dispatchEvent @ react-dom-client.development.js:20716
+dispatchDiscreteEvent @ react-dom-client.development.js:20684
+page.tsx:1395 [Conversation Close] Initiating conversation close - triggered by page unload/visibility change
+page.tsx:1409 [Unload] Closing conversation: {conversationId: 'conv_1760443995544_7myycpvhu', tenantId: 'tenant_1754983849007', sessionId: 'sid_1760443987755_ck4yms', agentName: 'Simran AI Sales Agent', businessContext: 'AI-Powered POS System for Modern Business\nTransfor… online, perfect for retail, ecommerce, and more.', …}
+page.tsx:1413  POST https://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/api/conversations/close 502 (Bad Gateway)
+ChatPageContent.useEffect.handleUnload @ page.tsx:1413
+ChatPageContent.useEffect.handleVisibilityChange @ page.tsx:1448
+page.tsx:1434 [Conversation Close] Reset close flag after sendBeacon
+page.tsx:1465 [Data Refresh] Page became visible, refreshing agent/tenant data...
+page.tsx:1484 [Data Refresh] Agent training contexts updated: 19
+page.tsx:781 [DEBUG] Knowledge contexts for chat: {selectedAgentWebsite: 'https://posible.in/', tenantTrainingContextsCount: 2, agentTrainingContextsCount: 19, tenantTrainingContexts: Array(2), agentTrainingContexts: Array(19), …}
+page.tsx:861 [DEBUG] Mapped knowledge contexts being sent to AI: {count: 2, contexts: Array(2), hasContent: true}
+page.tsx:868 📜 [HISTORY CHECK] Sending history to AI: {historyLength: 1, lastFewMessages: Array(1)}
+The FetchEvent for "https://replit.com/public/js/beacon.js" resulted in a network error response: the promise was rejected.
+Promise.then
+(anonymous) @ sw.js:78
+2sw.js:1 Uncaught (in promise) TypeError: Failed to convert value to 'Response'.
+Promise.then
+(anonymous) @ sw.js:78
+page.tsx:910 [DEBUG] Raw AI response: {
+  "response": "उत्तम! कॅटलॉग सेटअप झाल्यानंतर, आपले पुढचे महत्त्वाचे पाऊल आहे **इन्व्हेंटरीमध्ये स्टॉक भरणे (Stock up your Inventory)**.\n\nयामध्ये तुम्हाला तुमच्या उत्पादनांची अचूक स्टॉकमध्ये नोंदणी करायची आहे. यासाठी तुम्हाला खरेदी नोंदी (purchase entries) जोडायच्या आहेत, स्टॉकची संख्या (quantities) अपडेट करायची आहे आणि स्टॉकच्या हालचाली (movements) आणि समायोजने (adjustments) ट्रॅक करायची आहेत. बिलिंग सुरू करण्यापूर्वी नेहमी तुमचा स्टॉक तपासण्याची खात्री करा.\n\nहे पाऊल तुम्हाला स्पष्ट आहे का?",
+  "conversationId": "conv_1760443995544_7myycpvhu",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about can explain next step",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+page.tsx:915 [DEBUG] Conversation ID tracked: conv_1760443995544_7myycpvhu
+page.tsx:921 [DEBUG] Translating text: {originalText: 'उत्तम! कॅटलॉग सेटअप झाल्यानंतर, आपले पुढचे महत्त्व…पाऊल आहे **इन्व्हेंटरीमध्ये स्टॉक भरणे (Stock ...', languageCode: 'en-US'}
+page.tsx:980 Server TTS failed. TypeError: Cannot read properties of undefined (reading 'audioDataUri')
+    at ChatPageContent.useCallback[handleSendMessage] (page.tsx:956:27)
+error @ intercept-console-error.ts:41
+ChatPageContent.useCallback[handleSendMessage] @ page.tsx:980
+await in ChatPageContent.useCallback[handleSendMessage]
+onKeyPress @ page.tsx:1855
+executeDispatch @ react-dom-client.development.js:16426
+runWithFiberInDEV @ react-dom-client.development.js:1510
+processDispatchQueue @ react-dom-client.development.js:16476
+(anonymous) @ react-dom-client.development.js:17074
+batchedUpdates$1 @ react-dom-client.development.js:3253
+dispatchEventForPluginEventSystem @ react-dom-client.development.js:16630
+dispatchEvent @ react-dom-client.development.js:20716
+dispatchDiscreteEvent @ react-dom-client.development.js:20684
+page.tsx:549 Audio context unlocked for this session.
+page.tsx:616 [Browser TTS] Selected voice: Microsoft Heera - English (India) (en-IN) for target: en-US
+page.tsx:1010 [DEBUG] Agent response for lead capture: {leadName: null, leadEmail: null, leadPhone: null, fallbackFromText: {…}, finalLead: {…}, …}
+page.tsx:1027 [DEBUG] Contact info check: {hasName: false, hasEmail: false, hasPhone: false, hasAnyContactInfo: false, shouldSaveLead: true}
+page.tsx:1028 [DEBUG] Current lead ID: null
+page.tsx:1029 [DEBUG] Tenant from storage: {id: 'tenant_1754983849007', name: 'POSible.in', companyLogoUrl: 'https://app.posible.in/static/media/logo_option1.919a5cde.png', brandColor: '#7c38ab', companyDetails: 'AI-Powered POS System for Modern Business\nTransfor… online, perfect for retail, ecommerce, and more.', …}
+page.tsx:1030 [DEBUG] Lead limit check: 0 < 3000
+page.tsx:1033 [DEBUG] Entering lead save section
+page.tsx:1035 [DEBUG] Lead limit check passed, proceeding with save
+page.tsx:1090 [DEBUG] Failed to generate comprehensive summary: TypeError: Cannot read properties of undefined (reading 'conversationSummary')
+    at ChatPageContent.useCallback[handleSendMessage] (page.tsx:1080:52)
+error @ intercept-console-error.ts:41
+ChatPageContent.useCallback[handleSendMessage] @ page.tsx:1090
+await in ChatPageContent.useCallback[handleSendMessage]
+onKeyPress @ page.tsx:1855
+executeDispatch @ react-dom-client.development.js:16426
+runWithFiberInDEV @ react-dom-client.development.js:1510
+processDispatchQueue @ react-dom-client.development.js:16476
+(anonymous) @ react-dom-client.development.js:17074
+batchedUpdates$1 @ react-dom-client.development.js:3253
+dispatchEventForPluginEventSystem @ react-dom-client.development.js:16630
+dispatchEvent @ react-dom-client.development.js:20716
+dispatchDiscreteEvent @ react-dom-client.development.js:20684
+page.tsx:1131 [DEBUG] Saving lead (create/update): {isNewLead: true, id: 'lead_1760448842118'}
+page.tsx:1137 [DEBUG] API response status: 201
+page.tsx:1139 [DEBUG] API response data: {lead: {…}}
+page.tsx:1192 [WEBHOOK] No webhook URL configured for this tenant
+page.tsx:1395 [Conversation Close] Initiating conversation close - triggered by page unload/visibility change
+page.tsx:1409 [Unload] Closing conversation: {conversationId: 'conv_1760443995544_7myycpvhu', tenantId: 'tenant_1754983849007', sessionId: 'sid_1760443987755_ck4yms', agentName: 'Simran AI Sales Agent', businessContext: 'AI-Powered POS System for Modern Business\nTransfor… online, perfect for retail, ecommerce, and more.', …}
+page.tsx:1434 [Conversation Close] Reset close flag after sendBeacon
+page.tsx:1465 [Data Refresh] Page became visible, refreshing agent/tenant data...
+page.tsx:1484 [Data Refresh] Agent training contexts updated: 19
+page.tsx:1465 [Data Refresh] Page became visible, refreshing agent/tenant data...
+page.tsx:1471  GET https://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/api/public/tenant-config?id=tenant_1754983849007&t=1760449818175 503 (Service Unavailable)
+ChatPageContent.useEffect.refreshDataOnVisible @ page.tsx:1471
+page.tsx:1465 [Data Refresh] Page became visible, refreshing agent/tenant data...
+page.tsx:1471  GET https://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/api/public/tenant-config?id=tenant_1754983849007&t=1760449820528 503 (Service Unavailable)
+ChatPageContent.useEffect.refreshDataOnVisible @ page.tsx:1471
+page.tsx:1465 [Data Refresh] Page became visible, refreshing agent/tenant data...
+page.tsx:1471  GET https://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/api/public/tenant-config?id=tenant_1754983849007&t=1760449832099 503 (Service Unavailable)
+ChatPageContent.useEffect.refreshDataOnVisible @ page.tsx:1471
+page.tsx:1465 [Data Refresh] Page became visible, refreshing agent/tenant data...
+page.tsx:1471  GET https://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/api/public/tenant-config?id=tenant_1754983849007&t=1760449947126 503 (Service Unavailable)
+ChatPageContent.useEffect.refreshDataOnVisible @ page.tsx:1471
+page.tsx:1465 [Data Refresh] Page became visible, refreshing agent/tenant data...
+page.tsx:1471  GET https://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/api/public/tenant-config?id=tenant_1754983849007&t=1760449993823 503 (Service Unavailable)
+ChatPageContent.useEffect.refreshDataOnVisible @ page.tsx:1471
+page.tsx:1465 [Data Refresh] Page became visible, refreshing agent/tenant data...
+page.tsx:1471  GET https://87b9cfc3-a4fd-4702-884b-d9d0a5c8028c-00-2sziubjxtvg1v.pike.replit.dev/api/public/tenant-config?id=tenant_1754983849007&t=1760450216301 503 (Service Unavailable)
+ChatPageContent.useEffect.refreshDataOnVisible @ page.tsx:1471

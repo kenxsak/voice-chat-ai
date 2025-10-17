@@ -1,0 +1,125 @@
+Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+      <Home params={Promise} searchParams={Promise}>
+        <Suspense fallback={<div>}>
+          <HomeWrapper>
+            <div className="min-h-scre...">
+              <ChatPageContent>
+                <div className="flex items...">
+                  <_c className="p-8 text-c...">
+                    <div ref={null} className="rounded-lg...">
+                      <div className="flex justi...">
+                        <AnimatedLogo size={80} withRipple={true} glowIntensity="high">
+                          <div className="relative i..." style={{...}}>
+                            <div
++                             className="absolute rounded-full blur-3xl pointer-events-none bg-gradient-to-r from-cyan..."
+-                             className="absolute rounded-full blur-3xl pointer-events-none bg-gradient-to-r from-cyan..."
+                              style={{width:112,height:112,left:"50%",top:"50%",transform:"translate(...",animation:"magicalGlo..."}}
+                            >
+                            <div
++                             className="absolute rounded-full blur-[40px] pointer-events-none bg-gradient-to-br from-..."
+-                             className="absolute rounded-full blur-[40px] pointer-events-none bg-gradient-to-br from-..."
+                              style={{width:144,height:144,left:"50%",top:"50%",transform:"translate(...",animation:"magicalGlo..."}}
+                            >
+                            <div
++                             className="absolute rounded-full blur-[60px] pointer-events-none opacity-60 bg-gradient-..."
+-                             className="absolute rounded-full blur-[60px] pointer-events-none opacity-60 bg-gradient-..."
+                              style={{width:176,height:176,left:"50%",top:"50%",transform:"translate(...",animation:"magicalGlo..."}}
+                            >
+                            <ThemeLogo width={80} height={80} animate={true} glowIntensity="high" ...>
+                              <div className="inline-fle..." style={{width:80,height:80}}>
+                                <div
++                                 className="absolute rounded-full opacity-40 blur-2xl bg-gradient-to-r from-cyan-400/..."
+-                                 className="absolute rounded-full bg-gradient-to-br from-cyan-400 via-purple-500 to-p..."
+                                  style={{
++                                   width: 112
+-                                   width: "80px"
++                                   height: 112
+-                                   height: "80px"
++                                   left: "50%"
+-                                   left: "50%"
++                                   top: "50%"
+-                                   top: "50%"
++                                   transform: "translate(-50%, -50%)"
+-                                   transform: "translate(-50%, -50%)"
++                                   animation: "pulse 3s ease-in-out infinite"
+-                                   filter: "blur(1px)"
+                                  }}
+                                >
+                                <div
++                                 className="relative z-10"
+-                                 className="absolute rounded-full opacity-40 blur-2xl bg-gradient-to-r from-cyan-300/..."
+                                  style={{
++                                   transform: "perspective(1000px) rotateX(5deg)"
+-                                   transform: "translate(-50%, -50%)"
++                                   transition: "transform 0.3s ease"
++                                   width: 80
+-                                   width: "112px"
++                                   height: 80
+-                                   height: "112px"
+-                                   left: "50%"
+-                                   top: "50%"
+-                                   animation-duration: "3s"
+-                                   animation-timing-function: "ease-in-out"
+-                                   animation-delay: "0s"
+-                                   animation-iteration-count: "infinite"
+-                                   animation-direction: "normal"
+-                                   animation-fill-mode: "none"
+-                                   animation-play-state: "running"
+-                                   animation-name: "pulse"
+-                                   animation-timeline: "auto"
+-                                   animation-range-start: "normal"
+-                                   animation-range-end: "normal"
+                                  }}
+                                >
++                                 <img
++                                   alt="Voice Chat AI"
++                                   fetchPriority={undefined}
++                                   loading="lazy"
++                                   width={80}
++                                   height={80}
++                                   decoding="async"
++                                   data-nimg="1"
++                                   className="object-contain transition-all duration-500 relative z-10 group-hover:sc..."
++                                   style={{color:"transparent",filter:"drop-shado...",transform:"translateZ...",width:80,height:80}}
++                                   sizes={undefined}
++                                   srcSet={"/_next/image?url=%2Flogo.png&w=96&q=75 1x, /_next/image?url=%2Flogo.png&..."}
++                                   src={"/_next/image?url=%2Flogo.png&w=256&q=75"}
++                                   ref={function}
++                                   onLoad={function onLoad}
++                                   onError={function onError}
++                                 >
+                                ...
+                      ...
+    ...
+
+    at throwOnHydrationMismatch (https://8466a8d2-27b1-4b27-96bb-53e2b6395d55-00-1dhdls7x7pkff.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:9266:56)
+    at beginWork (https://8466a8d2-27b1-4b27-96bb-53e2b6395d55-00-1dhdls7x7pkff.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:7831:918)
+    at runWithFiberInDEV (https://8466a8d2-27b1-4b27-96bb-53e2b6395d55-00-1dhdls7x7pkff.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:3501:74)
+    at performUnitOfWork (https://8466a8d2-27b1-4b27-96bb-53e2b6395d55-00-1dhdls7x7pkff.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:10168:97)
+    at workLoopConcurrentByScheduler (https://8466a8d2-27b1-4b27-96bb-53e2b6395d55-00-1dhdls7x7pkff.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:10164:58)
+    at renderRootConcurrent (https://8466a8d2-27b1-4b27-96bb-53e2b6395d55-00-1dhdls7x7pkff.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:10146:71)
+    at performWorkOnRoot (https://8466a8d2-27b1-4b27-96bb-53e2b6395d55-00-1dhdls7x7pkff.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:9784:176)
+    at performWorkOnRootViaSchedulerTask (https://8466a8d2-27b1-4b27-96bb-53e2b6395d55-00-1dhdls7x7pkff.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:10796:9)
+    at MessagePort.performWorkUntilDeadline (https://8466a8d2-27b1-4b27-96bb-53e2b6395d55-00-1dhdls7x7pkff.sisko.replit.dev/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:1952:64)
+    at img (<anonymous>)
+    at https://8466a8d2-27b1-4b27-96bb-53e2b6395d55-00-1dhdls7x7pkff.sisko.replit.dev/_next/static/chunks/node_modules_ede97815._.js:3053:46
+    at https://8466a8d2-27b1-4b27-96bb-53e2b6395d55-00-1dhdls7x7pkff.sisko.replit.dev/_next/static/chunks/node_modules_ede97815._.js:3167:47
+    at ThemeLogo (https://8466a8d2-27b1-4b27-96bb-53e2b6395d55-00-1dhdls7x7pkff.sisko.replit.dev/_next/static/chunks/src_ff465a5f._.js:817:229)
+    at AnimatedLogo (https://8466a8d2-27b1-4b27-96bb-53e2b6395d55-00-1dhdls7x7pkff.sisko.replit.dev/_next/static/chunks/src_ff465a5f._.js:930:215)
+    at ChatPageContent (https://8466a8d2-27b1-4b27-96bb-53e2b6395d55-00-1dhdls7x7pkff.sisko.replit.dev/_next/static/chunks/src_ff465a5f._.js:3390:237)
+    at HomeWrapper (https://8466a8d2-27b1-4b27-96bb-53e2b6395d55-00-1dhdls7x7pkff.sisko.replit.dev/_next/static/chunks/src_ff465a5f._.js:4108:225)
+    at Home (https://8466a8d2-27b1-4b27-96bb-53e2b6395d55-00-1dhdls7x7pkff.sisko.replit.dev/_next/static/chunks/src_ff465a5f._.js:4156:221)
+    at ClientPageRoot (https://8466a8d2-27b1-4b27-96bb-53e2b6395d55-00-1dhdls7x7pkff.sisko.replit.dev/_next/static/chunks/node_modules_c4732a9f._.js:8854:50)

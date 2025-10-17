@@ -1,0 +1,345 @@
+content script loaded
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+node_modules_next_dist_compiled_2ce9398a._.js:16330 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+src_5c4b3cb1._.js:499 ServiceWorker registration successful with scope: https://a381b091-601d-4005-88e8-405300815e37-00-3txxihgnzpu3c.sisko.replit.dev/
+node_modules_next_dist_client_43e3ffb8._.js:14247 WebSocket connection to 'wss://a381b091-601d-4005-88e8-405300815e37-00-3txxihgnzpu3c.sisko.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ node_modules_next_dist_client_43e3ffb8._.js:14247
+src_app_dashboard_page_tsx_04fd597f._.js:2709 [DEBUG] Loaded tenants from API: Array(1)
+112The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.
+src_app_dashboard_page_tsx_04fd597f._.js:2876 [DEBUG] Loading tenant data: Object
+src_app_dashboard_page_tsx_04fd597f._.js:2461 [DEBUG] Loading analytics data for tenant: tenant_1754983849007
+src_app_dashboard_page_tsx_04fd597f._.js:2919 [DEBUG] Setting training contexts: Array(2)
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+ [VoiceChat Widget] Initializing with config: [object Object]
+ [VoiceChat Widget] Loaded configuration: [object Object]
+ [VoiceChat Widget] Initialized successfully
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+node_modules_next_dist_client_43e3ffb8._.js:1194 A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+error @ node_modules_next_dist_client_43e3ffb8._.js:1194
+src_5c4b3cb1._.js:499 ServiceWorker registration successful with scope: https://a381b091-601d-4005-88e8-405300815e37-00-3txxihgnzpu3c.sisko.replit.dev/
+node_modules_next_dist_client_43e3ffb8._.js:14247 WebSocket connection to 'wss://a381b091-601d-4005-88e8-405300815e37-00-3txxihgnzpu3c.sisko.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ node_modules_next_dist_client_43e3ffb8._.js:14247
+src_app_dashboard_page_tsx_04fd597f._.js:2469 [DEBUG] Analytics data loaded: Object
+about:srcdoc:1 An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing.
+widget.js?tenantId=tenant_1754983849007&position=bottom-right&agentId=agent_1755001935955:225 [VoiceChat Widget] Initializing with config: Object
+widget.js?tenantId=tenant_1754983849007&position=bottom-right&agentId=agent_1755001935955:228 [VoiceChat Widget] Loaded configuration: Object
+widget.js?tenantId=tenant_1754983849007&position=bottom-right&agentId=agent_1755001935955:382 [VoiceChat Widget] Initialized successfully
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+ content script loaded
+node_modules_next_dist_client_43e3ffb8._.js:1194 A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary loading={null}>
+              <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+                <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} ...>
+                  <RedirectBoundary>
+                    <RedirectErrorBoundary router={{...}}>
+                      <InnerLayoutRouter url={"/?tenant..."} tree={[...]} cacheNode={{lazyData:null, ...}} ...>
+                        <ClientPageRoot Component={function Home} searchParams={{tenantId:"...", ...}} params={{}}>
+                          <Home params={Promise} searchParams={Promise}>
+                            <div
++                             className="min-h-screen bg-background text-foreground"
+-                             className="flex items-center justify-center min-h-screen bg-transparent"
+                            >
+                        ...
+
+error @ node_modules_next_dist_client_43e3ffb8._.js:1194
+UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw-s.p.0faac26c.woff2:1  Failed to load resource: the server responded with a status of 403 (Forbidden)
+src_5c4b3cb1._.js:499 ServiceWorker registration successful with scope: https://a381b091-601d-4005-88e8-405300815e37-00-3txxihgnzpu3c.sisko.replit.dev/
+node_modules_next_dist_client_43e3ffb8._.js:14247 WebSocket connection to 'wss://a381b091-601d-4005-88e8-405300815e37-00-3txxihgnzpu3c.sisko.replit.dev/_next/webpack-hmr' failed: 
+(anonymous) @ node_modules_next_dist_client_43e3ffb8._.js:14247
+src_c02980dc._.js:1566 Audio context unlocked for this session.
+src_c02980dc._.js:1861 [DEBUG] Knowledge contexts for chat: Object
+src_c02980dc._.js:1960 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+src_c02980dc._.js:1968 📜 [HISTORY CHECK] Sending history to AI: Object
+src_c02980dc._.js:2009 [DEBUG] Raw AI response: {
+  "response": "Hello! I can certainly help you with Posible POS software for your pet store. Our solution is designed to streamline operations, enhance customer experiences, and help your business grow.\n\nIt includes features like service and appointment scheduling, detailed customer and pet profiles, and robust inventory management with expiration date tracking. You can even manage pet-specific details like vaccination history and grooming preferences!\n\nWould you like to explore how these features can benefit your pet store, or perhaps learn about setting them up?",
+  "conversationId": "conv_1760453722097_ffm9lz3yr",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about need pos software for my pet store",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+src_c02980dc._.js:2013 [DEBUG] Conversation ID tracked: conv_1760453722097_ffm9lz3yr
+src_c02980dc._.js:2018 [DEBUG] Translating text: Object
+src_c02980dc._.js:2057 [TTS] Timeout after 18s, falling back to browser TTS
+src_c02980dc._.js:1566 Audio context unlocked for this session.
+src_c02980dc._.js:1647 [Browser TTS] Selected voice: Microsoft Heera - English (India) (en-IN) for target: en-US
+src_c02980dc._.js:2180 [DEBUG] Agent response for lead capture: Object
+src_c02980dc._.js:2202 [DEBUG] Contact info check: Object
+src_c02980dc._.js:2209 [DEBUG] Current lead ID: null
+src_c02980dc._.js:2210 [DEBUG] Tenant from storage: Object
+src_c02980dc._.js:2211 [DEBUG] Lead limit check: 0 < 3000
+src_c02980dc._.js:2213 [DEBUG] Entering lead save section
+src_c02980dc._.js:2215 [DEBUG] Lead limit check passed, proceeding with save
+src_c02980dc._.js:2275 [DEBUG] Generated comprehensive summary: Object
+src_c02980dc._.js:2325 [DEBUG] Saving lead (create/update): Object
+src_c02980dc._.js:2336 [DEBUG] API response status: 201
+src_c02980dc._.js:2340 [DEBUG] API response data: Object
+src_c02980dc._.js:2400 [WEBHOOK] No webhook URL configured for this tenant
+src_c02980dc._.js:1861 [DEBUG] Knowledge contexts for chat: Object
+src_c02980dc._.js:1960 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+src_c02980dc._.js:1968 📜 [HISTORY CHECK] Sending history to AI: Object
+src_c02980dc._.js:2009 [DEBUG] Raw AI response: {
+  "response": "Absolutely! For your pet store, Posible POS offers a specialized solution to streamline operations and enhance customer experiences. You can easily manage service and appointment scheduling, keep detailed customer and pet profiles including vaccination history and grooming preferences, and track inventory with expiry dates. This helps ensure your business runs smoothly, from managing your furry clients to keeping track of your products.",
+  "conversationId": "conv_1760453722097_ffm9lz3yr",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about ok wants to explore more can you explain how your ...",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+src_c02980dc._.js:2013 [DEBUG] Conversation ID tracked: conv_1760453722097_ffm9lz3yr
+src_c02980dc._.js:2018 [DEBUG] Translating text: Object
+src_c02980dc._.js:2180 [DEBUG] Agent response for lead capture: Object
+src_c02980dc._.js:2202 [DEBUG] Contact info check: Object
+src_c02980dc._.js:2209 [DEBUG] Current lead ID: lead_1760455364108
+src_c02980dc._.js:2210 [DEBUG] Tenant from storage: Object
+src_c02980dc._.js:2211 [DEBUG] Lead limit check: 1 < 3000
+src_c02980dc._.js:2213 [DEBUG] Entering lead save section
+src_c02980dc._.js:2215 [DEBUG] Lead limit check passed, proceeding with save
+src_c02980dc._.js:2275 [DEBUG] Generated comprehensive summary: Object
+src_c02980dc._.js:2325 [DEBUG] Saving lead (create/update): Object
+src_c02980dc._.js:2336 [DEBUG] API response status: 201
+src_c02980dc._.js:2340 [DEBUG] API response data: Object
+src_c02980dc._.js:2400 [WEBHOOK] No webhook URL configured for this tenant
+src_c02980dc._.js:2784 [Data Refresh] Page became visible, refreshing agent/tenant data...
+src_c02980dc._.js:2808 [Data Refresh] Agent training contexts updated: 19
+src_c02980dc._.js:1861 [DEBUG] Knowledge contexts for chat: Object
+src_c02980dc._.js:1960 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+src_c02980dc._.js:1968 📜 [HISTORY CHECK] Sending history to AI: Object
+src_c02980dc._.js:2009 [DEBUG] Raw AI response: {
+  "response": "That's a great question! Beyond what we've discussed, Posible POS for pet stores also helps you with comprehensive loyalty management to reward your regular customers. You can efficiently manage your inventory, including tracking expiration dates for pet food and supplies. This ensures you have all the tools to streamline your daily operations and enhance customer satisfaction.\n\nDoes this give you a clearer picture of how Posible can assist your pet store?",
+  "conversationId": "conv_1760453722097_ffm9lz3yr",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about ok what else i can manage in pet store management",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+src_c02980dc._.js:2013 [DEBUG] Conversation ID tracked: conv_1760453722097_ffm9lz3yr
+src_c02980dc._.js:2018 [DEBUG] Translating text: Object
+src_c02980dc._.js:2057 [TTS] Timeout after 18s, falling back to browser TTS
+src_c02980dc._.js:1566 Audio context unlocked for this session.
+src_c02980dc._.js:1647 [Browser TTS] Selected voice: Microsoft Heera - English (India) (en-IN) for target: en-US
+src_c02980dc._.js:2180 [DEBUG] Agent response for lead capture: Object
+src_c02980dc._.js:2202 [DEBUG] Contact info check: Object
+src_c02980dc._.js:2209 [DEBUG] Current lead ID: null
+src_c02980dc._.js:2210 [DEBUG] Tenant from storage: Object
+src_c02980dc._.js:2211 [DEBUG] Lead limit check: 0 < 3000
+src_c02980dc._.js:2213 [DEBUG] Entering lead save section
+src_c02980dc._.js:2215 [DEBUG] Lead limit check passed, proceeding with save
+src_c02980dc._.js:2275 [DEBUG] Generated comprehensive summary: Object
+src_c02980dc._.js:2325 [DEBUG] Saving lead (create/update): Object
+src_c02980dc._.js:2336 [DEBUG] API response status: 201
+src_c02980dc._.js:2340 [DEBUG] API response data: Object
+src_c02980dc._.js:2400 [WEBHOOK] No webhook URL configured for this tenant
+src_c02980dc._.js:1861 [DEBUG] Knowledge contexts for chat: Object
+src_c02980dc._.js:1960 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+src_c02980dc._.js:1968 📜 [HISTORY CHECK] Sending history to AI: Object
+src_c02980dc._.js:2009 [DEBUG] Raw AI response: {
+  "response": "That's wonderful to hear! Starting your 14-day free trial is a great way to experience all the benefits of Posible POS for your pet store, with full access to all features and no credit card required.\n\nYou can easily initiate your free trial by visiting Posible.in and clicking on the \"Start Free Trial\" button. We're excited for you to see how it can help your business!",
+  "conversationId": "conv_1760453722097_ffm9lz3yr",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about yes thanks will try for 14 days trial first",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+src_c02980dc._.js:2013 [DEBUG] Conversation ID tracked: conv_1760453722097_ffm9lz3yr
+src_c02980dc._.js:2018 [DEBUG] Translating text: Object
+src_c02980dc._.js:2180 [DEBUG] Agent response for lead capture: Object
+src_c02980dc._.js:2202 [DEBUG] Contact info check: Object
+src_c02980dc._.js:2209 [DEBUG] Current lead ID: lead_1760455573716
+src_c02980dc._.js:2210 [DEBUG] Tenant from storage: Object
+src_c02980dc._.js:2211 [DEBUG] Lead limit check: 1 < 3000
+src_c02980dc._.js:2213 [DEBUG] Entering lead save section
+src_c02980dc._.js:2215 [DEBUG] Lead limit check passed, proceeding with save
+src_c02980dc._.js:2275 [DEBUG] Generated comprehensive summary: Object
+src_c02980dc._.js:2325 [DEBUG] Saving lead (create/update): Object
+src_c02980dc._.js:2336 [DEBUG] API response status: 201
+src_c02980dc._.js:2340 [DEBUG] API response data: Object
+src_c02980dc._.js:2400 [WEBHOOK] No webhook URL configured for this tenant
+src_c02980dc._.js:1861 [DEBUG] Knowledge contexts for chat: Object
+src_c02980dc._.js:1960 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+src_c02980dc._.js:1968 📜 [HISTORY CHECK] Sending history to AI: Object
+src_c02980dc._.js:2009 [DEBUG] Raw AI response: {
+  "response": "You're most welcome! To schedule a live demo with one of our human sales representatives, please visit Posible.in. You'll find a \"Schedule Demo\" button there, or you can reach out to our Sales Agent through the Contact page. They will be happy to assist you further.\n\nWould you like me to continue in English, or another language?",
+  "conversationId": "conv_1760453722097_ffm9lz3yr",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about ok thanks once again and tell some human sales rep...",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+src_c02980dc._.js:2013 [DEBUG] Conversation ID tracked: conv_1760453722097_ffm9lz3yr
+src_c02980dc._.js:2018 [DEBUG] Translating text: Object
+src_c02980dc._.js:2180 [DEBUG] Agent response for lead capture: Object
+src_c02980dc._.js:2202 [DEBUG] Contact info check: Object
+src_c02980dc._.js:2209 [DEBUG] Current lead ID: lead_1760455573716
+src_c02980dc._.js:2210 [DEBUG] Tenant from storage: Object
+src_c02980dc._.js:2211 [DEBUG] Lead limit check: 1 < 3000
+src_c02980dc._.js:2213 [DEBUG] Entering lead save section
+src_c02980dc._.js:2215 [DEBUG] Lead limit check passed, proceeding with save
+src_c02980dc._.js:2275 [DEBUG] Generated comprehensive summary: Object
+src_c02980dc._.js:2325 [DEBUG] Saving lead (create/update): Object
+src_c02980dc._.js:2336 [DEBUG] API response status: 201
+src_c02980dc._.js:2340 [DEBUG] API response data: Object
+src_c02980dc._.js:2400 [WEBHOOK] No webhook URL configured for this tenant
+src_c02980dc._.js:1861 [DEBUG] Knowledge contexts for chat: Object
+src_c02980dc._.js:1960 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+src_c02980dc._.js:1968 📜 [HISTORY CHECK] Sending history to AI: Object
+src_c02980dc._.js:2009 [DEBUG] Raw AI response: {
+  "response": "I’m happy I could help today! If you ever need more assistance, just say ‘Hi Simran’. Have a wonderful day and happy billing with Posible POS!",
+  "conversationId": "conv_1760453722097_ffm9lz3yr",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about no thanks bye",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+src_c02980dc._.js:2013 [DEBUG] Conversation ID tracked: conv_1760453722097_ffm9lz3yr
+src_c02980dc._.js:2018 [DEBUG] Translating text: Object
+src_c02980dc._.js:2180 [DEBUG] Agent response for lead capture: Object
+src_c02980dc._.js:2202 [DEBUG] Contact info check: Object
+src_c02980dc._.js:2209 [DEBUG] Current lead ID: lead_1760455573716
+src_c02980dc._.js:2210 [DEBUG] Tenant from storage: Object
+src_c02980dc._.js:2211 [DEBUG] Lead limit check: 1 < 3000
+src_c02980dc._.js:2213 [DEBUG] Entering lead save section
+src_c02980dc._.js:2215 [DEBUG] Lead limit check passed, proceeding with save
+src_c02980dc._.js:2275 [DEBUG] Generated comprehensive summary: Object
+src_c02980dc._.js:2325 [DEBUG] Saving lead (create/update): Object
+src_c02980dc._.js:2336 [DEBUG] API response status: 201
+src_c02980dc._.js:2340 [DEBUG] API response data: Object
+src_c02980dc._.js:2400 [WEBHOOK] No webhook URL configured for this tenant
+src_c02980dc._.js:1861 [DEBUG] Knowledge contexts for chat: Object
+src_c02980dc._.js:1960 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+src_c02980dc._.js:1968 📜 [HISTORY CHECK] Sending history to AI: Object
+src_c02980dc._.js:2009 [DEBUG] Raw AI response: {
+  "response": "I'd like to help you with \"can some one help in gujarati language also for demo\". Could you provide more details or rephrase your question? That will help me give you the most accurate answer.",
+  "conversationId": "conv_1760453722097_ffm9lz3yr",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about can some one help in gujarati language also for de...",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+src_c02980dc._.js:2013 [DEBUG] Conversation ID tracked: conv_1760453722097_ffm9lz3yr
+src_c02980dc._.js:2018 [DEBUG] Translating text: Object
+src_c02980dc._.js:2180 [DEBUG] Agent response for lead capture: Object
+src_c02980dc._.js:2202 [DEBUG] Contact info check: Object
+src_c02980dc._.js:2209 [DEBUG] Current lead ID: lead_1760455573716
+src_c02980dc._.js:2210 [DEBUG] Tenant from storage: Object
+src_c02980dc._.js:2211 [DEBUG] Lead limit check: 1 < 3000
+src_c02980dc._.js:2213 [DEBUG] Entering lead save section
+src_c02980dc._.js:2215 [DEBUG] Lead limit check passed, proceeding with save
+src_c02980dc._.js:2275 [DEBUG] Generated comprehensive summary: Object
+src_c02980dc._.js:2325 [DEBUG] Saving lead (create/update): Object
+src_c02980dc._.js:2336 [DEBUG] API response status: 201
+src_c02980dc._.js:2340 [DEBUG] API response data: Object
+src_c02980dc._.js:2400 [WEBHOOK] No webhook URL configured for this tenant
+src_c02980dc._.js:1861 [DEBUG] Knowledge contexts for chat: Object
+src_c02980dc._.js:1960 [DEBUG] Mapped knowledge contexts being sent to AI: Object
+src_c02980dc._.js:1968 📜 [HISTORY CHECK] Sending history to AI: Object
+src_c02980dc._.js:2009 [DEBUG] Raw AI response: {
+  "response": "નમસ્તે! ચોક્કસ, હું તમને તમારા સોફ્ટવેરમાં પ્રોડક્ટ્સ અને કેટલોગ કેવી રીતે ઉમેરવા તે વિશે ગુજરાતીમાં વિગતવાર સમજાવીશ. ચાલો સાથે મળીને આ કરીએ.\n\nસૌ પ્રથમ, તમારે તમારી ડેશબોર્ડ પરથી \"Setup Catalogue\" વિભાગમાં જવું પડશે.\n\n**1. Categories ઉમેરવા:**\n*   ત્યાં તમને \"Add Categories\" નો વિકલ્પ મળશે.\n*   તમારા વ્યવસાય પ્રમાણે મુખ્ય કેટેગરીઝ અને સબકેટેગરીઝ બનાવો.\n*   તમે કેટેગરીઝ માટે છબીઓ, ક્રમ અને અન્ય વિગતો પણ ઉમેરી શકો છો.\n\n**2. Products ઉમેરવા:**\n*   કેટેગરીઝ બનાવ્યા પછી, \"Add Products\" પર ક્લિક કરો.\n*   તમે પ્રોડક્ટ્સ મેન્યુઅલી ઉમેરી શકો છો અથવા એક્સેલ દ્વારા બલ્કમાં ઇમ્પોર્ટ કરી શકો છો.\n*   પ્રોડક્ટ SKU, કિંમત, વેરીયન્ટ્સ (જેમ કે સાઈઝ, કલર) અને લાગુ પડતા ટેક્સ સેટ કરવાનું યાદ રાખો.\n\n**Simran Tip:** તમારો કેટલોગ જેટલો સ્પષ્ટ હશે, તેટલું ઝડપથી બિલિંગ થશે.\n\nશું તમને આ પગલાં સમજાયા? આપણે આગળ વધી શકીએ?",
+  "conversationId": "conv_1760453722097_ffm9lz3yr",
+  "customerId": null,
+  "isReturningCustomer": false,
+  "conversationSummary": "User asked about how to add products and catalogu in my software ca...",
+  "leadName": null,
+  "leadEmail": null,
+  "leadPhone": null,
+  "knowledgeGapQuery": null
+}
+src_c02980dc._.js:2013 [DEBUG] Conversation ID tracked: conv_1760453722097_ffm9lz3yr
+src_c02980dc._.js:2018 [DEBUG] Translating text: Object
+src_c02980dc._.js:2057 [TTS] Timeout after 18s, falling back to browser TTS
+src_c02980dc._.js:1566 Audio context unlocked for this session.
+src_c02980dc._.js:1624 [Browser TTS] Gender consistency: Using female voice from en-IN instead of potentially opposite gender from gu-IN
+src_c02980dc._.js:1647 [Browser TTS] Selected voice: Microsoft Heera - English (India) (en-IN) for target: gu-IN
+src_c02980dc._.js:2180 [DEBUG] Agent response for lead capture: Object
+src_c02980dc._.js:2202 [DEBUG] Contact info check: Object
+src_c02980dc._.js:2209 [DEBUG] Current lead ID: lead_1760455573716
+src_c02980dc._.js:2210 [DEBUG] Tenant from storage: Object
+src_c02980dc._.js:2211 [DEBUG] Lead limit check: 1 < 3000
+src_c02980dc._.js:2213 [DEBUG] Entering lead save section
+src_c02980dc._.js:2215 [DEBUG] Lead limit check passed, proceeding with save
+?tenantId=tenant_1754983849007&agentId=agent_1755001935955&embed=1:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+node_modules_next_dist_client_43e3ffb8._.js:1194 [DEBUG] Failed to generate comprehensive summary: Error: An unexpected response was received from the server.
+    at fetchServerAction (node_modules_next_dist_client_43e3ffb8._.js:17725:37)
+error @ node_modules_next_dist_client_43e3ffb8._.js:1194
+src_c02980dc._.js:2325 [DEBUG] Saving lead (create/update): Object
+/api/leads:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+src_c02980dc._.js:2336 [DEBUG] API response status: 502
+src_c02980dc._.js:2340 [DEBUG] API response data: Object
+node_modules_next_dist_client_43e3ffb8._.js:1194 [DEBUG] Lead save failed - HTTP not OK Object
+error @ node_modules_next_dist_client_43e3ffb8._.js:1194
+/__nextjs_original-stack-frames:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+/__nextjs_original-stack-frames:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+dashboard?tab=embed:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+%5Broot%20of%20the%20server%5D__29bb49f1._.css:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+/?tenantId=tenant_1754983849007&agentId=agent_1755001935955&embed=1#vcai-embed:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
+[root of the server]__29bb49f1._.css:1  Failed to load resource: the server responded with a status of 502 (Bad Gateway)
