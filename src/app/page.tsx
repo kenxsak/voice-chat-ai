@@ -822,7 +822,8 @@ function ChatPageContent() {
     setMessages(prev => [...prev, userMessageForState]);
 
     const textToSend = currentInputVal;
-    // Text now stays in input field after sending (removed setInput(''))
+    // Clear input field after sending
+    setInput('');
 
     if (isListening) {
       recognitionRef.current?.stop();
@@ -1091,6 +1092,10 @@ function ChatPageContent() {
         await fetch('/api/tenants', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: currentTenant!.id, updates: { conversationCount: (tenantFromStorage.conversationCount ?? 0) } }) });
       }
 
+      // Clear image attachments only after successful send
+      setAttachedImageDataUri(null);
+      setSelectedImage(null);
+
     } catch (error: any) {
       const displayError = `Sorry, an error occurred: ${error.message || 'Please try again.'}`;
       setMessages(prev => [...prev, {role: 'agent', content: displayError, agentAvatarUrl: selectedAgent?.avatarUrl, agentAvatarHint: selectedAgent?.avatarHint, agentName: selectedAgent?.name}]);
@@ -1098,7 +1103,6 @@ function ChatPageContent() {
     } finally {
       setIsGeneratingResponse(false);
       setIsTyping(false);
-      setAttachedImageDataUri(null); // Reset the image after sending
     }
   }, [input, attachedImageDataUri, selectedAgent, selectedTenant, isGeneratingResponse, messages, languageCode, toast, playBrowserTTS, isListening, unlockAudio, allPlans, isMuted, premiumVoicesAvailable, currentLeadId]);
 
@@ -1111,7 +1115,9 @@ function ChatPageContent() {
       }
       const reader = new FileReader();
       reader.onload = (loadEvent) => {
-        setAttachedImageDataUri(loadEvent.target?.result as string);
+        const imageData = loadEvent.target?.result as string;
+        setAttachedImageDataUri(imageData);
+        setSelectedImage(imageData); // Sync both states for preview and sending
         toast({ title: "Image Attached", description: "Your image is ready to be sent with your next message." });
       };
       reader.readAsDataURL(file);
@@ -1631,6 +1637,7 @@ function ChatPageContent() {
 
   const clearImageAttachment = () => {
     setAttachedImageDataUri(null);
+    setSelectedImage(null);
     toast({title: "Image Cleared", description: "The image attachment has been removed."});
   };
 
@@ -1673,9 +1680,15 @@ function ChatPageContent() {
   const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      if (file.size > 4 * 1024 * 1024) { // 4MB limit
+          toast({ title: "File Too Large", description: "Please select an image smaller than 4MB.", variant: "destructive" });
+          return;
+      }
       const reader = new FileReader();
       reader.onloadend = () => {
-        setSelectedImage(reader.result as string);
+        const imageData = reader.result as string;
+        setSelectedImage(imageData);
+        setAttachedImageDataUri(imageData); // Sync both states for preview and sending
       };
       reader.readAsDataURL(file);
     }
@@ -1700,9 +1713,16 @@ function ChatPageContent() {
     
     const file = e.dataTransfer.files?.[0];
     if (file && file.type.startsWith('image/')) {
+      if (file.size > 4 * 1024 * 1024) { // 4MB limit
+          toast({ title: "File Too Large", description: "Please select an image smaller than 4MB.", variant: "destructive" });
+          return;
+      }
       const reader = new FileReader();
       reader.onloadend = () => {
-        setSelectedImage(reader.result as string);
+        const imageData = reader.result as string;
+        setSelectedImage(imageData);
+        setAttachedImageDataUri(imageData); // Sync both states for preview and sending
+        toast({ title: "Image Attached", description: "Your image is ready to be sent with your next message." });
       };
       reader.readAsDataURL(file);
     }
