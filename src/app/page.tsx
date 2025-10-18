@@ -390,6 +390,52 @@ const linkifyText = (text: string) => {
   });
 };
 
+// Helper function to generate brand color palette
+const getBrandPalette = (brandColor: string) => {
+  // Convert hex to RGB
+  const hexToRgb = (hex: string) => {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : { r: 59, g: 130, b: 246 }; // fallback to blue
+  };
+
+  // Lighten color for hover states
+  const lighten = (r: number, g: number, b: number, amount: number = 0.2) => {
+    return {
+      r: Math.min(255, Math.round(r + (255 - r) * amount)),
+      g: Math.min(255, Math.round(g + (255 - g) * amount)),
+      b: Math.min(255, Math.round(b + (255 - b) * amount))
+    };
+  };
+
+  // Darken color for active states
+  const darken = (r: number, g: number, b: number, amount: number = 0.2) => {
+    return {
+      r: Math.max(0, Math.round(r * (1 - amount))),
+      g: Math.max(0, Math.round(g * (1 - amount))),
+      b: Math.max(0, Math.round(b * (1 - amount)))
+    };
+  };
+
+  const rgb = hexToRgb(brandColor);
+  const lightRgb = lighten(rgb.r, rgb.g, rgb.b);
+  const darkRgb = darken(rgb.r, rgb.g, rgb.b);
+
+  return {
+    primary: brandColor,
+    primaryLight: `rgb(${lightRgb.r}, ${lightRgb.g}, ${lightRgb.b})`,
+    primaryDark: `rgb(${darkRgb.r}, ${darkRgb.g}, ${darkRgb.b})`,
+    surface: '#ffffff',
+    surfaceGray: '#f9fafb',
+    border: '#e5e7eb',
+    textPrimary: '#111827',
+    textSecondary: '#6b7280'
+  };
+};
+
 const ChatMessage = React.memo(({role, content, agentAvatarUrl, agentAvatarHint, agentName, onCopy }: { role: 'user' | 'agent' | 'system'; content: string | React.ReactNode; agentAvatarUrl?: string; agentAvatarHint?: string; agentName?: string; onCopy: (text: string) => void; }) => {
   // Process content to make links clickable for agent messages
   const processedContent = role === 'agent' && typeof content === 'string' 
@@ -399,14 +445,14 @@ const ChatMessage = React.memo(({role, content, agentAvatarUrl, agentAvatarHint,
   return (
     <div className={`group flex items-start mb-4 animate-in fade-in slide-in-from-bottom-2 duration-300 ${role === 'user' ? 'justify-end' : 'justify-start'}`}>
       {role === 'agent' && (
-          <Button variant="ghost" size="icon" className="w-7 h-7 mr-2 shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-200 hover:bg-cyan-500/10 hover:text-cyan-400 hover:scale-110" onClick={() => typeof content === 'string' && onCopy(content)}>
+          <Button variant="ghost" size="icon" className="w-7 h-7 mr-2 shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-200 hover:bg-gray-100 hover:text-gray-600 hover:scale-110" onClick={() => typeof content === 'string' && onCopy(content)}>
               <Copy size={14} />
               <span className="sr-only">Copy message</span>
           </Button>
       )}
       <div className={`flex items-end ${role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
         {role === 'agent' && (
-          <Avatar className="h-8 w-8 mr-2 shrink-0 ring-2 ring-cyan-500/30 shadow-lg shadow-cyan-500/20 transition-all duration-200 group-hover:ring-cyan-400/50">
+          <Avatar className="h-8 w-8 mr-2 shrink-0 ring-2 ring-gray-200 shadow-lg transition-all duration-200 group-hover:ring-gray-300">
             <AvatarImage src={agentAvatarUrl || '/icon-192.png'} alt={agentName || 'Agent'} data-ai-hint={agentAvatarHint || 'voice chat ai assistant'} className="object-cover" loading="lazy" />
             <AvatarFallback className="bg-transparent p-0.5"><Image src="/icon-192.png" alt="Agent" width={24} height={24} className="w-full h-full object-contain" /></AvatarFallback>
           </Avatar>
@@ -415,9 +461,9 @@ const ChatMessage = React.memo(({role, content, agentAvatarUrl, agentAvatarHint,
           className={cn(
               "rounded-[20px] py-2.5 px-4 max-w-xs text-sm transition-all duration-200 group-hover:scale-[1.02]",
               role === 'user' 
-                ? 'bg-gradient-to-br from-purple-600 to-blue-600 text-white ml-8 shadow-lg shadow-purple-500/30 border border-purple-400/20 hover:shadow-xl hover:shadow-purple-500/40' 
+                ? 'bg-gray-900 text-white ml-8 shadow-md hover:shadow-lg' 
                 : role === 'agent' 
-                ? 'bg-white/80 backdrop-blur-md text-gray-900 border border-gray-200/50 mr-8 shadow-md hover:border-gray-300/60 hover:shadow-lg hover:bg-white/90'
+                ? 'bg-white/80 backdrop-blur-md text-gray-900 border border-gray-200/50 mr-8 shadow-sm hover:border-gray-300/60 hover:shadow-md hover:bg-white/90'
                 : 'bg-muted/50 text-muted-foreground text-center w-full mx-auto max-w-md text-xs p-2 border border-muted/30 rounded-lg'
           )}
         >
@@ -425,7 +471,7 @@ const ChatMessage = React.memo(({role, content, agentAvatarUrl, agentAvatarHint,
         </div>
       </div>
       {role === 'user' && (
-           <Button variant="ghost" size="icon" className="w-7 h-7 ml-2 shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-200 hover:bg-purple-500/10 hover:text-purple-400 hover:scale-110" onClick={() => {
+           <Button variant="ghost" size="icon" className="w-7 h-7 ml-2 shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-200 hover:bg-gray-100 hover:text-gray-600 hover:scale-110" onClick={() => {
               let textToCopy = '';
               if (typeof content === 'string') {
                 textToCopy = content;
@@ -486,6 +532,7 @@ function ChatPageContent() {
   const [showVoiceMode, setShowVoiceMode] = useState(false);
   const [currentLeadId, setCurrentLeadId] = useState<string | null>(null);
   const [conversationId, setConversationId] = useState<string | null>(null);
+  const [showSuggestions, setShowSuggestions] = useState(true);
   // Notify parent page (if embedded in an iframe) about widget open/close state so the parent can resize the iframe
   useEffect(() => {
     if (!isEmbedded) return;
@@ -753,6 +800,9 @@ function ChatPageContent() {
 
     const currentInputVal = (text ?? input).trim();
     if (!currentInputVal && !attachedImageDataUri) return;
+
+    // Hide quick reply suggestions after first message
+    setShowSuggestions(false);
 
     unlockAudio();
     setIsGeneratingResponse(true);
@@ -1531,7 +1581,7 @@ function ChatPageContent() {
   if (isLoading) {
       return (
           <div className="flex items-center justify-center min-h-screen bg-transparent p-4 animate-in fade-in duration-500">
-            <Card className="p-6 text-center border-cyan-500/20 bg-card/95 backdrop-blur-sm shadow-xl animate-in zoom-in-95 duration-300">
+            <Card className="p-6 text-center border-gray-200/50 bg-card/95 backdrop-blur-sm shadow-xl animate-in zoom-in-95 duration-300">
               <div className="flex justify-center mb-4">
                 <ThemeLogo 
                   size={64} 
@@ -1539,7 +1589,7 @@ function ChatPageContent() {
                   glowIntensity="low"
                 />
               </div>
-              <CardTitle className="text-base font-semibold bg-gradient-to-r from-cyan-700 via-purple-700 to-pink-700 dark:from-cyan-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent mb-1">Initializing...</CardTitle>
+              <CardTitle className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-1">Initializing...</CardTitle>
               <CardDescription className="text-xs text-muted-foreground">Loading chatbot</CardDescription>
             </Card>
           </div>
@@ -1583,14 +1633,14 @@ function ChatPageContent() {
   };
 
   const handleTextConverted = (text: string) => {
-    // Populate the input field with the transcribed text (user manually sends)
-    if (text.trim()) {
+    // Populate the input field with the transcribed text and auto-submit
+    if (text && text.trim()) {
       setInput(text);
       setShowVoiceMode(false);
-      toast({
-        title: "Voice Transcribed",
-        description: "Your voice has been converted to text. Click send to submit.",
-      });
+      // Auto-submit after a brief delay to show the text
+      setTimeout(() => {
+        handleSendMessage(text);
+      }, 300);
     }
   };
 
@@ -1705,9 +1755,13 @@ function ChatPageContent() {
     );
   };
 
+  const brandPalette = getBrandPalette(brandColor);
+  
   return (
     <div className={cn("bg-transparent brand-themed")} style={{
-      '--brand-primary': brandColor,
+      '--brand-primary': brandPalette.primary,
+      '--brand-primary-light': brandPalette.primaryLight,
+      '--brand-primary-dark': brandPalette.primaryDark,
       '--brand-primary-hsl': brandColor ? hexToHsl(brandColor) : undefined,
       '--brand-primary-hsl-dark': brandColor ? hexToHsl(brandColor) : undefined
     } as React.CSSProperties}>
@@ -1777,13 +1831,13 @@ function ChatPageContent() {
                             onDrop={handleDrop}
                         >
                             {isDragging && (
-                                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border-4 border-dashed border-cyan-500 rounded-lg z-50 flex items-center justify-center backdrop-blur-md animate-in fade-in duration-200">
+                                <div className="absolute inset-0 bg-gray-100/90 border-4 border-dashed border-gray-400 rounded-lg z-50 flex items-center justify-center backdrop-blur-md animate-in fade-in duration-200">
                                     <div className="text-center transform scale-110 transition-transform duration-200">
-                                        <svg className="h-20 w-20 mx-auto text-cyan-600 mb-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg className="h-20 w-20 mx-auto text-gray-600 mb-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                         </svg>
-                                        <p className="text-xl font-bold text-cyan-700 mb-1">Drop image here</p>
-                                        <p className="text-sm text-cyan-600">Release to attach to your message</p>
+                                        <p className="text-xl font-bold text-gray-800 mb-1">Drop image here</p>
+                                        <p className="text-sm text-gray-600">Release to attach to your message</p>
                                     </div>
                                 </div>
                             )}
@@ -1799,10 +1853,10 @@ function ChatPageContent() {
                                         </div>
                                     )}
                                     <div
-                                        className={`max-w-[75%] rounded-[18px] shadow-sm overflow-hidden ${
+                                        className={`max-w-[75%] rounded-[18px] overflow-hidden ${
                                             message.role === "user"
-                                                ? "bg-gray-900 text-white"
-                                                : "bg-white border border-gray-200 text-gray-900"
+                                                ? "bg-gray-900 text-white shadow-md"
+                                                : "bg-white border border-gray-200 text-gray-900 shadow-sm"
                                         }`}
                                         data-testid={`message-${message.role}-${index}`}
                                     >
@@ -1861,6 +1915,30 @@ function ChatPageContent() {
                                 </div>
                             ))}
 
+                            {/* Quick Reply Suggestions */}
+                            {showSuggestions && messages.length === 1 && (
+                                <div className="flex flex-wrap gap-2 px-2 py-3 animate-slide-up-fade">
+                                    {[
+                                        "Tell me more",
+                                        "How can you help?",
+                                        "What services do you offer?",
+                                        "Get started"
+                                    ].map((text) => (
+                                        <button
+                                            key={text}
+                                            onClick={() => {
+                                                setInput(text);
+                                                setShowSuggestions(false);
+                                                handleSendMessage(text);
+                                            }}
+                                            className="px-4 py-2 rounded-full border-2 border-gray-200 bg-white hover:border-[var(--brand-primary)] hover:bg-gray-50 text-sm text-gray-700 transition-all duration-200 hover:scale-105"
+                                        >
+                                            {text}
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+
                             {(isGeneratingResponse || isTyping) && messages.length > 0 && (
                                 <div className="flex justify-start animate-slide-up-fade">
                                     <div className="h-8 w-8 rounded-full bg-gray-900 flex-shrink-0 mr-2 flex items-center justify-center">
@@ -1917,11 +1995,14 @@ function ChatPageContent() {
                                     onClick={() => setShowVoiceMode(!showVoiceMode)}
                                     className={`h-9 w-9 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-sm hover:shadow-md ${
                                         showVoiceMode 
-                                            ? "bg-gradient-to-br from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 shadow-purple-500/30" 
+                                            ? "bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-dark)]" 
                                             : "bg-gray-100/80 hover:bg-gray-200 backdrop-blur-sm"
                                     }`}
                                     aria-label="Toggle voice mode"
                                     data-testid="button-voice-mode-toggle"
+                                    style={showVoiceMode ? {
+                                        backgroundColor: 'var(--brand-primary)',
+                                    } : {}}
                                 >
                                     <Mic className={`h-4 w-4 ${showVoiceMode ? "text-white" : "text-gray-600"}`} />
                                 </button>
@@ -1933,7 +2014,7 @@ function ChatPageContent() {
                                     onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSendMessage()}
                                     placeholder={isListening ? "Listening..." : (isTenantDisabled ? tenantDisabledReason : "Type your message here...")}
                                     data-testid="input-chat-message"
-                                    className="flex-1 h-12 px-4 rounded-[24px] border-2 border-gray-200/80 bg-white/50 backdrop-blur-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 transition-all duration-200 text-sm placeholder:text-gray-400"
+                                    className="flex-1 h-12 px-4 rounded-[24px] border-2 border-gray-200/80 bg-white/50 backdrop-blur-sm focus:border-[var(--brand-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--brand-primary)]/20 transition-all duration-200 text-sm placeholder:text-gray-400"
                                     disabled={chatInputDisabled}
                                 />
                                 
@@ -1941,7 +2022,10 @@ function ChatPageContent() {
                                     onClick={() => handleSendMessage()}
                                     disabled={(!input.trim() && !attachedImageDataUri) || chatInputDisabled}
                                     data-testid="button-send-message"
-                                    className="h-9 w-9 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center hover:from-cyan-600 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:scale-105 shadow-lg shadow-cyan-500/30"
+                                    className="h-9 w-9 rounded-full text-white flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:scale-105 shadow-lg"
+                                    style={{
+                                        backgroundColor: 'var(--brand-primary)',
+                                    }}
                                     aria-label="Send message"
                                 >
                                     <Send className="h-4 w-4" />

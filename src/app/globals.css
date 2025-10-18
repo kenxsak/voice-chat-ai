@@ -422,6 +422,16 @@
     --chart-3: 0 0% 25%;
     --chart-4: 0 0% 65%;
     --chart-5: 0 0% 20%;
+    
+    /* Neutral palette for brand-agnostic chat UI */
+    --brand-primary: #3b82f6; /* fallback blue */
+    --brand-primary-light: #60a5fa;
+    --brand-primary-dark: #2563eb;
+    --surface-light: #ffffff;
+    --surface-gray: #f9fafb;
+    --border-light: #e5e7eb;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
   }
 
   .dark {
@@ -461,6 +471,13 @@
     --chart-3: 0 0% 75%;
     --chart-4: 0 0% 45%;
     --chart-5: 0 0% 80%;
+    
+    /* Dark mode overrides for neutral palette */
+    --surface-light: #1f2937;
+    --surface-gray: #111827;
+    --border-light: #374151;
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
   }
 }
 
