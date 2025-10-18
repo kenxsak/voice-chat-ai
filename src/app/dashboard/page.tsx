@@ -662,7 +662,7 @@ const LogMessage = React.memo(({ role, content, agentAvatar }: { role: string; c
     return (
         <div className={`flex items-start gap-3 my-3 ${isUser ? 'flex-row-reverse' : ''}`}>
             <Avatar className="h-8 w-8">
-                <AvatarImage src={!isUser ? agentAvatar : undefined} data-ai-hint={isUser ? 'user avatar' : 'agent avatar'} loading="lazy" />
+                <AvatarImage src={!isUser ? (agentAvatar && agentAvatar.trim() !== '' ? agentAvatar : '/logo.png') : undefined} data-ai-hint={isUser ? 'user avatar' : 'agent avatar'} loading="lazy" />
                 <AvatarFallback>{isUser ? <User size={16} /> : <Bot size={16} />}</AvatarFallback>
             </Avatar>
             <div className={`p-3 rounded-lg max-w-[80%] break-words ${isUser ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}>
@@ -2154,6 +2154,39 @@ function DashboardPageContent() {
   const forcePlanChange = (tenantId: string, newPlanId: string) =>
     handleTrialAction(tenantId, 'force_plan_change', { newPlanId });
 
+  // Fix Avatars Function for Super Admin
+  const handleFixAvatars = async () => {
+    if (userRole !== 'superadmin') {
+      toast({ title: "Access Denied", description: "Only super admins can fix avatar URLs.", variant: "destructive" });
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/admin/fix-avatars', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Failed to fix avatar URLs');
+      }
+
+      const result = await response.json();
+      toast({
+        title: "Avatars Fixed",
+        description: result.message
+      });
+    } catch (error) {
+      console.error('Error fixing avatars:', error);
+      toast({
+        title: "Error Fixing Avatars",
+        description: error instanceof Error ? error.message : 'Unknown error occurred',
+        variant: "destructive"
+      });
+    }
+  };
+
   // Platform Settings Functions for Super Admin
   const handleSavePlatformSettings = async () => {
     if (userRole !== 'superadmin') {
@@ -2774,13 +2807,18 @@ function DashboardPageContent() {
       const updatedAgents = (adminManagedTenant.agents || []).map(agent => agent.id === agentId ? { ...agent, [field]: value } : agent);
       const updatedTenant = { ...adminManagedTenant, agents: updatedAgents };
       setAdminManagedTenant(updatedTenant);
+      
+      // Auto-save avatar changes immediately
+      if (field === 'avatarUrl') {
+          handleSaveAgentChanges();
+      }
   };
 
   const handleGenerateAvatar = (agentId: string) => {
     const randomSeed = Math.random().toString(36).substring(7);
     const avatarUrl = `https://api.dicebear.com/8.x/bottts-neutral/svg?seed=${randomSeed}`;
     handleAgentFieldChange(agentId, 'avatarUrl', avatarUrl);
-    toast({title: "Avatar Generated!", description: "A new random avatar has been generated."})
+    toast({title: "Avatar Generated & Saved!", description: "A new random avatar has been generated and saved automatically."})
   };
 
   const handleAddNewAgent = () => {
@@ -5300,7 +5338,12 @@ function DashboardPageContent() {
                           <CardHeader>
                               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
                                   <div className="space-y-1"><CardTitle className="flex items-center gap-2"><Bot className="w-5 h-5" />Agent Management</CardTitle><CardDescription>Customize your chatbot agents. Changes are saved locally and will be reflected on the chatbot page.</CardDescription></div>
-                                  <Button className="w-full sm:w-auto touch-target" onClick={handleAddNewAgent} disabled={isViewingAsSuperAdmin || !adminCurrentPlan || (adminManagedTenant.agents?.length ?? 0) >= adminCurrentPlan.agentLimit}><PlusCircle className="w-4 h-4 mr-2" />Add Agent</Button>
+                                  <div className="flex flex-col sm:flex-row gap-2">
+                                      <Button className="w-full sm:w-auto touch-target" onClick={handleAddNewAgent} disabled={isViewingAsSuperAdmin || !adminCurrentPlan || (adminManagedTenant.agents?.length ?? 0) >= adminCurrentPlan.agentLimit}><PlusCircle className="w-4 h-4 mr-2" />Add Agent</Button>
+                                      {userRole === 'superadmin' && (
+                                          <Button variant="outline" className="w-full sm:w-auto touch-target" onClick={handleFixAvatars}><Zap className="w-4 h-4 mr-2" />Fix Avatars</Button>
+                                      )}
+                                  </div>
                               </div>
                           </CardHeader>
                           <CardContent className="space-y-4 overflow-x-hidden">
@@ -5309,7 +5352,7 @@ function DashboardPageContent() {
                                       {(adminManagedTenant.agents || []).map((agent) => (
                                           <AccordionItem key={agent.id} value={`agent-${agent.id}`} disabled={isViewingAsSuperAdmin}>
                                               <AccordionTrigger className="min-h-[48px]" disabled={isViewingAsSuperAdmin}>
-                                                  <div className="flex items-center gap-3 flex-grow min-w-0"><Avatar className="h-8 w-8"><AvatarImage src={agent.avatarUrl || undefined} alt={agent.name} data-ai-hint={agent.avatarHint} className="object-contain" /><AvatarFallback>{getInitials(agent.name)}</AvatarFallback></Avatar><span className="font-semibold truncate">{agent.name}</span></div>
+                                                  <div className="flex items-center gap-3 flex-grow min-w-0"><Avatar className="h-8 w-8"><AvatarImage src={agent.avatarUrl && agent.avatarUrl.trim() !== '' ? agent.avatarUrl : '/logo.png'} alt={agent.name} data-ai-hint={agent.avatarHint} className="object-contain" /><AvatarFallback>{getInitials(agent.name)}</AvatarFallback></Avatar><span className="font-semibold truncate">{agent.name}</span></div>
                                               </AccordionTrigger>
                                               <AccordionContent className="space-y-4 p-4 bg-muted/50 rounded-b-md">
                                                   <div><Label htmlFor={`agent-name-${agent.id}`}>Agent Name</Label><Input id={`agent-name-${agent.id}`} value={agent.name} onChange={(e) => handleAgentFieldChange(agent.id, 'name', e.target.value)} disabled={isViewingAsSuperAdmin} /></div>
@@ -5376,16 +5419,16 @@ function DashboardPageContent() {
                                                       <Input className="h-11" id={`agent-website-${agent.id}`} value={agent.websiteUrl || ''} onChange={(e) => handleAgentFieldChange(agent.id, 'websiteUrl', e.target.value)} placeholder="e.g. https://sales.example.com" disabled={isViewingAsSuperAdmin} />
                                                       <p className="text-xs text-muted-foreground mt-1">If provided, this URL will be used for context instead of the general training URLs.</p>
                                                   </div>
-                                                  <div>
-                                                      <Label htmlFor={`agent-avatar-${agent.id}`}>Avatar URL</Label>
-                                                      <div className="flex flex-col sm:flex-row items-stretch gap-2">
-                                                          <Input className="flex-1 min-w-0 h-11" id={`agent-avatar-${agent.id}`} value={agent.avatarUrl || ''} onChange={(e) => handleAgentFieldChange(agent.id, 'avatarUrl', e.target.value)} placeholder="Enter URL or generate one" disabled={isViewingAsSuperAdmin} />
-                                                          <Button className="w-full sm:w-auto h-11" variant="outline" onClick={() => handleGenerateAvatar(agent.id)} disabled={isViewingAsSuperAdmin} title="Generate random avatar">
-                                                              <Sparkles className="h-4 w-4 mr-2" />
-                                                              Generate
-                                                          </Button>
-                                                      </div>
-                                                      <p className="text-xs text-muted-foreground mt-1">Provide a URL, or generate a unique bot avatar. Suggested size: 100x100px.</p>
+                                                      <div>
+                                                          <Label htmlFor={`agent-avatar-${agent.id}`}>Avatar URL</Label>
+                                                          <div className="flex flex-col sm:flex-row items-stretch gap-2">
+                                                              <Input className="flex-1 min-w-0 h-11" id={`agent-avatar-${agent.id}`} value={agent.avatarUrl || ''} onChange={(e) => handleAgentFieldChange(agent.id, 'avatarUrl', e.target.value)} placeholder="Enter URL or generate one" disabled={isViewingAsSuperAdmin} />
+                                                              <Button className="w-full sm:w-auto h-11" variant="outline" onClick={() => handleGenerateAvatar(agent.id)} disabled={isViewingAsSuperAdmin} title="Generate random avatar">
+                                                                  <Sparkles className="h-4 w-4 mr-2" />
+                                                                  Generate
+                                                              </Button>
+                                                          </div>
+                                                          <p className="text-xs text-muted-foreground mt-1">Avatar changes are saved automatically. Preview shows below.</p>
                                                       {agent.avatarUrl && (<div className="mt-2 flex items-center gap-2"><span className="text-xs text-muted-foreground">Preview:</span><Avatar className="h-10 w-10"><AvatarImage src={agent.avatarUrl || undefined} alt="Avatar Preview" className="object-contain" /><AvatarFallback>{getInitials(agent.name)}</AvatarFallback></Avatar></div>)}
                                                   </div>
                                                   <div>

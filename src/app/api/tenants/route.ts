@@ -59,7 +59,7 @@ export async function GET() {
         assignedPlanId: 'free',
         supportedLanguages: [{ code: 'en-US', name: 'English' }],
         agents: [
-          { id: 'agent_default', name: 'Support Bot', description: 'Helpful assistant', avatarUrl: '', avatarHint: 'bot avatar', greeting: "Hello! How can I help you today?", websiteUrl: '', voice: 'female-us' },
+          { id: 'agent_default', name: 'Support Bot', description: 'Helpful assistant', avatarUrl: '/logo.png', avatarHint: 'bot avatar', greeting: "Hello! How can I help you today?", websiteUrl: '', voice: 'female-us' },
         ],
         trainingContexts: [],
         status: 'Active',
