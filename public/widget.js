@@ -91,13 +91,13 @@
       'cursor: pointer',
       'outline: none',
       'user-select: none',
-      'font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+      'font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif',
       'font-weight: ' + fontWeight,
       'font-size: ' + sizeConfig.fontSize + 'px',
       'color: white',
       'background: ' + brandColor,
-      'box-shadow: 0 4px 12px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.1)',
-      'transition: all 0.2s ease-in-out',
+      'box-shadow: 0 6px 20px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.10)',
+      'transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
       'display: flex',
       'align-items: center',
       'justify-content: center',
@@ -138,13 +138,23 @@
     launcher.innerHTML = content;
     
     launcher.addEventListener('mouseenter', function() {
-      launcher.style.transform = 'translateY(-1px)';
-      launcher.style.boxShadow = '0 6px 16px rgba(0,0,0,0.2), 0 3px 6px rgba(0,0,0,0.15)';
+      launcher.style.transform = 'translateY(-2px) scale(1.02)';
+      launcher.style.boxShadow = '0 10px 30px rgba(0,0,0,0.20), 0 6px 10px rgba(0,0,0,0.15)';
     });
     
     launcher.addEventListener('mouseleave', function() {
-      launcher.style.transform = '';
-      launcher.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.1)';
+      launcher.style.transform = 'translateY(0) scale(1)';
+      launcher.style.boxShadow = '0 6px 20px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.10)';
+    });
+    
+    launcher.addEventListener('focus', function() {
+      launcher.style.outline = '3px solid rgba(59, 130, 246, 0.5)';
+      launcher.style.outlineOffset = '2px';
+    });
+    
+    launcher.addEventListener('blur', function() {
+      launcher.style.outline = 'none';
+      launcher.style.outlineOffset = '0';
     });
     
     // Professional subtle animations only
@@ -157,8 +167,8 @@
     
     // Only add subtle breathing animation for professional look
     var breathingKeyframes = '@keyframes vcai-breathe { ' +
-      '0%, 100% { transform: scale(1); } ' +
-      '50% { transform: scale(1.02); } ' +
+      '0%, 100% { transform: scale(1); box-shadow: 0 6px 20px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.10); } ' +
+      '50% { transform: scale(1.03); box-shadow: 0 8px 25px rgba(0,0,0,0.18), 0 4px 8px rgba(0,0,0,0.12); } ' +
     '}';
     
     styleEl.textContent = breathingKeyframes;
@@ -168,8 +178,8 @@
     if (animation === 'none') {
       animationStyle = 'none';
     } else {
-      // Subtle breathing animation for professional appearance
-      animationStyle = 'vcai-breathe 3s ease-in-out infinite';
+      // Subtle, professional breathing animation
+      animationStyle = 'vcai-breathe 4s ease-in-out infinite';
     }
     
     launcher.style.animation = animationStyle;
@@ -190,15 +200,15 @@
     iframe.style.cssText = [
       'position: fixed',
       'z-index: 2147483001',
-      'border: 1px solid rgba(0,0,0,0.1)',
-      'border-radius: 12px',
-      'box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08)',
+      'border: 1px solid rgba(0,0,0,0.08)',
+      'border-radius: 16px',
+      'box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 8px 20px rgba(0,0,0,0.10)',
       'background: white',
       'opacity: 0',
       'pointer-events: none',
-      'transition: all 0.3s ease-in-out',
+      'transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
       'margin: 20px',
-      'max-width: calc(100vw - 20px)',
+      'max-width: calc(100vw - 40px)',
       'max-height: calc(100vh - 40px)'
     ].join('; ');
     
@@ -322,7 +332,7 @@
           if (savedAnimation === 'none') {
             animationStyle = 'none';
           } else {
-            animationStyle = 'vcai-breathe 3s ease-in-out infinite';
+            animationStyle = 'vcai-breathe 4s ease-in-out infinite';
           }
           launcher.style.animation = animationStyle;
         }
