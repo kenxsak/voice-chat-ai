@@ -1404,17 +1404,42 @@ function ChatPageContent() {
             setAllTenants(INITIAL_TENANTS_DATA);
           }
         } else {
-          // Admin/app mode requires auth to fetch tenants
+          // Admin/app mode or unauthenticated access
           try {
             const tenantsRes = await fetch('/api/tenants', { cache: 'no-store' });
-            if (tenantsRes.ok) {
+            
+            if (tenantsRes.status === 401) {
+              // Unauthenticated - try to use public endpoint with tenant ID from URL
+              const tenantIdFromUrl = searchParams.get('tenantId') || searchParams.get('tenant');
+              
+              if (tenantIdFromUrl) {
+                try {
+                  const publicRes = await fetch(`/api/public/tenant-config?id=${encodeURIComponent(tenantIdFromUrl)}`, { cache: 'no-store' });
+                  if (publicRes.ok) {
+                    const json = await publicRes.json();
+                    const tenant = json?.tenant;
+                    setAllTenants(tenant ? [tenant] : INITIAL_TENANTS_DATA);
+                  } else {
+                    console.error('Failed to fetch public tenant config:', publicRes.status);
+                    setAllTenants(INITIAL_TENANTS_DATA);
+                  }
+                } catch (error) {
+                  console.error('Error fetching public tenant config:', error);
+                  setAllTenants(INITIAL_TENANTS_DATA);
+                }
+              } else {
+                console.warn('Unauthenticated and no tenant ID provided in URL');
+                setAllTenants(INITIAL_TENANTS_DATA);
+              }
+            } else if (tenantsRes.ok) {
               const tenantsJson = await tenantsRes.json();
               setAllTenants(tenantsJson.tenants ?? INITIAL_TENANTS_DATA);
             } else {
               console.error('Failed to fetch tenants:', tenantsRes.status);
               setAllTenants(INITIAL_TENANTS_DATA);
             }
-          } catch {
+          } catch (error) {
+            console.error('Error fetching tenants:', error);
             setAllTenants(INITIAL_TENANTS_DATA);
           }
         }
