@@ -3661,7 +3661,7 @@ function DashboardPageContent() {
                 <Card modern className="glass-card border-primary/20">
                     <CardHeader className="pb-4">
                         <CardTitle className="flex items-center gap-3 text-xl">
-                          <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-primary to-[hsl(var(--accent-cyan))] flex items-center justify-center neon-pulse">
+                          <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-primary to-gray-700 flex items-center justify-center neon-pulse">
                             <Activity className="w-5 h-5 text-white"/>
                           </div>
                           <span className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
@@ -3671,15 +3671,15 @@ function DashboardPageContent() {
                         <CardDescription className="text-muted-foreground">Real-time overview of platform activity and performance.</CardDescription>
                     </CardHeader>
                     <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <Card modern className="glass-card card-3d border-[hsl(var(--accent-cyan))]/30 hover:border-[hsl(var(--accent-cyan))]/60 transition-all duration-300 bg-card/50 dark:bg-card/30">
+                        <Card modern className="glass-card card-3d border-primary/30 hover:border-primary/60 transition-all duration-300 bg-card/50 dark:bg-card/30">
                             <div className="p-4">
                               <div className="flex items-center justify-between">
                                 <CardTitle className="text-sm font-medium text-card-foreground">Active Tenants</CardTitle>
-                                <div className="h-9 w-9 rounded-xl bg-[hsl(var(--accent-cyan))]/20 flex items-center justify-center neon-pulse">
-                                  <div className="h-2.5 w-2.5 rounded-full bg-[hsl(var(--accent-cyan))]"></div>
+                                <div className="h-9 w-9 rounded-xl bg-primary/20 flex items-center justify-center neon-pulse">
+                                  <div className="h-2.5 w-2.5 rounded-full bg-primary"></div>
                                 </div>
                               </div>
-                              <p className="text-3xl font-bold bg-gradient-to-r from-cyan-700 to-blue-700 dark:from-[hsl(var(--accent-cyan))] dark:to-primary bg-clip-text text-transparent mt-3">
+                              <p className="text-3xl font-bold bg-gradient-to-r from-gray-700 to-gray-900 dark:from-primary dark:to-gray-600 bg-clip-text text-transparent mt-3">
                                 {activeTenantsCount}
                               </p>
                             </div>
@@ -3733,7 +3733,7 @@ function DashboardPageContent() {
                                   <CardTitle className="text-sm font-medium text-card-foreground">Total Revenue</CardTitle>
                                   <DollarSign className="h-6 w-6 text-[hsl(var(--accent-green))] neon-pulse" />
                                 </div>
-                                <p className="text-3xl font-bold bg-gradient-to-r from-green-700 to-cyan-700 dark:from-[hsl(var(--accent-green))] dark:to-[hsl(var(--accent-cyan))] bg-clip-text text-transparent mt-3">
+                                <p className="text-3xl font-bold bg-gradient-to-r from-green-700 to-gray-700 dark:from-[hsl(var(--accent-green))] dark:to-gray-600 bg-clip-text text-transparent mt-3">
                                   ${superAdminAnalytics.totals.totalRevenue.toFixed(2)}
                                 </p>
                                 <p className="text-xs text-muted-foreground mt-2">Monthly subscription revenue</p>
@@ -3763,13 +3763,13 @@ function DashboardPageContent() {
                                 <p className="text-xs text-muted-foreground mt-2">Revenue - AI costs</p>
                               </div>
                             </Card>
-                            <Card modern className="glass-card card-3d border-[hsl(var(--accent-cyan))]/30 hover:border-[hsl(var(--accent-cyan))]/60 transition-all duration-300 bg-card/50 dark:bg-card/30">
+                            <Card modern className="glass-card card-3d border-primary/30 hover:border-primary/60 transition-all duration-300 bg-card/50 dark:bg-card/30">
                               <div className="p-4">
                                 <div className="flex items-center justify-between">
                                   <CardTitle className="text-sm font-medium text-card-foreground">Profit Margin</CardTitle>
-                                  <Gauge className="h-6 w-6 text-[hsl(var(--accent-cyan))] neon-pulse" />
+                                  <Gauge className="h-6 w-6 text-primary neon-pulse" />
                                 </div>
-                                <p className="text-3xl font-bold bg-gradient-to-r from-cyan-700 to-blue-700 dark:from-[hsl(var(--accent-cyan))] dark:to-primary bg-clip-text text-transparent mt-3">
+                                <p className="text-3xl font-bold bg-gradient-to-r from-gray-700 to-gray-900 dark:from-primary dark:to-gray-600 bg-clip-text text-transparent mt-3">
                                   {superAdminAnalytics.totals.platformProfitMargin.toFixed(1)}%
                                 </p>
                                 <p className="text-xs text-muted-foreground mt-2">Platform efficiency</p>
@@ -3804,7 +3804,7 @@ function DashboardPageContent() {
                                 <p className={`text-3xl font-bold mt-3 ${
                                   superAdminAnalytics.totals.tenantsNeedingAttention > 0
                                     ? 'bg-gradient-to-r from-gray-700 to-black dark:from-gray-600 dark:to-black bg-clip-text text-transparent'
-                                    : 'bg-gradient-to-r from-green-700 to-cyan-700 dark:from-[hsl(var(--accent-green))] dark:to-[hsl(var(--accent-cyan))] bg-clip-text text-transparent'
+                                    : 'bg-gradient-to-r from-green-700 to-gray-700 dark:from-[hsl(var(--accent-green))] dark:to-gray-600 bg-clip-text text-transparent'
                                 }`}>{superAdminAnalytics.totals.tenantsNeedingAttention}</p>
                                 <p className="text-xs text-muted-foreground mt-2">High usage or low profit</p>
                               </div>

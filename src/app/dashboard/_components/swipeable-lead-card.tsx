@@ -150,7 +150,7 @@ export function SwipeableLeadCard({
           <div className="flex items-start gap-3 mb-3">
             <Avatar className="w-10 h-10 border-2 border-primary/20">
               <AvatarImage src={lead.imageUrl || undefined} />
-              <AvatarFallback className="bg-gradient-to-br from-cyan-400/20 to-purple-500/20">
+              <AvatarFallback className="bg-gradient-to-br from-gray-400/20 to-gray-500/20">
                 {customerName.charAt(0).toUpperCase()}
               </AvatarFallback>
             </Avatar>
@@ -159,7 +159,7 @@ export function SwipeableLeadCard({
               <div className="flex items-center gap-2 mb-1">
                 <h3 className="font-semibold text-sm truncate">{customerName}</h3>
                 {lead.isReturningCustomer && (
-                  <Badge variant="outline" className="text-xs border-cyan-400/30 text-cyan-400">
+                  <Badge variant="outline" className="text-xs border-primary/30 text-primary">
                     Returning
                   </Badge>
                 )}
@@ -185,7 +185,7 @@ export function SwipeableLeadCard({
                 'text-xs',
                 lead.status === 'contacted' 
                   ? 'bg-green-500/20 text-green-400 border-green-500/30' 
-                  : 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30'
+                  : 'bg-primary/20 text-primary border-primary/30'
               )}
             >
               {lead.status || 'New'}
@@ -193,10 +193,10 @@ export function SwipeableLeadCard({
           </div>
 
           {/* AI Summary Section */}
-          <div className="mb-3 p-3 rounded-lg bg-gradient-to-br from-primary/5 via-accent-cyan/5 to-accent-purple/5 border border-primary/10">
+          <div className="mb-3 p-3 rounded-lg bg-gradient-to-br from-primary/5 to-muted/10 border border-primary/10">
             <div className="flex items-center gap-2 mb-2">
-              <Sparkles className="w-3 h-3 text-cyan-400 animate-neon-pulse" />
-              <span className="text-xs font-medium text-cyan-400">AI Summary</span>
+              <Sparkles className="w-3 h-3 text-primary" />
+              <span className="text-xs font-medium text-primary">AI Summary</span>
             </div>
             <p className="text-sm text-muted-foreground line-clamp-2">{aiSummary}</p>
           </div>
@@ -205,13 +205,13 @@ export function SwipeableLeadCard({
           <div className="space-y-1.5 mb-3">
             {customerEmail && (
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <Mail className="w-3 h-3 text-purple-400" />
+                <Mail className="w-3 h-3 text-muted-foreground" />
                 <span className="truncate">{customerEmail}</span>
               </div>
             )}
             {customerPhone && (
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <Phone className="w-3 h-3 text-cyan-400" />
+                <Phone className="w-3 h-3 text-muted-foreground" />
                 <span>{customerPhone}</span>
               </div>
             )}
