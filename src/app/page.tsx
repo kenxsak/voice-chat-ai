@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, {useState, useRef, useEffect, useCallback, Suspense} from 'react';
@@ -12,7 +13,7 @@ import {translateText} from '@/ai/flows/translate-text';
 import {textToSpeech} from '@/ai/flows/text-to-speech';
 import {generateConversationSummary} from '@/ai/flows/generate-conversation-summary';
 import {useToast} from "@/hooks/use-toast";
-import {Mic, Square, Building, Send, X as CloseIcon, Bot, Languages as LanguageIcon, MessageSquare, ExternalLink, Volume2, VolumeX, Copy, Paperclip, MessageCircle, HelpCircle, Phone, ChevronDown, Minimize2, ThumbsUp, ThumbsDown, RotateCcw, Download, Sparkles, Plus } from "lucide-react";
+import {Mic, Square, Building, Send, X as CloseIcon, Bot, Languages as LanguageIcon, MessageSquare, ExternalLink, Volume2, VolumeX, Copy, Paperclip, MessageCircle, HelpCircle, Phone } from "lucide-react";
 import { cn, hexToHsl } from "@/lib/utils";
 import { differenceInMonths } from 'date-fns';
 import { checkTrialStatus, getEffectivePlanLimits, type TrialStatus } from '@/lib/trial-management';
@@ -355,14 +356,6 @@ type ApiMessage = {
   content: string | Array<{ text?: string; media?: { url: string } }>;
 };
 
-// Suggested quick replies for users
-const QUICK_REPLIES = [
-  "How can I get started?",
-  "Tell me about pricing",
-  "I need technical support",
-  "Talk to a human agent",
-];
-
 // Helper function to convert URLs in text to clickable links
 const linkifyText = (text: string) => {
   const urlRegex = /(https?:\/\/[^\s]+)/g;
@@ -380,7 +373,7 @@ const linkifyText = (text: string) => {
             href={cleaned}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-500 hover:text-blue-600 underline underline-offset-2 hover:underline-offset-4 transition-all"
+            className="text-blue-500 hover:text-blue-600 underline underline-offset-2"
             onClick={(e) => e.stopPropagation()}
           >
             {cleaned}
@@ -393,152 +386,60 @@ const linkifyText = (text: string) => {
   });
 };
 
-const ChatMessage = React.memo(({role, content, agentAvatarUrl, agentAvatarHint, agentName, onCopy, onFeedback, messageId, imageDataUri }: { 
-  role: 'user' | 'agent' | 'system'; 
-  content: string | React.ReactNode; 
-  agentAvatarUrl?: string; 
-  agentAvatarHint?: string; 
-  agentName?: string; 
-  onCopy: (text: string) => void;
-  onFeedback?: (messageId: string, isPositive: boolean) => void;
-  messageId?: string;
-  imageDataUri?: string;
-}) => {
-  const [feedback, setFeedback] = useState<'positive' | 'negative' | null>(null);
-  
+const ChatMessage = React.memo(({role, content, agentAvatarUrl, agentAvatarHint, agentName, onCopy }: { role: 'user' | 'agent' | 'system'; content: string | React.ReactNode; agentAvatarUrl?: string; agentAvatarHint?: string; agentName?: string; onCopy: (text: string) => void; }) => {
   // Process content to make links clickable for agent messages
-  // Ensure content is always a string or valid React node
-  const safeContent = typeof content === 'object' && content !== null && !React.isValidElement(content)
-    ? ((content as any).text || JSON.stringify(content))
+  const processedContent = role === 'agent' && typeof content === 'string' 
+    ? linkifyText(content)
     : content;
-  
-  const processedContent = role === 'agent' && typeof safeContent === 'string' 
-    ? linkifyText(safeContent)
-    : safeContent;
-
-  const handleFeedback = (isPositive: boolean) => {
-    setFeedback(isPositive ? 'positive' : 'negative');
-    if (onFeedback && messageId) {
-      onFeedback(messageId, isPositive);
-    }
-  };
 
   return (
-    <div className={`group flex items-start mb-4 ${role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
+    <div className={`group flex items-start mb-3 ${role === 'user' ? 'justify-end' : 'justify-start'}`}>
       {role === 'agent' && (
-        <div className="flex flex-col gap-1 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            className="w-7 h-7 rounded-full hover:bg-muted/80" 
-            onClick={() => typeof safeContent === 'string' && onCopy(safeContent)}
-            title="Copy message"
-          >
-            <Copy size={14} />
+          <Button variant="ghost" size="icon" className="w-7 h-7 mr-2 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" onClick={() => typeof content === 'string' && onCopy(content)}>
+              <Copy size={14} />
+              <span className="sr-only">Copy message</span>
           </Button>
-          {onFeedback && messageId && (
-            <>
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className={cn(
-                  "w-7 h-7 rounded-full hover:bg-green-50",
-                  feedback === 'positive' && "bg-green-100 text-green-600"
-                )}
-                onClick={() => handleFeedback(true)}
-                title="Helpful"
-              >
-                <ThumbsUp size={14} />
-              </Button>
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className={cn(
-                  "w-7 h-7 rounded-full hover:bg-red-50",
-                  feedback === 'negative' && "bg-red-100 text-red-600"
-                )}
-                onClick={() => handleFeedback(false)}
-                title="Not helpful"
-              >
-                <ThumbsDown size={14} />
-              </Button>
-            </>
-          )}
-        </div>
       )}
-      <div className={`flex items-end max-w-[85%] ${role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
+      <div className={`flex items-end ${role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
         {role === 'agent' && (
-          <Avatar className="h-8 w-8 mr-2.5 shrink-0 ring-2 ring-primary/10 shadow-sm">
-            <AvatarImage 
-              src={agentAvatarUrl && agentAvatarUrl.trim() !== '' ? agentAvatarUrl : '/logo.png'} 
-              alt={agentName || 'Agent'} 
-              data-ai-hint={agentAvatarHint || 'agent avatar'} 
-              className="object-cover" 
-              loading="lazy"
-              onError={(e) => {
-                console.log('Avatar image failed to load:', agentAvatarUrl);
-                e.currentTarget.src = '/logo.png';
-              }}
-            />
-            <AvatarFallback className="bg-gradient-to-br from-primary/80 to-primary text-primary-foreground">
-              <Bot size={16}/>
-            </AvatarFallback>
+          <Avatar className="h-7 w-7 mr-2 shrink-0">
+            <AvatarImage src={agentAvatarUrl || undefined} alt={agentName || 'Agent'} data-ai-hint={agentAvatarHint || 'agent avatar'} className="object-cover" loading="lazy" />
+            <AvatarFallback><Bot size={16}/></AvatarFallback>
           </Avatar>
         )}
-        <div className="flex flex-col gap-1">
-          {role === 'agent' && (
-            <span className="text-xs font-medium text-muted-foreground ml-0.5">{agentName || 'Assistant'}</span>
+        <div
+          className={cn(
+              "rounded-lg py-2 px-3 shadow-md max-w-xs text-sm",
+              role === 'user' ? 'bg-primary text-primary-foreground ml-8'
+              : role === 'agent' ? 'bg-card text-card-foreground border border-border mr-8'
+              : 'bg-muted text-muted-foreground text-center w-full mx-auto max-w-md text-xs p-2'
           )}
-          <div
-            className={cn(
-              "rounded-2xl py-2.5 px-4 shadow-sm transition-all hover:shadow-md",
-              role === 'user' 
-                ? 'bg-gradient-to-br from-primary to-primary/90 text-primary-foreground rounded-br-md' 
-                : role === 'agent' 
-                ? 'bg-card text-card-foreground border border-border/50 rounded-bl-md backdrop-blur-sm'
-                : 'bg-muted/50 text-muted-foreground text-center w-full mx-auto max-w-md text-xs p-3 rounded-xl'
-            )}
-          >
-            <div className="text-sm leading-relaxed">
-              {role === 'user' && imageDataUri && (
-                <img src={imageDataUri} alt="User upload" className="max-w-xs rounded-lg mb-2 border border-border/30" data-ai-hint="user image upload" />
-              )}
-              {processedContent}
-            </div>
-          </div>
-          {role === 'agent' && (
-            <span className="text-[10px] text-muted-foreground/70 ml-0.5">
-              {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-            </span>
-          )}
+        >
+          {processedContent}
         </div>
       </div>
       {role === 'user' && (
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          className="w-7 h-7 ml-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-muted/80" 
-          onClick={() => {
-            let textToCopy = '';
-            if (typeof content === 'string') {
-              textToCopy = content;
-            } else if (React.isValidElement(content) && content.props.children) {
-              const pElement = React.Children.toArray(content.props.children).find(
-                (child): child is React.ReactElement<React.HTMLProps<HTMLParagraphElement>> =>
-                  React.isValidElement(child) && child.type === 'p'
-              );
-              if (pElement && typeof pElement.props.children === 'string') {
-                textToCopy = pElement.props.children;
+           <Button variant="ghost" size="icon" className="w-7 h-7 ml-2 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" onClick={() => {
+              let textToCopy = '';
+              if (typeof content === 'string') {
+                textToCopy = content;
+              } else if (React.isValidElement(content) && content.props.children) {
+                // Find the <p> tag within the content and extract its text
+                const pElement = React.Children.toArray(content.props.children).find(
+                  (child): child is React.ReactElement<React.HTMLProps<HTMLParagraphElement>> =>
+                    React.isValidElement(child) && child.type === 'p'
+                );
+                if (pElement && typeof pElement.props.children === 'string') {
+                  textToCopy = pElement.props.children;
+                }
               }
-            }
-            if (textToCopy) {
-              onCopy(textToCopy);
-            }
-          }}
-          title="Copy message"
-        >
-          <Copy size={14} />
-        </Button>
+              if (textToCopy) {
+                onCopy(textToCopy);
+              }
+           }}>
+              <Copy size={14} />
+              <span className="sr-only">Copy message</span>
+          </Button>
       )}
     </div>
   );
@@ -550,7 +451,6 @@ function ChatPageContent() {
   const isEmbedded = (searchParams.get('embed') === '1');
 
   const [isWidgetOpen, setIsWidgetOpen] = useState(false);
-  const [isMinimized, setIsMinimized] = useState(false);
   const [allTenants, setAllTenants] = useState<Tenant[]>([]);
   const [allPlans, setAllPlans] = useState<Plan[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -561,7 +461,7 @@ function ChatPageContent() {
   const [isTenantDisabled, setIsTenantDisabled] = useState(false);
   const [tenantDisabledReason, setTenantDisabledReason] = useState('');
 
-  const [messages, setMessages] = useState<{ role: 'user' | 'agent' | 'system'; content: string | React.ReactNode; agentAvatarUrl?: string; agentAvatarHint?: string; agentName?: string; id?: string; imageDataUri?: string; }[]>([]);
+  const [messages, setMessages] = useState<{ role: 'user' | 'agent' | 'system'; content: string | React.ReactNode; agentAvatarUrl?: string; agentAvatarHint?: string; agentName?: string; }[]>([]);
   const [input, setInput] = useState('');
   const [isListening, setIsListening] = useState(false);
   const [languageCode, setLanguageCode] = useState('en-US');
@@ -570,105 +470,12 @@ function ChatPageContent() {
   const [audioUnlocked, setAudioUnlocked] = useState(false);
   const [voicesLoaded, setVoicesLoaded] = useState(false);
   const [premiumVoicesAvailable, setPremiumVoicesAvailable] = useState(true);
-  const [showQuickReplies, setShowQuickReplies] = useState(true);
 
   const [premiumAudioDataUri, setPremiumAudioDataUri] = useState<string | null>(null);
   const [isTyping, setIsTyping] = useState(false);
   const [attachedImageDataUri, setAttachedImageDataUri] = useState<string | null>(null);
   const [currentLeadId, setCurrentLeadId] = useState<string | null>(null);
   const [conversationId, setConversationId] = useState<string | null>(null);
-  
-  // Load conversation messages from localStorage
-  const loadConversationMessages = useCallback(async (convId: string) => {
-    try {
-      if (typeof window !== 'undefined') {
-        const storedMessages = localStorage.getItem('vcai_messages');
-        if (storedMessages) {
-          const parsedMessages = JSON.parse(storedMessages);
-          if (Array.isArray(parsedMessages) && parsedMessages.length > 0) {
-            setMessages(parsedMessages);
-            console.log('🎤 Loaded messages from localStorage:', parsedMessages.length);
-            return;
-          }
-        }
-      }
-      
-      // No messages found, show greeting instead
-      if (selectedAgent) {
-        const greeting = selectedAgent.greeting || `Hello! I'm ${selectedAgent.name}. How can I help you today?`;
-        setMessages([{
-          role: 'agent', 
-          content: greeting, 
-          agentAvatarUrl: selectedAgent.avatarUrl, 
-          agentAvatarHint: selectedAgent.avatarHint, 
-          agentName: selectedAgent.name,
-          id: `msg_${Date.now()}`
-        }]);
-      }
-    } catch (error) {
-      console.error('Failed to load messages from localStorage:', error);
-      // Fallback to greeting on error
-      if (selectedAgent) {
-        const greeting = selectedAgent.greeting || `Hello! I'm ${selectedAgent.name}. How can I help you today?`;
-        setMessages([{
-          role: 'agent', 
-          content: greeting, 
-          agentAvatarUrl: selectedAgent.avatarUrl, 
-          agentAvatarHint: selectedAgent.avatarHint, 
-          agentName: selectedAgent.name,
-          id: `msg_${Date.now()}`
-        }]);
-      }
-    }
-  }, [selectedAgent]);
-
-  // Save messages to localStorage whenever messages change
-  const saveMessagesToLocalStorage = useCallback((messagesToSave: any[]) => {
-    if (typeof window !== 'undefined') {
-      try {
-        localStorage.setItem('vcai_messages', JSON.stringify(messagesToSave));
-        console.log('💾 Saved messages to localStorage:', messagesToSave.length);
-      } catch (error) {
-        console.error('Failed to save messages to localStorage:', error);
-      }
-    }
-  }, []);
-
-  // Clear conversation and start new chat
-  const startNewChat = useCallback(() => {
-    setMessages([]);
-    setConversationId(null);
-    setInput('');
-    setAttachedImageDataUri(null);
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem('vcai_conversation_id');
-      localStorage.removeItem('vcai_last_chat_time');
-      localStorage.removeItem('vcai_messages');
-      // Generate new session ID to ensure fresh conversation
-      const newSessionId = `sid_${Date.now()}_${Math.random().toString(36).slice(2,8)}`;
-      sessionStorage.setItem('vcai_session_id', newSessionId);
-    }
-    // Show greeting message
-    if (selectedAgent) {
-      const greeting = selectedAgent.greeting || `Hello! I'm ${selectedAgent.name}. How can I help you today?`;
-      setMessages([{
-        role: 'agent', 
-        content: greeting, 
-        agentAvatarUrl: selectedAgent.avatarUrl, 
-        agentAvatarHint: selectedAgent.avatarHint, 
-        agentName: selectedAgent.name,
-        id: `msg_${Date.now()}`
-      }]);
-    }
-  }, [selectedAgent]);
-
-  // Save messages to localStorage whenever messages change
-  useEffect(() => {
-    if (messages.length > 0) {
-      saveMessagesToLocalStorage(messages);
-    }
-  }, [messages, saveMessagesToLocalStorage]);
-  
   // Notify parent page (if embedded in an iframe) about widget open/close state so the parent can resize the iframe
   useEffect(() => {
     if (!isEmbedded) return;
@@ -747,38 +554,51 @@ function ChatPageContent() {
       return Promise.resolve();
     }
 
+    // Ensure audio is unlocked for this interaction
     unlockAudio();
+
+    // Stop any ongoing speech cleanly before starting a new one
     window.speechSynthesis.cancel();
+    // Some browsers pause speech; make sure it's resumed
     if ((window.speechSynthesis as any).paused) {
       (window.speechSynthesis as any).resume?.();
     }
-    
+    // Small delay helps some engines properly reset between utterances
+    // especially on mobile Safari and some Windows voices
     const start = (resolve: () => void) => {
       const utterance = new SpeechSynthesisUtterance(text);
       const allVoices = window.speechSynthesis.getVoices();
 
+      // Robust voice selection logic with gender preference
       const langLower = lang.toLowerCase();
       const baseLang = langLower.split('-')[0];
       const isFemalePref = (voicePref || '').startsWith('female-');
       const isMalePref = (voicePref || '').startsWith('male-');
-      
+      // Heuristics for common platform voices
       const voiceIsFemale = (v: SpeechSynthesisVoice) => /female|woman|girl|zira|samantha|susan|hazel|heera|veena|salma|meera|aish|sonia|neha|ava|victoria|sangeeta|kanya|lekha|heba|tessa|karen|moira|serena|allison|salli/i.test(v.name);
       const voiceIsMale = (v: SpeechSynthesisVoice) => /male|man|boy|david|mark|ravi|rishi|rahul|amit|raj|arvind|sagar|alex|fred|daniel|oliver|thomas|maged|xander|arthur|george|hindi male/i.test(v.name);
       const voicesByLang = allVoices.filter(v => v.lang && (v.lang.toLowerCase() === langLower || v.lang.toLowerCase().startsWith(baseLang + '-')));
       
+      // STRICT gender-only selection - NEVER mix genders, NEVER allow wrong gender fallback
       const pickByGender = (voices: SpeechSynthesisVoice[]) => {
         if (isFemalePref) {
+          // ONLY female voices - never male, never neutral if male voice exists
           return voices.find(voiceIsFemale);
         }
         if (isMalePref) {
+          // ONLY male voices - never female, never neutral if female voice exists
           return voices.find(voiceIsMale);
         }
         return undefined;
       };
       let selectedVoice: SpeechSynthesisVoice | undefined;
       
+      // STRICT GENDER ENFORCEMENT - Gender consistency is MANDATORY, accent is secondary
+      // Step 1: Try gender match in target language (ideal: correct gender + correct accent)
       selectedVoice = pickByGender(voicesByLang);
       
+      // Step 2: If no match in target language, try gender match in ANY language
+      // Better to have correct gender with different accent than wrong gender with correct accent
       if (!selectedVoice && (isFemalePref || isMalePref)) {
         selectedVoice = pickByGender(allVoices);
         if (selectedVoice) {
@@ -786,6 +606,8 @@ function ChatPageContent() {
         }
       }
       
+      // Step 3: ONLY if no gender match exists at all, use system default
+      // This ensures we NEVER switch from female to male or vice versa
       if (!selectedVoice) {
         selectedVoice = allVoices.find(v => v.default) || allVoices[0];
         console.warn(`[Browser TTS] No ${isFemalePref ? 'female' : isMalePref ? 'male' : 'matching'} voice found for ${lang}. Using system default to avoid gender mismatch.`);
@@ -800,26 +622,35 @@ function ChatPageContent() {
         console.log(`[Browser TTS] No voice found, using default with lang: ${lang}`);
       }
 
+      // Resolve when speech actually starts so UI can reveal the text
       utterance.onstart = () => {
         resolve();
       };
+      // Ensure subsequent utterances can play
       utterance.onend = () => {};
       utterance.onerror = (e) => console.warn('Speech synthesis error:', e);
       
+      // Enhanced voice quality settings for happy, joyful, excited sound (matched to GitHub)
+      // Optimized pitch/rate for energetic, lively speech for sales and support
       if (isMalePref) {
+        // Energetic male voice: pitch 0.7 for warmth, rate 0.95 for natural pace
         utterance.pitch = 0.7;
         utterance.rate = 0.95;
       } else if (isFemalePref) {
+        // Happy, excited female voice: pitch 1.2 for joyful tone, rate 1.02 for energy
         utterance.pitch = 1.2;
         utterance.rate = 1.02;
       } else {
+        // Default: neutral but friendly tone
         utterance.pitch = 1.1;
         utterance.rate = 0.98;
       }
       
+      // Increase volume for better presence (some browsers support this)
       utterance.volume = 1.0;
       window.speechSynthesis.speak(utterance);
 
+      // Safety retry if engine stalls
       setTimeout(() => {
         if (!window.speechSynthesis.speaking) {
           window.speechSynthesis.cancel();
@@ -831,6 +662,7 @@ function ChatPageContent() {
             retry.lang = lang;
           }
           
+          // Apply same enhanced voice settings to retry
           if (isMalePref) {
             retry.pitch = 0.7;
             retry.rate = 0.95;
@@ -847,11 +679,11 @@ function ChatPageContent() {
         }
       }, 700);
     };
-    
+    // Delay ~100ms before starting the next utterance
     return new Promise<void>((resolve) => setTimeout(() => start(resolve), 100));
-  }, [isMuted, voicesLoaded, unlockAudio]);
+  }, [isMuted, voicesLoaded]);
 
-  // Play premium audio when its data URI is set
+  // Play premium audio when its data URI is set (after playBrowserTTS is defined)
   useEffect(() => {
     if (premiumAudioDataUri && premiumAudioRef.current) {
       if (!premiumAudioRef.current.paused && premiumAudioRef.current.src === premiumAudioDataUri) {
@@ -868,80 +700,22 @@ function ChatPageContent() {
     }
   }, [premiumAudioDataUri, playBrowserTTS]);
 
-  const handleFeedback = useCallback((messageId: string, isPositive: boolean) => {
-    console.log(`Feedback for message ${messageId}: ${isPositive ? 'positive' : 'negative'}`);
-    toast({ 
-      title: "Thank you for your feedback!", 
-      description: isPositive ? "We're glad this was helpful." : "We'll work on improving our responses.",
-    });
-  }, [toast]);
-
-  const handleQuickReply = useCallback((reply: string) => {
-    setInput(reply);
-    setShowQuickReplies(false);
-    setTimeout(() => handleSendMessage(reply), 100);
-  }, []);
-
-  const handleRestartConversation = useCallback(() => {
-    setMessages([]);
-    setInput('');
-    setAttachedImageDataUri(null);
-    setCurrentLeadId(null);
-    setConversationId(null);
-    setShowQuickReplies(true);
-    
-    // Clear localStorage messages
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem('vcai_messages');
-    }
-    
-    if (selectedAgent) {
-      const greeting = selectedAgent.greeting || `Hello! I'm ${selectedAgent.name}. How can I help you today?`;
-      setMessages([{
-        role: 'agent', 
-        content: greeting, 
-        agentAvatarUrl: selectedAgent.avatarUrl, 
-        agentAvatarHint: selectedAgent.avatarHint, 
-        agentName: selectedAgent.name,
-        id: `msg_${Date.now()}`
-      }]);
-    }
-    
-    toast({ title: "Conversation Restarted", description: "Starting fresh! How can I help you?" });
-  }, [selectedAgent, toast]);
-
-  const handleDownloadTranscript = useCallback(() => {
-    const transcript = messages.map(msg => {
-      const role = msg.role === 'user' ? 'You' : msg.agentName || 'Assistant';
-      const content = typeof msg.content === 'string' ? msg.content : '[Rich content]';
-      return `${role}: ${content}`;
-    }).join('\n\n');
-    
-    const blob = new Blob([transcript], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `chat-transcript-${new Date().toISOString().split('T')[0]}.txt`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    
-    toast({ title: "Transcript Downloaded", description: "Your conversation has been saved." });
-  }, [messages, toast]);
 
   const handleSendMessage = useCallback(async (text?: string) => {
     let currentTenant = selectedTenant;
     const currentPlan = allPlans.find(p => p.id === currentTenant?.assignedPlanId);
     if (!selectedAgent || !currentTenant || !currentPlan || isGeneratingResponse) return;
 
+    // --- Usage Limit Check (server backed) ---
     let tenantFromStorage: any = currentTenant;
 
-    if (tenantFromStorage) {
+      if (tenantFromStorage) {
+      // Initialize usage fields if they don't exist
       tenantFromStorage.conversationCount = tenantFromStorage.conversationCount ?? 0;
       tenantFromStorage.leadCount = tenantFromStorage.leadCount ?? 0;
       tenantFromStorage.usageLastReset = tenantFromStorage.usageLastReset ?? new Date().toISOString();
 
+      // Check if usage needs to be reset (monthly)
       const lastReset = new Date(tenantFromStorage.usageLastReset);
       if (differenceInMonths(new Date(), lastReset) >= 1) {
           tenantFromStorage.conversationCount = 0;
@@ -949,6 +723,7 @@ function ChatPageContent() {
           tenantFromStorage.usageLastReset = new Date().toISOString();
       }
 
+      // Enforce conversation limit
       if (tenantFromStorage.conversationCount >= currentPlan.conversationLimit) {
         tenantFromStorage.status = 'Disabled (Usage Limit Reached)';
         setIsTenantDisabled(true);
@@ -960,8 +735,9 @@ function ChatPageContent() {
         return;
       }
 
+      // Update conversation count
       tenantFromStorage.conversationCount += 1;
-      currentTenant = tenantFromStorage;
+      currentTenant = tenantFromStorage; // Use the updated tenant data
       setSelectedTenant(currentTenant);
     }
 
@@ -972,15 +748,17 @@ function ChatPageContent() {
     setIsGeneratingResponse(true);
     setIsTyping(true);
     setPremiumAudioDataUri(null);
-    setShowQuickReplies(false);
 
-    // Store user message as plain text for localStorage compatibility
-    const userMessageForState = {
-      role: 'user' as const, 
-      content: currentInputVal || '',
-      id: `msg_${Date.now()}`,
-      imageDataUri: attachedImageDataUri || undefined
-    };
+    const userMessageContentForState = (
+      <>
+        {attachedImageDataUri && (
+          <img src={attachedImageDataUri} alt="User upload" className="max-w-xs rounded-lg mb-2" data-ai-hint="user image upload" />
+        )}
+        {currentInputVal && <p>{currentInputVal}</p>}
+      </>
+    );
+
+    const userMessageForState = {role: 'user' as const, content: userMessageContentForState };
     setMessages(prev => [...prev, userMessageForState]);
 
     const textToSend = currentInputVal;
@@ -1011,9 +789,9 @@ function ChatPageContent() {
       agentTrainingContexts,
       totalKnowledgeContexts: knowledgeContexts.length,
       knowledgeContexts,
+      // Check if extractedText is present
       hasExtractedText: knowledgeContexts.some(ctx => ctx.uploadedDocContent || (ctx as any).extractedText)
     });
-    
     const uniqueContexts = Array.from(
       knowledgeContexts
         .reduce((map, context) => {
@@ -1070,6 +848,7 @@ function ChatPageContent() {
             return msg;
         });
 
+      // Create or reuse a sessionId per widget session for de-dup
       if (typeof window !== 'undefined') {
         const existingSid = sessionStorage.getItem('vcai_session_id');
         if (!existingSid) sessionStorage.setItem('vcai_session_id', `sid_${Date.now()}_${Math.random().toString(36).slice(2,8)}`);
@@ -1088,6 +867,7 @@ function ChatPageContent() {
         hasContent: mappedKnowledgeContexts.some(ctx => ctx.uploadedDocContent && ctx.uploadedDocContent.length > 0)
       });
 
+      // CRITICAL DEBUG: Log the history being sent
       console.log('📜 [HISTORY CHECK] Sending history to AI:', {
         historyLength: cleanedHistoryForApi.length,
         lastFewMessages: cleanedHistoryForApi.slice(-3).map(msg => ({
@@ -1107,6 +887,7 @@ function ChatPageContent() {
         knowledgeContexts: mappedKnowledgeContexts,
         history: cleanedHistoryForApi,
         leadWebhookUrl: currentTenant?.leadWebhookUrl,
+        // Professional training options
         agentTone: selectedAgent.tone,
         agentResponseStyle: selectedAgent.responseStyle,
         agentExpertiseLevel: selectedAgent.expertiseLevel,
@@ -1117,6 +898,7 @@ function ChatPageContent() {
         apiInput.imageDataUri = attachedImageDataUri;
       }
 
+      // Call the chat API endpoint to get conversationId
       const chatResponse = await fetch('/api/public/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -1130,14 +912,13 @@ function ChatPageContent() {
       const agentResponse = await chatResponse.json();
       console.log('[DEBUG] Raw AI response:', JSON.stringify(agentResponse, null, 2));
 
+      // Store conversationId for unload tracking
       if (agentResponse.conversationId) {
         setConversationId(agentResponse.conversationId);
-        // Store conversation ID and timestamp in localStorage for persistence
-        localStorage.setItem('vcai_conversation_id', agentResponse.conversationId);
-        localStorage.setItem('vcai_last_chat_time', Date.now().toString());
         console.log('[DEBUG] Conversation ID tracked:', agentResponse.conversationId);
       }
 
+      // Ensure on-screen text matches selected language
       let displayText = agentResponse.response;
       try {
         console.log('[DEBUG] Translating text:', {
@@ -1148,11 +929,13 @@ function ChatPageContent() {
         if (translatedText && translatedText.trim()) displayText = translatedText.trim();
       } catch {}
 
+      // Do not display agent text yet; wait for audio to start
       if (!isMuted && displayText) {
+        // Stash for desktop fallback if autoplay is blocked
         lastUtteranceTextRef.current = displayText;
         lastUtteranceLangRef.current = languageCode;
         lastUtteranceVoiceRef.current = selectedAgent.voice || '';
-        
+        // Always try server TTS first for consistent quality across languages
         try {
           const ttsResponse = await textToSpeech({ text: displayText, voice: selectedAgent.voice, languageCode }).catch((error) => {
             console.log('[TTS] Error during TTS, falling back to browser TTS:', error.message);
@@ -1167,7 +950,7 @@ function ChatPageContent() {
               premiumAudioRef.current.pause();
               premiumAudioRef.current.currentTime = 0;
             }
-            
+            // Play premium audio first, then show the text once playback actually starts
             await new Promise<void>((resolve) => {
               const audioEl = premiumAudioRef.current;
               if (!audioEl) { resolve(); return; }
@@ -1175,53 +958,27 @@ function ChatPageContent() {
               audioEl.addEventListener('playing', onStart, { once: true });
               setPremiumAudioDataUri(ttsResponse.audioDataUri);
             });
-            const newAgentMessage = { 
-              role: 'agent' as const, 
-              content: displayText, 
-              agentAvatarUrl: selectedAgent.avatarUrl, 
-              agentAvatarHint: selectedAgent.avatarHint, 
-              agentName: selectedAgent.name,
-              id: `msg_${Date.now()}`
-            };
+            const newAgentMessage = { role: 'agent' as const, content: displayText, agentAvatarUrl: selectedAgent.avatarUrl, agentAvatarHint: selectedAgent.avatarHint, agentName: selectedAgent.name };
             setMessages(prev => [...prev, newAgentMessage]);
           } else {
             await playBrowserTTS(displayText, languageCode, selectedAgent.voice);
-            const newAgentMessage = { 
-              role: 'agent' as const, 
-              content: displayText, 
-              agentAvatarUrl: selectedAgent.avatarUrl, 
-              agentAvatarHint: selectedAgent.avatarHint, 
-              agentName: selectedAgent.name,
-              id: `msg_${Date.now()}`
-            };
+            const newAgentMessage = { role: 'agent' as const, content: displayText, agentAvatarUrl: selectedAgent.avatarUrl, agentAvatarHint: selectedAgent.avatarHint, agentName: selectedAgent.name };
             setMessages(prev => [...prev, newAgentMessage]);
           }
          } catch (ttsError: any) {
           console.error("Server TTS failed.", ttsError);
           setPremiumVoicesAvailable(false);
           await playBrowserTTS(displayText, languageCode, selectedAgent.voice);
-          const newAgentMessage = { 
-            role: 'agent' as const, 
-            content: displayText, 
-            agentAvatarUrl: selectedAgent.avatarUrl, 
-            agentAvatarHint: selectedAgent.avatarHint, 
-            agentName: selectedAgent.name,
-            id: `msg_${Date.now()}`
-          };
+          const newAgentMessage = { role: 'agent' as const, content: displayText, agentAvatarUrl: selectedAgent.avatarUrl, agentAvatarHint: selectedAgent.avatarHint, agentName: selectedAgent.name };
           setMessages(prev => [...prev, newAgentMessage]);
         }
       } else {
-        const newAgentMessage = { 
-          role: 'agent' as const, 
-          content: displayText, 
-          agentAvatarUrl: selectedAgent.avatarUrl, 
-          agentAvatarHint: selectedAgent.avatarHint, 
-          agentName: selectedAgent.name,
-          id: `msg_${Date.now()}`
-        };
+        const newAgentMessage = { role: 'agent' as const, content: displayText, agentAvatarUrl: selectedAgent.avatarUrl, agentAvatarHint: selectedAgent.avatarHint, agentName: selectedAgent.name };
         setMessages(prev => [...prev, newAgentMessage]);
       }
 
+      // Lead Saving/Updating Logic (with robust client-side fallback extraction)
+      // Fallback extraction from the user's latest message in case the model missed it
       const emailRegex = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i;
       const phoneFromText = (textToSend || '')
         .replace(/[^0-9+]/g, '')
@@ -1248,12 +1005,13 @@ function ChatPageContent() {
         conversationSummary: agentResponse?.conversationSummary
       });
 
+      // Simplified: Any contact info (name OR email OR phone) counts as lead
       const hasName = !!(finalLeadName && finalLeadName !== 'null' && finalLeadName.trim());
       const hasEmail = !!(finalLeadEmail && finalLeadEmail !== 'null' && finalLeadEmail.trim());
       const hasPhone = !!(finalLeadPhone && finalLeadPhone !== 'null' && finalLeadPhone.trim());
       
       const hasAnyContactInfo = hasName || hasEmail || hasPhone;
-      const shouldSaveLead = hasAnyContactInfo || currentLeadId || messages.length > 0;
+      const shouldSaveLead = hasAnyContactInfo || currentLeadId || messages.length > 0; // Save all conversations
       
       console.log('[DEBUG] Contact info check:', { hasName, hasEmail, hasPhone, hasAnyContactInfo, shouldSaveLead });
       console.log('[DEBUG] Current lead ID:', currentLeadId);
@@ -1265,6 +1023,7 @@ function ChatPageContent() {
         if (tenantFromStorage && tenantFromStorage.leadCount < currentPlan.leadLimit) {
             console.log('[DEBUG] Lead limit check passed, proceeding with save');
             try {
+              // Build the full conversation history for persistence (user + this agent turn)
               const userMessageForLogParts: Array<{ text?: string; media?: { url: string } }> = [];
               if (textToSend) userMessageForLogParts.push({ text: textToSend });
               if (attachedImageDataUri) userMessageForLogParts.push({ media: { url: attachedImageDataUri } });
@@ -1275,6 +1034,7 @@ function ChatPageContent() {
                 { role: 'agent', content: agentResponse.response }
               ];
 
+              // Convert historyForLog to format expected by generateConversationSummary
               const conversationHistoryForSummary = historyForLog.map(msg => {
                 let contentString = '';
                 if (typeof msg.content === 'string') {
@@ -1297,6 +1057,7 @@ function ChatPageContent() {
                 };
               });
 
+              // Generate comprehensive conversation summary
               let comprehensiveSummary = agentResponse?.conversationSummary || 'No summary available';
               let summaryData: any = null;
               try {
@@ -1320,6 +1081,7 @@ function ChatPageContent() {
                 console.error('[DEBUG] Failed to generate comprehensive summary:', summaryError);
               }
 
+              // Create once on first capture, then always update same id to avoid duplicates
               const isNewLead = !currentLeadId && (hasAnyContactInfo || messages.length > 0);
               const stableLeadId = currentLeadId || (isNewLead ? `lead_${Date.now()}` : null);
               if (!stableLeadId) {
@@ -1327,10 +1089,11 @@ function ChatPageContent() {
               } else {
                 if (isNewLead) {
                   setCurrentLeadId(stableLeadId);
-                  tenantFromStorage.leadCount += 1;
+                  tenantFromStorage.leadCount += 1; // count only once
                   setSelectedTenant(tenantFromStorage);
                 }
 
+                // Determine if this is an anonymous conversation (no contact info)
                 const isAnonymous = !hasAnyContactInfo;
                 const displayName = finalLeadName || summaryData?.customerName || (isAnonymous ? 'Anonymous Person' : undefined);
                 const customerInfoText = hasAnyContactInfo 
@@ -1353,7 +1116,7 @@ function ChatPageContent() {
                   imageUrl: attachedImageDataUri || undefined,
                   sessionId,
                   summaryData: summaryData || undefined,
-                  isAnonymous,
+                  isAnonymous, // Flag to identify anonymous conversations
                 } as any;
 
                 console.log('[DEBUG] Saving lead (create/update):', { isNewLead, id: leadPayload.id });
@@ -1374,6 +1137,7 @@ function ChatPageContent() {
                     }
                   } catch {}
 
+                  // Send webhook if configured
                   if (currentTenant?.leadWebhookUrl) {
                     const webhookUrl = currentTenant.leadWebhookUrl;
                     const timestamp = new Date().toISOString();
@@ -1397,6 +1161,7 @@ function ChatPageContent() {
 
                     console.log('[WEBHOOK] Sending lead data to webhook:', webhookUrl);
                     
+                    // Fire-and-forget webhook call (don't await)
                     fetch(webhookUrl, {
                       method: 'POST',
                       headers: {
@@ -1456,14 +1221,14 @@ function ChatPageContent() {
     } finally {
       setIsGeneratingResponse(false);
       setIsTyping(false);
-      setAttachedImageDataUri(null);
+      setAttachedImageDataUri(null); // Reset the image after sending
     }
-  }, [input, attachedImageDataUri, selectedAgent, selectedTenant, isGeneratingResponse, messages, languageCode, toast, playBrowserTTS, isListening, unlockAudio, allPlans, isMuted, premiumVoicesAvailable, currentLeadId, isEmbedded]);
+  }, [input, attachedImageDataUri, selectedAgent, selectedTenant, isGeneratingResponse, messages, languageCode, toast, playBrowserTTS, isListening, unlockAudio, allPlans, isMuted, premiumVoicesAvailable, currentLeadId]);
 
   const handleImageFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      if (file.size > 4 * 1024 * 1024) {
+      if (file.size > 4 * 1024 * 1024) { // 4MB limit
           toast({ title: "File Too Large", description: "Please select an image smaller than 4MB.", variant: "destructive" });
           return;
       }
@@ -1476,6 +1241,7 @@ function ChatPageContent() {
     }
     if (event.target) event.target.value = '';
   };
+
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -1578,42 +1344,49 @@ function ChatPageContent() {
 
   useEffect(() => { scrollToBottom(); }, [messages, scrollToBottom]);
 
+  // Set brand color CSS variables for pulsing effect and language dropdown
   useEffect(() => {
     if (selectedTenant?.brandColor && typeof document !== 'undefined') {
       const brandColor = selectedTenant.brandColor;
 
+      // Convert hex to RGB
       const hexToRgb = (hex: string) => {
         const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
         return result ? {
           r: parseInt(result[1], 16),
           g: parseInt(result[2], 16),
           b: parseInt(result[3], 16)
-        } : { r: 162, g: 89, b: 255 };
+        } : { r: 162, g: 89, b: 255 }; // fallback
       };
 
       const rgb = hexToRgb(brandColor);
       const hsl = hexToHsl(brandColor);
 
+      // Update CSS custom properties for the pulsing animation
       document.documentElement.style.setProperty('--brand-pulse-color-60', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.6)`);
       document.documentElement.style.setProperty('--brand-pulse-color-30', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.3)`);
       document.documentElement.style.setProperty('--brand-pulse-color-90', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.9)`);
       document.documentElement.style.setProperty('--brand-pulse-color-80', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.8)`);
 
+      // Update brand color for language dropdown hover/focus
       document.documentElement.style.setProperty('--accent', hsl);
       document.documentElement.style.setProperty('--primary', hsl);
     }
   }, [selectedTenant?.brandColor]);
 
+  // Handle conversation close on browser unload/close
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
     const sessionId = sessionStorage.getItem('vcai_session_id') || undefined;
     
     const handleUnload = () => {
+      // Only close if we have an active conversation with messages AND no close request is in progress
       if (conversationId && selectedTenant && sessionId && messages.length > 1 && !closeRequestInProgressRef.current) {
         console.log('[Conversation Close] Initiating conversation close - triggered by page unload/visibility change');
-        closeRequestInProgressRef.current = true;
+        closeRequestInProgressRef.current = true; // Mark as in progress to prevent duplicates
         
+        // API will fetch fresh training contexts from database, so no need to send cached data
         const closeData = {
           conversationId,
           tenantId: selectedTenant.id,
@@ -1626,10 +1399,12 @@ function ChatPageContent() {
         
         console.log('[Unload] Closing conversation:', closeData);
         
+        // Use sendBeacon for reliable delivery even as page is closing
         const blob = new Blob([JSON.stringify(closeData)], { type: 'application/json' });
         const sent = navigator.sendBeacon('/api/conversations/close', blob);
         
         if (!sent) {
+          // Fallback to fetch with keepalive if sendBeacon fails
           fetch('/api/conversations/close', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -1639,10 +1414,12 @@ function ChatPageContent() {
           .then(() => console.log('[Conversation Close] Close request completed'))
           .catch(err => console.error('[Unload] Failed to close conversation:', err))
           .finally(() => {
+            // Reset flag after request completes (success or failure)
             closeRequestInProgressRef.current = false;
             console.log('[Conversation Close] Reset close flag');
           });
         } else {
+          // sendBeacon succeeded - reset flag after short delay (sendBeacon doesn't return Promise)
           setTimeout(() => {
             closeRequestInProgressRef.current = false;
             console.log('[Conversation Close] Reset close flag after sendBeacon');
@@ -1653,14 +1430,17 @@ function ChatPageContent() {
       }
     };
 
+    // Listen for page unload (browser close, refresh, navigate away)
     window.addEventListener('beforeunload', handleUnload);
 
     return () => {
       window.removeEventListener('beforeunload', handleUnload);
+      // Reset flag when dependencies change (new conversation started)
       closeRequestInProgressRef.current = false;
     };
   }, [conversationId, selectedTenant, selectedAgent, messages.length]);
 
+  // Refresh agent/tenant data when page becomes visible (after returning from dashboard)
   useEffect(() => {
     const refreshDataOnVisible = async () => {
       if (document.visibilityState === 'visible' && selectedTenant && selectedAgent) {
@@ -1669,14 +1449,17 @@ function ChatPageContent() {
           const tenantIdFromUrl = searchParams.get('tenantId');
           
           if (isEmbedded && tenantIdFromUrl) {
+            // Refresh embedded tenant config
             const res = await fetch(`/api/public/tenant-config?id=${encodeURIComponent(tenantIdFromUrl)}&t=${Date.now()}`, { cache: 'no-store' });
             if (res.ok) {
               const json = await res.json();
               const freshTenant = json?.tenant;
               if (freshTenant) {
                 setAllTenants([freshTenant]);
+                // Update selected tenant if it matches
                 if (freshTenant.id === selectedTenant.id) {
                   setSelectedTenant(freshTenant);
+                  // Update selected agent if it exists in fresh tenant
                   const freshAgent = freshTenant.agents?.find((a: Agent) => a.id === selectedAgent.id);
                   if (freshAgent) {
                     setSelectedAgent(freshAgent);
@@ -1686,11 +1469,13 @@ function ChatPageContent() {
               }
             }
           } else {
+            // Refresh admin/app mode tenants
             const tenantsRes = await fetch('/api/tenants?t=' + Date.now(), { cache: 'no-store' });
             if (tenantsRes.ok) {
               const tenantsJson = await tenantsRes.json();
               const freshTenants = tenantsJson.tenants ?? [];
               setAllTenants(freshTenants);
+              // Update selected tenant and agent with fresh data
               const freshTenant = freshTenants.find((t: Tenant) => t.id === selectedTenant.id);
               if (freshTenant) {
                 setSelectedTenant(freshTenant);
@@ -1715,6 +1500,7 @@ function ChatPageContent() {
   useEffect(() => {
     const load = async () => {
       try {
+        // Plans are public; fetch regardless of embed mode
         const plansRes = await fetch('/api/plans', { cache: 'no-store' });
         if (plansRes.ok) {
           const plansJson = await plansRes.json();
@@ -1727,6 +1513,7 @@ function ChatPageContent() {
         const tenantIdFromUrl = searchParams.get('tenantId');
 
         if (isEmbedded && tenantIdFromUrl) {
+          // In embedded mode, fetch a public, sanitized tenant config
           try {
             const res = await fetch(`/api/public/tenant-config?id=${encodeURIComponent(tenantIdFromUrl)}`, { cache: 'no-store' });
             if (res.ok) {
@@ -1740,6 +1527,7 @@ function ChatPageContent() {
             setAllTenants(INITIAL_TENANTS_DATA);
           }
         } else {
+          // Admin/app mode requires auth to fetch tenants
           try {
             const tenantsRes = await fetch('/api/tenants', { cache: 'no-store' });
             if (tenantsRes.ok) {
@@ -1796,13 +1584,15 @@ function ChatPageContent() {
         return;
     }
 
+    // Check trial status and auto-downgrade if expired
     const currentPlan = allPlans.find(p => p.id === (currentTenant as Tenant).assignedPlanId);
     const freePlan = allPlans.find(p => p.id === 'free');
 
     if (currentPlan && freePlan) {
-        const trialStatus = checkTrialStatus(currentTenant, currentPlan, 14);
+        const trialStatus = checkTrialStatus(currentTenant, currentPlan, 14); // Default 14 days
 
         if (trialStatus.shouldDowngrade) {
+            // Auto-downgrade expired trial
             try {
                 await fetch('/api/tenants', {
                     method: 'PUT',
@@ -1811,11 +1601,12 @@ function ChatPageContent() {
                         id: currentTenant.id,
                         updates: {
                             assignedPlanId: 'free',
-                            supportedLanguages: [{ code: 'en-US', name: 'English' }]
+                            supportedLanguages: [{ code: 'en-US', name: 'English' }] // Reset to free plan language
                         }
                     })
                 });
 
+                // Update local tenant data
                 currentTenant = {
                     ...currentTenant,
                     assignedPlanId: 'free',
@@ -1838,63 +1629,32 @@ function ChatPageContent() {
     setInput('');
     setLanguageCode(currentTenant.supportedLanguages?.[0]?.code || 'en-US');
     setAttachedImageDataUri(null);
-    setShowQuickReplies(true);
 
-    // Check localStorage for existing messages (no database loading)
-    if (typeof window !== 'undefined') {
-      const storedMessages = localStorage.getItem('vcai_messages');
-      if (storedMessages) {
-        try {
-          const parsedMessages = JSON.parse(storedMessages);
-          if (Array.isArray(parsedMessages) && parsedMessages.length > 0) {
-            setMessages(parsedMessages);
-            console.log('🎤 Loaded messages from localStorage:', parsedMessages.length);
-            return;
-          }
-        } catch (error) {
-          console.error('Failed to parse stored messages:', error);
-          localStorage.removeItem('vcai_messages');
-        }
-      }
-    }
-
+    // If an agentId is provided in the URL and exists for this tenant, preselect it
     if (agentIdFromUrl) {
       const byId = currentTenant.agents?.find(a => a.id === agentIdFromUrl);
       if (byId) {
         setHasMultipleAgents(false);
         setSelectedAgent(byId);
         const greeting = byId.greeting || `Hello! I'm ${byId.name}. How can I help you today?`;
-        setMessages([{
-          role: 'agent', 
-          content: greeting, 
-          agentAvatarUrl: byId.avatarUrl, 
-          agentAvatarHint: byId.avatarHint, 
-          agentName: byId.name,
-          id: `msg_${Date.now()}`
-        }]);
+        setMessages([{role: 'agent', content: greeting, agentAvatarUrl: byId.avatarUrl, agentAvatarHint: byId.avatarHint, agentName: byId.name}]);
         return;
       }
     }
 
+    // Always auto-select the first available agent (admin controls which agent via dashboard)
     setHasMultipleAgents(false);
     const agentToSelect = currentTenant.agents?.[0];
     if (agentToSelect) {
       setSelectedAgent(agentToSelect);
       const greeting = agentToSelect.greeting || `Hello! I'm ${agentToSelect.name}. How can I help you today?`;
-      setMessages([{
-        role: 'agent', 
-        content: greeting, 
-        agentAvatarUrl: agentToSelect.avatarUrl, 
-        agentAvatarHint: agentToSelect.avatarHint, 
-        agentName: agentToSelect.name,
-        id: `msg_${Date.now()}`
-      }]);
+      setMessages([{role: 'agent', content: greeting, agentAvatarUrl: agentToSelect.avatarUrl, agentAvatarHint: agentToSelect.avatarHint, agentName: agentToSelect.name}]);
     } else {
       setSelectedAgent(undefined);
       toast({ title: "Configuration Issue", description: "This tenant has no agents configured.", variant: "destructive" });
       setMessages([{role: 'system', content: 'Sorry, there are no agents available to chat with at the moment.'}]);
     }
-  }, [allTenants, toast, isLoading, allPlans, isEmbedded, searchParams, loadConversationMessages]);
+  }, [allTenants, toast, isLoading]);
 
   useEffect(() => {
     if (!isLoading && allTenants.length > 0) {
@@ -1906,16 +1666,8 @@ function ChatPageContent() {
     setSelectedAgent(agent);
     setAttachedImageDataUri(null);
     setCurrentLeadId(null);
-    setShowQuickReplies(true);
     const greeting = agent.greeting || `Hello! I'm ${agent.name}. How can I help you today?`;
-    setMessages([{
-      role: 'agent', 
-      content: greeting, 
-      agentAvatarUrl: agent.avatarUrl, 
-      agentAvatarHint: agent.avatarHint, 
-      agentName: agent.name,
-      id: `msg_${Date.now()}`
-    }]);
+    setMessages([{role: 'agent', content: greeting, agentAvatarUrl: agent.avatarUrl, agentAvatarHint: agent.avatarHint, agentName: agent.name}]);
   };
 
   useEffect(() => {
@@ -1951,6 +1703,7 @@ function ChatPageContent() {
 
   if (isLoading) {
       return (
+
           <div className="flex items-center justify-center min-h-screen bg-transparent p-4">
             <Card className="p-6 text-center">
               <CardTitle>Initializing Chatbot...</CardTitle>
@@ -1966,7 +1719,6 @@ function ChatPageContent() {
 
   const handleWidgetClose = () => {
     setIsWidgetOpen(false);
-    setIsMinimized(false);
     stopAllAudio();
   }
 
@@ -1990,103 +1742,55 @@ function ChatPageContent() {
         />
         <audio ref={premiumAudioRef} src={premiumAudioDataUri ?? undefined} muted={isMuted} />
         <div className={cn(isEmbedded ? "fixed inset-0 z-0" : "fixed bottom-3 right-3 sm:bottom-5 sm:right-5 z-50") }>
-            {isWidgetOpen && !isMinimized && (
-                <div className={cn(
-                  "widget-open w-[90vw] h-[calc(100vh-120px)] max-w-[420px] max-h-[600px] sm:w-[calc(100vw-40px)] sm:h-[calc(100vh-100px)] sm:max-w-[440px] sm:max-h-[680px]", 
-                  isEmbedded && "w-full h-full max-w-none max-h-none"
-                )}>
-                    <Card className={cn(
-                      "w-full h-full bg-card/98 backdrop-blur-md text-card-foreground rounded-3xl flex flex-col overflow-hidden border-2 border-border/30",
-                      isEmbedded ? "shadow-none" : "shadow-2xl"
-                    )}>
-                        <header className="p-4 border-b-2 border-border/30 bg-gradient-to-r from-card via-muted/10 to-card flex items-center justify-between gap-3 shrink-0">
+            {isWidgetOpen && (
+                <div className={cn("widget-open w-[90vw] h-[calc(100vh-120px)] max-w-[420px] max-h-[520px] sm:w-[calc(100vw-40px)] sm:h-[calc(100vh-100px)] sm:max-w-[400px] sm:max-h-[600px]", isEmbedded && "w-full h-full max-w-none max-h-none") }>
+                    <Card className={cn("w-full h-full bg-card/95 backdrop-blur-sm text-card-foreground rounded-2xl flex flex-col overflow-hidden border border-border/50", isEmbedded ? "shadow-none" : "shadow-professional-lg") }>
+                        <header className="p-4 border-b border-border/50 bg-gradient-to-r from-card to-muted/20 flex items-center justify-between gap-3 shrink-0">
                             <div className="flex items-center gap-3 overflow-hidden">
                                 {displayLogoUrl && (
-                                  <div className="h-10 w-10 shrink-0 rounded-lg overflow-hidden ring-2 ring-primary/20 shadow-sm">
-                                    <img src={displayLogoUrl} alt="Logo" data-ai-hint="company logo" className="h-full w-full object-contain bg-white/5"/>
+                                  <div className="h-12 w-12 shrink-0">
+                                    <img src={displayLogoUrl} alt="Logo" data-ai-hint="company logo" className="h-full w-full object-contain rounded-md"/>
                                   </div>
                                 )}
                                 <div className="flex flex-col justify-center overflow-hidden">
-                                    <h1 className="text-base font-bold truncate text-foreground flex items-center gap-2">
+                                    <h1 className="text-sm font-semibold truncate text-foreground">
                                         <span>{displayTenantNameNode}</span>
-                                        {selectedAgent && <Sparkles className="w-3.5 h-3.5 text-primary animate-pulse" />}
                                     </h1>
                                     {selectedAgent && (
-                                      <div className="flex items-center gap-1.5 -mt-0.5">
-                                        <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse shadow-sm shadow-green-500/50"></div>
-                                        <p className="text-xs text-muted-foreground truncate font-medium">
-                                          {selectedAgent.name}
-                                        </p>
+                                      <div className="flex items-center gap-1 -mt-0.5">
+                                        <div className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></div>
+                                        <p className="text-xs text-muted-foreground truncate">with {selectedAgent.name}</p>
                                       </div>
                                     )}
                                 </div>
                             </div>
 
-                            <div className="flex items-center gap-1.5">
-                                <Button 
-                                  variant="ghost" 
-                                  size="icon" 
-                                  className="w-8 h-8 rounded-full hover:bg-muted/60 transition-all" 
-                                  onClick={handleRestartConversation}
-                                  title="Restart conversation"
-                                >
-                                    <RotateCcw size={16} />
-                                </Button>
-                                <Button 
-                                  variant="ghost" 
-                                  size="icon" 
-                                  className="w-8 h-8 rounded-full hover:bg-muted/60 transition-all" 
-                                  onClick={() => setIsMinimized(true)}
-                                  title="Minimize"
-                                >
-                                    <Minimize2 size={16} />
-                                </Button>
-                                <Button 
-                                  variant="ghost" 
-                                  size="icon" 
-                                  className="w-8 h-8 rounded-full hover:bg-muted/60 transition-all" 
-                                  onClick={handleWidgetClose}
-                                  title="Close chat"
-                                >
-                                    <CloseIcon size={16} />
-                                </Button>
-                            </div>
+                            <Button variant="ghost" size="icon" className="w-8 h-8 rounded-full ml-auto hover:bg-muted/50 transition-colors" onClick={handleWidgetClose}>
+                                <CloseIcon size={16} />
+                                <span className="sr-only">Close chat</span>
+                            </Button>
                         </header>
 
-                        <ScrollArea ref={scrollAreaRef} className="flex-1 p-4 pb-2 bg-gradient-to-b from-background/10 via-background/20 to-background/30">
-                            <div className="space-y-4 pb-20 sm:pb-8">
+                        <ScrollArea ref={scrollAreaRef} className="flex-1 p-4 pb-2 bg-gradient-to-b from-background/20 to-background/40 scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent">
+                            <div className="space-y-3 pb-20 sm:pb-8">
                             {messages.map((message, index) => (
                                 <ChatMessage
-                                    key={message.id || index}
+                                    key={index}
                                     role={message.role}
                                     content={message.content}
                                     agentAvatarUrl={message.role === 'agent' ? selectedAgent?.avatarUrl : undefined}
                                     agentAvatarHint={message.role === 'agent' ? selectedAgent?.avatarHint : undefined}
                                     agentName={message.role === 'agent' ? selectedAgent?.name : undefined}
                                     onCopy={handleCopyMessage}
-                                    onFeedback={message.role === 'agent' ? handleFeedback : undefined}
-                                    messageId={message.id}
-                                    imageDataUri={message.imageDataUri}
                                 />
                             ))}
                             {(isGeneratingResponse || isTyping) && messages.length > 0 && (
-                                <div className="flex justify-start items-end gap-2.5 animate-in fade-in slide-in-from-bottom-2 duration-300">
-                                    <Avatar className="h-8 w-8 shrink-0 ring-2 ring-primary/10 shadow-sm">
-                                        <AvatarImage 
-                                          src={selectedAgent?.avatarUrl && selectedAgent.avatarUrl.trim() !== '' ? selectedAgent.avatarUrl : '/logo.png'} 
-                                          alt={selectedAgent?.name || 'Agent'} 
-                                          data-ai-hint={selectedAgent?.avatarHint} 
-                                          className="object-cover"
-                                          onError={(e) => {
-                                            console.log('Typing indicator avatar failed to load:', selectedAgent?.avatarUrl);
-                                            e.currentTarget.src = '/logo.png';
-                                          }}
-                                        />
-                                        <AvatarFallback className="bg-gradient-to-br from-primary/80 to-primary text-primary-foreground">
-                                          <Bot size={16}/>
-                                        </AvatarFallback>
+                                <div className="flex justify-start items-end gap-2">
+                                    <Avatar className="h-8 w-8 shrink-0 ring-2 ring-primary/10">
+                                        <AvatarImage src={selectedAgent?.avatarUrl || undefined} alt={selectedAgent?.name || 'Agent'} data-ai-hint={selectedAgent?.avatarHint} className="object-cover"/>
+                                        <AvatarFallback className="bg-primary text-primary-foreground"><Bot size={16}/></AvatarFallback>
                                     </Avatar>
-                                    <div className="rounded-2xl py-3 px-4 shadow-sm max-w-xs text-sm bg-card/90 backdrop-blur-sm text-muted-foreground border border-border/50">
+                                    <div className="rounded-2xl py-3 px-4 shadow-professional max-w-xs text-sm bg-card/80 backdrop-blur-sm text-muted-foreground border border-border/50">
                                         <span className="typing-indicator">
                                           <span className="typing-dot"></span>
                                           <span className="typing-dot"></span>
@@ -2095,35 +1799,20 @@ function ChatPageContent() {
                                     </div>
                                 </div>
                             )}
-                            {showQuickReplies && messages.length === 1 && !isGeneratingResponse && (
-                              <div className="flex flex-wrap gap-2 mt-4 animate-in fade-in slide-in-from-bottom-3 duration-500">
-                                {QUICK_REPLIES.map((reply, idx) => (
-                                  <Button
-                                    key={idx}
-                                    variant="outline"
-                                    size="sm"
-                                    className="rounded-full text-xs hover:bg-primary hover:text-primary-foreground transition-all hover:scale-105 shadow-sm"
-                                    onClick={() => handleQuickReply(reply)}
-                                  >
-                                    {reply}
-                                  </Button>
-                                ))}
-                              </div>
-                            )}
                             </div>
                         </ScrollArea>
 
-                        <div className="p-3 border-t-2 border-border/30 bg-card space-y-2">
+                        <div className="p-3 border-t border-border bg-card space-y-2">
                              {attachedImageDataUri && (
-                                <div className="relative w-fit animate-in fade-in slide-in-from-bottom-2 duration-300">
-                                    <img src={attachedImageDataUri} alt="Attachment preview" className="h-16 w-16 object-cover rounded-lg border-2 border-border/50 shadow-sm" data-ai-hint="image preview"/>
+                                <div className="relative w-fit">
+                                    <img src={attachedImageDataUri} alt="Attachment preview" className="h-16 w-16 object-cover rounded-md" data-ai-hint="image preview"/>
                                     <Button
-                                      variant="destructive"
-                                      size="icon"
-                                      className="absolute -top-2 -right-2 h-5 w-5 rounded-full shadow-md hover:scale-110 transition-transform"
-                                      onClick={clearImageAttachment}
+                                    variant="destructive"
+                                    size="icon"
+                                    className="absolute -top-2 -right-2 h-5 w-5 rounded-full"
+                                    onClick={clearImageAttachment}
                                     >
-                                      <CloseIcon size={12} />
+                                    <CloseIcon size={12} />
                                     </Button>
                                 </div>
                             )}
@@ -2131,100 +1820,52 @@ function ChatPageContent() {
                                 <Button
                                   variant="ghost"
                                   size="icon"
-                                  className="shrink-0 hover:bg-muted/60 rounded-xl transition-all hover:scale-105"
+                                  className="shrink-0"
                                   onClick={() => imageInputRef.current?.click()}
                                   disabled={chatInputDisabled}
-                                  title="Attach image"
                                 >
                                   <Paperclip size={18} />
+                                  <span className="sr-only">Attach image</span>
                                 </Button>
                                 <Textarea
                                     value={input}
                                     onChange={e => setInput(e.target.value)}
-                                    placeholder={isListening ? "Listening..." : (isTenantDisabled ? tenantDisabledReason : "Type your message...")}
-                                    className="flex-1 min-h-[44px] max-h-[100px] rounded-xl text-sm resize-none py-3 px-4 border-2 focus:border-primary/50 transition-all shadow-sm"
+                                    placeholder={isListening ? "Listening..." : (isTenantDisabled ? tenantDisabledReason : "Type or press mic...")}
+                                    className="flex-1 min-h-[40px] max-h-[100px] rounded-md text-sm resize-none py-2 px-3"
                                     disabled={chatInputDisabled}
                                     rows={1}
                                     onKeyPress={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSendMessage(); } }}
                                 />
                                 {showMicButton ? (
-                                    <Button 
-                                      onClick={handleMicClick} 
-                                      disabled={chatInputDisabled} 
-                                      variant={isListening ? "destructive" : "default"} 
-                                      size="icon"
-                                      className="rounded-xl transition-all hover:scale-105 shadow-sm"
-                                      title={isListening ? "Stop listening" : "Start listening"}
-                                    >
+                                    <Button onClick={handleMicClick} disabled={chatInputDisabled} variant={isListening ? "destructive" : "default"} size="icon" aria-label={isListening ? "Stop listening" : "Start listening"}>
                                         {isListening ? <Square size={18}/> : <Mic size={18}/>}
                                     </Button>
                                 ) : (
-                                    <Button 
-                                      onClick={() => handleSendMessage()} 
-                                      disabled={chatInputDisabled || (!input.trim() && !attachedImageDataUri)} 
-                                      size="icon"
-                                      className="rounded-xl transition-all hover:scale-105 shadow-sm"
-                                      title="Send message"
-                                    >
+                                    <Button onClick={() => handleSendMessage()} disabled={chatInputDisabled || (!input.trim() && !attachedImageDataUri)} size="icon" aria-label="Send message">
                                         <Send size={18}/>
                                     </Button>
                                 )}
                             </div>
                         </div>
-                        <footer className="px-3 py-2 border-t border-border/30 bg-gradient-to-r from-card to-muted/5 text-xs text-muted-foreground flex justify-between items-center">
-                           <div className="flex items-center gap-2">
-                              {messages.length > 1 && (
-                                <>
-                                  <Button 
-                                    onClick={startNewChat} 
-                                    variant="ghost" 
-                                    size="sm" 
-                                    className="h-7 px-2 rounded-lg hover:bg-muted/50 text-xs"
-                                  >
-                                    <Plus size={12} className="mr-1" />
-                                    New Chat
-                                  </Button>
-                                  <Button 
-                                    onClick={handleDownloadTranscript} 
-                                    variant="ghost" 
-                                    size="icon" 
-                                    className="h-7 w-7 rounded-lg hover:bg-muted/50"
-                                  title="Download transcript"
-                                >
-                                    <Download size={14} />
-                                </Button>
-                                </>
-                              )}
-                              {showBranding ? (
-                                <a 
-                                  href={SAAS_PLATFORM_WEBSITE_URL} 
-                                  target="_blank" 
-                                  rel="noopener noreferrer" 
-                                  className="hover:underline flex items-center gap-1 text-center hover:text-foreground transition-colors"
-                                >
+                        <footer className="px-3 py-1.5 border-t bg-card text-xs text-muted-foreground flex justify-between items-center">
+                           {showBranding ? (
+                                <a href={SAAS_PLATFORM_WEBSITE_URL} target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-1 text-center">
                                     {SAAS_BRANDING_NAME} <ExternalLink className="w-3 h-3"/>
                                 </a>
-                              ) : <div className="text-xs font-medium">{displayTenantNameNode}</div>}
-                           </div>
+                            ) : <div></div>}
                             <div className={cn("flex items-center gap-2")}>
-                                <Button 
-                                  onClick={handleMuteToggle} 
-                                  variant="ghost" 
-                                  size="icon" 
-                                  className="h-7 w-7 rounded-lg hover:bg-muted/50" 
-                                  title={isMuted ? "Unmute" : "Mute"}
-                                >
+                                <Button onClick={handleMuteToggle} variant="ghost" size="icon" className="h-6 w-6" aria-label={isMuted ? "Unmute" : "Mute"}>
                                     {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
                                 </Button>
                                 <div className="flex items-center gap-1">
-                                    <LanguageIcon className="w-3.5 h-3.5"/>
+                                    <LanguageIcon className="w-3 h-3"/>
                                     <Select
                                         value={languageCode}
                                         onValueChange={setLanguageCode}
                                         disabled={isListening || isGeneratingResponse || !selectedTenant}
                                     >
                                         <SelectTrigger
-                                            className="h-auto w-auto border-0 bg-transparent p-0 text-muted-foreground hover:text-foreground focus:ring-0 focus:ring-offset-0 text-xs language-select-trigger transition-colors"
+                                            className="h-auto w-auto border-0 bg-transparent p-0 text-muted-foreground focus:ring-0 focus:ring-offset-0 text-xs language-select-trigger"
                                             title="Select Language"
                                         >
                                             <SelectValue placeholder="Language" />
@@ -2241,74 +1882,22 @@ function ChatPageContent() {
                     </Card>
                 </div>
             )}
-            
-            {/* Minimized state */}
-            {isWidgetOpen && isMinimized && !isEmbedded && (
-              <div className="animate-in slide-in-from-bottom-4 duration-300">
-                <Card className="w-80 bg-card/98 backdrop-blur-md border-2 border-border/30 shadow-xl rounded-2xl overflow-hidden">
-                  <div className="p-3 flex items-center justify-between gap-3 bg-gradient-to-r from-card via-muted/10 to-card">
-                    <div className="flex items-center gap-2 overflow-hidden">
-                      {displayLogoUrl && (
-                        <div className="h-8 w-8 shrink-0 rounded-lg overflow-hidden ring-2 ring-primary/20">
-                          <img src={displayLogoUrl} alt="Logo" className="h-full w-full object-contain bg-white/5"/>
-                        </div>
-                      )}
-                      <div className="flex flex-col overflow-hidden">
-                        <h2 className="text-sm font-bold truncate">{displayTenantNameNode}</h2>
-                        {selectedAgent && (
-                          <p className="text-xs text-muted-foreground truncate flex items-center gap-1">
-                            <div className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></div>
-                            {selectedAgent.name}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Button 
-                        variant="ghost" 
-                        size="icon" 
-                        className="w-7 h-7 rounded-full hover:bg-muted/60" 
-                        onClick={() => setIsMinimized(false)}
-                        title="Expand"
-                      >
-                        <ChevronDown size={16} className="rotate-180" />
-                      </Button>
-                      <Button 
-                        variant="ghost" 
-                        size="icon" 
-                        className="w-7 h-7 rounded-full hover:bg-muted/60" 
-                        onClick={handleWidgetClose}
-                        title="Close"
-                      >
-                        <CloseIcon size={14} />
-                      </Button>
-                    </div>
-                  </div>
-                </Card>
-              </div>
-            )}
-            
-            {/* Launcher button */}
+            {/* Launcher button (hidden when embedded: parent controls iframe size) */}
             {!isEmbedded && (
               <Button
-                  onClick={() => { setIsWidgetOpen(!isWidgetOpen); setIsMinimized(false); }}
+                  onClick={() => setIsWidgetOpen(!isWidgetOpen)}
                   className={cn(
-                      "rounded-full h-14 sm:h-16 shadow-2xl hover:shadow-3xl hover:scale-110 transition-all duration-300 flex items-center justify-center gap-2 text-base sm:text-lg bg-gradient-to-br from-primary to-primary/80 hover:from-primary hover:to-primary/90 text-primary-foreground border-0 hover-lift group",
-                      isWidgetOpen ? "w-14 sm:w-16" : "px-5 sm:px-6"
+                      "rounded-full h-16 shadow-professional-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 text-lg bg-primary hover:bg-primary/90 text-primary-foreground border-0 hover-lift",
+                      isWidgetOpen ? "w-16" : "px-6"
                   )}
-                  style={{
-                    animation: selectedTenant?.launcherButtonAnimation === 'pulse' ? 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' :
-                               selectedTenant?.launcherButtonAnimation === 'bounce' ? 'bounce 1s infinite' :
-                               selectedTenant?.launcherButtonAnimation === 'glow' ? 'glow 2s ease-in-out infinite' : 'none'
-                  }}
                   aria-label={isWidgetOpen ? "Close chat" : "Open chat"}
               >
                   {isWidgetOpen ? (
-                      <CloseIcon size={24} className="transition-transform duration-200 group-hover:rotate-90" />
+                      <CloseIcon size={24} className="transition-transform duration-200" />
                   ) : (
                       <>
                           {selectedTenant?.launcherButtonIcon !== 'none' && (
-                            <span className="inline-flex items-center justify-center rounded-full w-7 h-7 sm:w-8 sm:h-8 shadow-lg bg-white/20 backdrop-blur-sm group-hover:bg-white/30 transition-all" aria-hidden>
+                            <span className="inline-flex items-center justify-center rounded-full w-8 h-8 mr-2 shadow-professional bg-white/20 backdrop-blur-sm mic-pulse" aria-hidden>
                               {selectedTenant?.launcherButtonIcon === 'chat' && <MessageCircle size={18} />}
                               {selectedTenant?.launcherButtonIcon === 'help' && <HelpCircle size={18} />}
                               {selectedTenant?.launcherButtonIcon === 'phone' && <Phone size={18} />}
@@ -2317,7 +1906,7 @@ function ChatPageContent() {
                           )}
                           <span
                             className={cn(
-                              "text-sm sm:text-base text-white drop-shadow-md whitespace-nowrap",
+                              "text-sm sm:text-base text-white drop-shadow-sm",
                               selectedTenant?.launcherButtonStyle === 'light' && "font-normal",
                               selectedTenant?.launcherButtonStyle === 'bold' && "font-bold",
                               (!selectedTenant?.launcherButtonStyle || selectedTenant?.launcherButtonStyle === 'normal') && "font-semibold"
@@ -2330,69 +1919,6 @@ function ChatPageContent() {
               </Button>
             )}
         </div>
-        
-        <style jsx>{`
-          @keyframes glow {
-            0%, 100% {
-              box-shadow: 0 0 20px rgba(var(--brand-pulse-color-60), 0.6);
-            }
-            50% {
-              box-shadow: 0 0 40px rgba(var(--brand-pulse-color-90), 0.9);
-            }
-          }
-          
-          .typing-indicator {
-            display: flex;
-            gap: 4px;
-            align-items: center;
-          }
-          
-          .typing-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: currentColor;
-            animation: typing 1.4s infinite;
-          }
-          
-          .typing-dot:nth-child(2) {
-            animation-delay: 0.2s;
-          }
-          
-          .typing-dot:nth-child(3) {
-            animation-delay: 0.4s;
-          }
-          
-          @keyframes typing {
-            0%, 60%, 100% {
-              transform: translateY(0);
-              opacity: 0.4;
-            }
-            30% {
-              transform: translateY(-8px);
-              opacity: 1;
-            }
-          }
-          
-          .hover-lift:hover {
-            transform: translateY(-2px);
-          }
-          
-          .widget-open {
-            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-          }
-          
-          @keyframes slideUp {
-            from {
-              opacity: 0;
-              transform: translateY(20px) scale(0.95);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0) scale(1);
-            }
-          }
-        `}</style>
     </div>
   );
 }
@@ -2410,16 +1936,18 @@ export default function Home() {
         setIsEmbedded(embedded);
         
         if (embedded) {
+            // Try to detect parent theme from iframe context
             try {
                 const parentTheme = window.parent?.document?.documentElement?.classList?.contains('dark');
                 if (parentTheme) {
                     document.documentElement.classList.add('dark');
-                    document.body.style.background = 'hsl(222, 84%, 4.9%)';
+                    document.body.style.background = 'hsl(222, 84%, 4.9%)'; // Dark theme background
                 } else {
                     document.documentElement.classList.remove('dark');
-                    document.body.style.background = 'hsl(0, 0%, 99%)';
+                    document.body.style.background = 'hsl(0, 0%, 99%)'; // Light theme background
                 }
             } catch (e) {
+                // Fallback if we can't access parent (cross-origin)
                 document.body.style.background = 'transparent';
             }
         }

@@ -38,24 +38,10 @@ export default function AIVoice({
   const [maxTimeout, setMaxTimeout] = useState<NodeJS.Timeout | null>(null);
   const [isBrowserSupported, setIsBrowserSupported] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
-  const [retryCount, setRetryCount] = useState(0);
   const transcriptRef = useRef("");
 
   useEffect(() => {
     setIsClient(true);
-    
-    // Check if we're in a secure context (HTTPS or localhost)
-    const isSecureContext = typeof window !== 'undefined' && 
-      (window.location.protocol === 'https:' || 
-       window.location.hostname === 'localhost' || 
-       window.location.hostname === '127.0.0.1');
-    
-    if (!isSecureContext) {
-      setIsBrowserSupported(false);
-      setErrorMessage('Voice input requires HTTPS. Please use a secure connection or localhost.');
-      console.log('🎤 USER MESSAGE: Voice input requires HTTPS. Please use a secure connection or localhost.');
-      return;
-    }
     
     // Initialize speech recognition
     if (typeof window !== 'undefined' && ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
@@ -167,49 +153,29 @@ export default function AIVoice({
         setTime(0);
         
         let userFriendlyMessage = '';
-        let shouldRetry = false;
-        
         switch (event.error) {
           case 'not-allowed':
-            userFriendlyMessage = 'Microphone access denied. Please enable microphone permissions in your browser settings and refresh the page.';
+            userFriendlyMessage = 'Microphone access denied. Please enable microphone permissions in your browser settings.';
             break;
           case 'no-speech':
             userFriendlyMessage = 'No speech detected. Please try again and speak clearly.';
-            shouldRetry = true;
             break;
           case 'audio-capture':
-            userFriendlyMessage = 'Microphone not found. Please check your microphone connection and try again.';
+            userFriendlyMessage = 'Microphone not found. Please check your microphone connection.';
             break;
           case 'network':
-            userFriendlyMessage = 'Network error. Please check your internet connection and try again. If the issue persists, try refreshing the page.';
-            shouldRetry = true;
-            break;
-          case 'service-not-allowed':
-            userFriendlyMessage = 'Speech recognition service is not available. Please try again later or use text input instead.';
-            break;
-          case 'bad-grammar':
-            userFriendlyMessage = 'Speech recognition configuration error. Please try again.';
-            shouldRetry = true;
+            userFriendlyMessage = 'Network error. Please check your internet connection.';
             break;
           default:
-            userFriendlyMessage = 'Voice recognition error. Please try again or use text input instead.';
-            shouldRetry = true;
+            userFriendlyMessage = 'Voice recognition error. Please try again.';
         }
         
         console.log('🎤 USER MESSAGE:', userFriendlyMessage);
         setErrorMessage(userFriendlyMessage);
         
-        // Auto-retry for certain errors after a delay
-        if (shouldRetry && (event.error === 'network' || event.error === 'no-speech')) {
-          setTimeout(() => {
-            setErrorMessage("");
-            console.log('🎤 Auto-retrying voice recognition...');
-          }, 3000);
-        } else {
-          setTimeout(() => {
-            setErrorMessage("");
-          }, 8000);
-        }
+        setTimeout(() => {
+          setErrorMessage("");
+        }, 5000);
       };
       
       setRecognition(recognitionInstance);
@@ -265,7 +231,6 @@ export default function AIVoice({
       setSubmitted(true);
       setTranscript("");
       setErrorMessage("");
-      setRetryCount(0);
       
       try {
         recognition.start();
@@ -372,25 +337,11 @@ export default function AIVoice({
         </div>
 
         {errorMessage ? (
-          <div className="flex flex-col items-center gap-2 px-4 py-2 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg max-w-md">
-            <div className="flex items-center gap-2">
-              <AlertCircle className="w-4 h-4 text-red-500 dark:text-red-400 shrink-0" />
-              <p className="text-xs text-red-700 dark:text-red-300 text-left">
-                {errorMessage}
-              </p>
-            </div>
-            {errorMessage.includes('Network error') && (
-              <button
-                onClick={() => {
-                  setErrorMessage("");
-                  setRetryCount(prev => prev + 1);
-                  console.log('🎤 Manual retry requested');
-                }}
-                className="text-xs text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 underline"
-              >
-                Try again
-              </button>
-            )}
+          <div className="flex items-center gap-2 px-4 py-2 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg max-w-md">
+            <AlertCircle className="w-4 h-4 text-red-500 dark:text-red-400 shrink-0" />
+            <p className="text-xs text-red-700 dark:text-red-300 text-left">
+              {errorMessage}
+            </p>
           </div>
         ) : (
           <p className={cn(
