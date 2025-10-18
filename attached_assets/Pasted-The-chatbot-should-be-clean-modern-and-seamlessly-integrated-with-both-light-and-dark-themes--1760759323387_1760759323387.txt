@@ -1,0 +1,59 @@
+The chatbot should be clean, modern, and seamlessly integrated with both light and dark themes.
+
+🔧 Core Functional Requirements
+
+Must include a chat container with smooth open/close animation.
+
+A chat bubble or icon button fixed at the bottom-right corner.
+
+When clicked, the chat window should expand smoothly with a typing area, send button, and scrollable message list.
+
+The message system should handle user messages and bot responses properly — responses should appear with a typing animation.
+
+Each message (user and bot) should have a distinct bubble style.
+
+Ensure auto-scroll to the latest message and smooth message transitions.
+
+Implement loading indicator (e.g., three-dot typing animation) while waiting for a response.
+
+Include placeholder text, keyboard accessibility, and mobile responsiveness.
+
+🎨 UI / UX Design & Theming
+
+Use a professional, minimal aesthetic inspired by modern SaaS UI design.
+
+Support Light Mode and Dark Mode:
+
+Light Mode: White background, subtle gray borders, black text, muted hover states.
+
+Dark Mode: Dark gray or near-black background, white text, soft white hover states.
+
+Replace any bright accent (like pink) with neutral or corporate tones — e.g., blue, gray, or accent color that suits the site’s branding.
+
+Use rounded corners (border-radius: 1rem) and slight drop shadows for depth.
+
+Font should be inter, poppins, or any modern sans-serif with good readability.
+
+🧩 Technical Setup
+
+Written in React (with TailwindCSS) or Vanilla JS + CSS, depending on what’s suitable.
+
+Include full state management for message handling (user + bot).
+
+Easy to integrate into any site (just drop-in script or React component).
+
+The code should be clean, modular, and maintainable.
+
+🧠 Optional Enhancements
+
+Add timestamp to each message (hover to view).
+
+Allow toggling dark/light mode manually or automatically detect system theme.
+
+Allow basic bot personality customization (name, avatar, greeting message).
+
+Allow greeting popup after 3 seconds of page load (optional).
+
+🎯 Final Goal
+
+Deliver a ready-to-use professional chatbot widget that feels polished, modern, and reliable — not just visually appealing but functionally complete with smooth message flow, animations, and responsive theme design.
