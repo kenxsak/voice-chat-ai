@@ -1333,7 +1333,8 @@ function ChatPageContent() {
           
           if (isEmbedded && tenantIdFromUrl) {
             // Refresh embedded tenant config
-            const res = await fetch(`/api/public/tenant-config?id=${encodeURIComponent(tenantIdFromUrl)}&t=${Date.now()}`, { cache: 'no-store' });
+            const agentIdParam = selectedAgent?.id ? `&agentId=${encodeURIComponent(selectedAgent.id)}` : '';
+            const res = await fetch(`/api/public/tenant-config?id=${encodeURIComponent(tenantIdFromUrl)}${agentIdParam}&t=${Date.now()}`, { cache: 'no-store' });
             if (res.ok) {
               const json = await res.json();
               const freshTenant = json?.tenant;
@@ -1398,7 +1399,9 @@ function ChatPageContent() {
         if (isEmbedded && tenantIdFromUrl) {
           // In embedded mode, fetch a public, sanitized tenant config
           try {
-            const res = await fetch(`/api/public/tenant-config?id=${encodeURIComponent(tenantIdFromUrl)}`, { cache: 'no-store' });
+            const agentIdFromUrl = searchParams.get('agentId');
+            const agentIdParam = agentIdFromUrl ? `&agentId=${encodeURIComponent(agentIdFromUrl)}` : '';
+            const res = await fetch(`/api/public/tenant-config?id=${encodeURIComponent(tenantIdFromUrl)}${agentIdParam}`, { cache: 'no-store' });
             if (res.ok) {
               const json = await res.json();
               const tenant = json?.tenant;
@@ -1420,7 +1423,9 @@ function ChatPageContent() {
               
               if (tenantIdFromUrl) {
                 try {
-                  const publicRes = await fetch(`/api/public/tenant-config?id=${encodeURIComponent(tenantIdFromUrl)}`, { cache: 'no-store' });
+                  const agentIdFromUrl = searchParams.get('agentId');
+                  const agentIdParam = agentIdFromUrl ? `&agentId=${encodeURIComponent(agentIdFromUrl)}` : '';
+                  const publicRes = await fetch(`/api/public/tenant-config?id=${encodeURIComponent(tenantIdFromUrl)}${agentIdParam}`, { cache: 'no-store' });
                   if (publicRes.ok) {
                     const json = await publicRes.json();
                     const tenant = json?.tenant;

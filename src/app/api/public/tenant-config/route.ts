@@ -107,7 +107,23 @@ export async function GET(request: Request) {
       brandColor: sanitized.brandColor,
     };
 
-    return NextResponse.json({ tenant: sanitized, agent: selectedAgent ? { id: selectedAgent.id, name: selectedAgent.name } : undefined, effective }, { headers: corsHeaders });
+    // Return full agent data with all safe fields (including avatarUrl, avatarHint, greeting, etc.)
+    const agentData = selectedAgent ? {
+      id: selectedAgent.id,
+      name: selectedAgent.name,
+      description: selectedAgent.description,
+      avatarUrl: selectedAgent.avatarUrl,
+      avatarHint: selectedAgent.avatarHint,
+      greeting: selectedAgent.greeting,
+      websiteUrl: selectedAgent.websiteUrl,
+      voice: selectedAgent.voice,
+      tone: selectedAgent.tone,
+      responseStyle: selectedAgent.responseStyle,
+      expertiseLevel: selectedAgent.expertiseLevel,
+      customInstructions: selectedAgent.customInstructions,
+    } : undefined;
+
+    return NextResponse.json({ tenant: sanitized, agent: agentData, effective }, { headers: corsHeaders });
   } catch (e) {
     console.error('[API /api/public/tenant-config GET] Error', e);
     return NextResponse.json({ message: 'Server error' }, { status: 500, headers: corsHeaders });
